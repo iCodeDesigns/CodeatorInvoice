@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceDtl" table="VCLE_VEHICLE_INVOICE_DTL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceDtlId">
+            <key-property name="invoiceSp" type="string">
+                <column name="INVOICE_SP" length="240" />
+            </key-property>
+            <key-property name="invoiceType" type="byte">
+                <column name="INVOICE_TYPE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="invoiceSeq" type="short">
+                <column name="INVOICE_SEQ" precision="3" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="invQty" type="big_decimal">
+            <column name="INV_QTY" precision="9" not-null="true" />
+        </property>
+        <property name="invVal" type="big_decimal">
+            <column name="INV_VAL" precision="9" not-null="true" />
+        </property>
+        <property name="storeCodeItem" type="java.lang.Long">
+            <column name="STORE_CODE_ITEM" precision="12" scale="0" />
+        </property>
+        <property name="itemNumber" type="java.lang.Long">
+            <column name="ITEM_NUMBER" precision="15" scale="0" />
+        </property>
+        <property name="invPrice" type="big_decimal">
+            <column name="INV_PRICE" precision="9" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

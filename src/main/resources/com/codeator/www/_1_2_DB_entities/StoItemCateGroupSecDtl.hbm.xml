@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.StoItemCateGroupSecDtl" table="STO_ITEM_CATE_GROUP_SEC_DTL" schema="CODEATOR" optimistic-lock="version">
+        <id name="itemNumberSp" type="int">
+            <column name="ITEM_NUMBER_SP" precision="9" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="stoItemCateGroupSec" class="com.codeator.www._1_2_DB_entities.StoItemCateGroupSec" fetch="select">
+            <column name="GROUP_CODE" length="3" not-null="true" />
+            <column name="CATE_CODE" length="2" not-null="true" />
+            <column name="SECTION_CODE" length="3" not-null="true" />
+        </many-to-one>
+        <property name="itemCode" type="string">
+            <column name="ITEM_CODE" length="3" not-null="true" />
+        </property>
+        <property name="itemDigital" type="long">
+            <column name="ITEM_DIGITAL" precision="11" scale="0" not-null="true" />
+        </property>
+        <property name="itemName" type="string">
+            <column name="ITEM_NAME" length="200" not-null="true" />
+        </property>
+        <property name="itemDesc" type="string">
+            <column name="ITEM_DESC" length="200" />
+        </property>
+        <set name="stoItemCateGroupSecSers" table="STO_ITEM_CATE_GROUP_SEC_SER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ITEM_NUMBER_SP" precision="9" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoItemCateGroupSecSer" />
+        </set>
+    </class>
+</hibernate-mapping>

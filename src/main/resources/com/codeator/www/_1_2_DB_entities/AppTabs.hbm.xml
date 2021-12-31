@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2021 2:01:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.AppTabs" table="APP_TABS" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.AppTabsId">
+            <key-property name="applicationId" type="short">
+                <column name="APPLICATION_ID" precision="3" scale="0" />
+            </key-property>
+            <key-property name="tabId" type="int">
+                <column name="TAB_ID" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="appName" class="com.codeator.www._1_2_DB_entities.AppName" update="false" insert="false" fetch="select">
+            <column name="APPLICATION_ID" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="tabName" type="string">
+            <column name="TAB_NAME" length="50" not-null="true" />
+        </property>
+        <property name="tabFafaIcon" type="string">
+            <column name="TAB_FAFA_ICON" length="50" />
+        </property>
+        <property name="tabIndex" type="java.lang.Integer">
+            <column name="TAB_INDEX" precision="5" scale="0" />
+        </property>
+        <set name="appSubTabs" table="APP_SUB_TAB" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="APPLICATION_ID" precision="3" scale="0" not-null="true" />
+                <column name="TAB_ID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppSubTab" />
+        </set>
+    </class>
+</hibernate-mapping>

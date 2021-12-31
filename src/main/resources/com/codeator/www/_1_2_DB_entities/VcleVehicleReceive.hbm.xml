@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleReceive" table="VCLE_VEHICLE_RECEIVE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleReceiveId">
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="receiveSerial" type="int">
+                <column name="RECEIVE_SERIAL" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" update="false" insert="false" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" update="false" insert="false" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="receiveDate" type="date">
+            <column name="RECEIVE_DATE" length="7" not-null="true" />
+        </property>
+        <property name="returnDate" type="date">
+            <column name="RETURN_DATE" length="7" />
+        </property>
+        <property name="returnReason" type="string">
+            <column name="RETURN_REASON" length="60" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="400" />
+        </property>
+        <property name="receiveTimeType" type="java.lang.Boolean">
+            <column name="RECEIVE_TIME_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="receiveHh" type="java.lang.Byte">
+            <column name="RECEIVE_HH" precision="2" scale="0" />
+        </property>
+        <property name="receiveMi" type="java.lang.Byte">
+            <column name="RECEIVE_MI" precision="2" scale="0" />
+        </property>
+        <property name="returnTimeType" type="java.lang.Boolean">
+            <column name="RETURN_TIME_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="returnHh" type="java.lang.Byte">
+            <column name="RETURN_HH" precision="2" scale="0" />
+        </property>
+        <property name="returnMi" type="java.lang.Byte">
+            <column name="RETURN_MI" precision="2" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseReportDt" table="VCLE_VEHICLE_LICENSE_REPORT_DT" schema="CODEATOR"
+    optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseReportDtId">
+            <key-property name="reportType" type="boolean">
+                <column name="REPORT_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="fiscalDate" type="date">
+                <column name="FISCAL_DATE" length="7" />
+            </key-property>
+            <key-property name="reportSp" type="int">
+                <column name="REPORT_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="costType" type="boolean">
+                <column name="COST_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="costCode" type="int">
+                <column name="COST_CODE" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleLicenseReport" class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseReport" update="false" insert="false"
+        fetch="select">
+            <column name="REPORT_TYPE" precision="1" scale="0" not-null="true" />
+            <column name="FISCAL_DATE" length="7" not-null="true" />
+            <column name="REPORT_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleCostType" class="com.codeator.www._1_2_DB_entities.VcleCostType" update="false" insert="false" fetch="select">
+            <column name="COST_TYPE" precision="1" scale="0" not-null="true" />
+            <column name="COST_CODE" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="repSeq" type="java.lang.Byte">
+            <column name="REP_SEQ" precision="2" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

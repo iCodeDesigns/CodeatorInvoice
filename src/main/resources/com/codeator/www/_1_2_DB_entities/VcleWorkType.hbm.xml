@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleWorkType" table="VCLE_WORK_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="workType" type="byte">
+            <column name="WORK_TYPE" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="workName" type="string">
+            <column name="WORK_NAME" length="60" not-null="true" />
+        </property>
+        <property name="chkWork" type="java.lang.Boolean">
+            <column name="CHK_WORK" precision="1" scale="0" />
+        </property>
+        <set name="vcleEmployeeOvertimes" table="VCLE_EMPLOYEE_OVERTIME" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORK_TYPE" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleEmployeeOvertime" />
+        </set>
+        <set name="vcleTravelExchanges" table="VCLE_TRAVEL_EXCHANGE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORK_TYPE" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleTravelExchange" />
+        </set>
+        <set name="vcleVehicleIncomes" table="VCLE_VEHICLE_INCOME" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORK_TYPE" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleIncome" />
+        </set>
+        <set name="vcleEmployeeMasters" table="VCLE_EMPLOYEE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORK_TYPE" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" />
+        </set>
+        <set name="vcleWorkTypeJoins" table="VCLE_WORK_TYPE_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORK_TYPE" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleWorkTypeJoin" />
+        </set>
+        <set name="vcleRecordMovements" table="VCLE_RECORD_MOVEMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORK_TYPE" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleRecordMovement" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.StoResponsibilityHistoryDel" table="STO_RESPONSIBILITY_HISTORY_DEL" schema="CODEATOR"
+    optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.StoResponsibilityHistoryDelId">
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="respSp" type="int">
+                <column name="RESP_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="respType" type="boolean">
+                <column name="RESP_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="delSp" type="short">
+                <column name="DEL_SP" precision="3" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="stoResponsibilityHistoryEmp" class="com.codeator.www._1_2_DB_entities.StoResponsibilityHistoryEmp" update="false" insert="false"
+        fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            <column name="RESP_SP" precision="6" scale="0" not-null="true" />
+            <column name="RESP_TYPE" precision="1" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="delRecvType" type="boolean">
+            <column name="DEL_RECV_TYPE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="eznNo" type="java.lang.Long">
+            <column name="EZN_NO" precision="11" scale="0" />
+        </property>
+        <property name="eznDate" type="date">
+            <column name="EZN_DATE" length="7" not-null="true" />
+        </property>
+        <property name="qty" type="big_decimal">
+            <column name="QTY" precision="11" scale="3" not-null="true" />
+        </property>
+        <property name="sal" type="big_decimal">
+            <column name="SAL" precision="11" scale="3" />
+        </property>
+        <property name="val" type="big_decimal">
+            <column name="VAL" precision="11" scale="3" />
+        </property>
+        <property name="qtyOld" type="big_decimal">
+            <column name="QTY_OLD" precision="11" scale="3" />
+        </property>
+        <property name="salOld" type="big_decimal">
+            <column name="SAL_OLD" precision="11" scale="3" />
+        </property>
+        <property name="valOld" type="big_decimal">
+            <column name="VAL_OLD" precision="11" scale="3" />
+        </property>
+        <property name="employeeIdTo" type="java.lang.Long">
+            <column name="EMPLOYEE_ID_TO" precision="10" scale="0" />
+        </property>
+        <property name="issueDateOld" type="date">
+            <column name="ISSUE_DATE_OLD" length="7" />
+        </property>
+        <property name="locType" type="java.lang.Boolean">
+            <column name="LOC_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="delType" type="java.lang.Boolean">
+            <column name="DEL_TYPE" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

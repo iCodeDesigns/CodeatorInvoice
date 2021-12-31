@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2021 9:29:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.AccCurrencyCode" table="ACC_CURRENCY_CODE" schema="CODEATOR" optimistic-lock="version">
+        <id name="currencyCode" type="string">
+            <column name="CURRENCY_CODE" length="4" />
+            <generator class="assigned" />
+        </id>
+        <property name="currencyName" type="string">
+            <column name="CURRENCY_NAME" length="50" not-null="true" />
+        </property>
+        <property name="currencyType" type="string">
+            <column name="CURRENCY_TYPE" length="1" not-null="true" />
+        </property>
+        <property name="recordCreateUser" type="string">
+            <column name="RECORD_CREATE_USER" length="15" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="15" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <property name="currencySymbol" type="string">
+            <column name="CURRENCY_SYMBOL" length="5" />
+        </property>
+        <set name="vcleIssueDocumentFins" table="VCLE_ISSUE_DOCUMENT_FIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CURRENCY_CODE" length="4" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentFin" />
+        </set>
+        <set name="vcleIssueDocumentLins" table="VCLE_ISSUE_DOCUMENT_LIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CURRENCY_CODE" length="4" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentLin" />
+        </set>
+        <set name="vcleIssueDocumentMains" table="VCLE_ISSUE_DOCUMENT_MAIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CURRENCY_CODE" length="4" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMain" />
+        </set>
+        <set name="vcleIssueDocumentMans" table="VCLE_ISSUE_DOCUMENT_MAN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CURRENCY_CODE" length="4" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMan" />
+        </set>
+        <set name="invoInvoiceMasterItems" table="INVO_INVOICE_MASTER_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CURRENCY_CODE" length="4" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterItem" />
+        </set>
+        <set name="vcleIssueDocumentLiqs" table="VCLE_ISSUE_DOCUMENT_LIQ" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CURRENCY_CODE" length="4" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentLiq" />
+        </set>
+    </class>
+</hibernate-mapping>

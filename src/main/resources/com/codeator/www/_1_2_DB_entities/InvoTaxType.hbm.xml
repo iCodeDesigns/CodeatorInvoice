@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 11, 2021 5:44:34 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoTaxType" table="INVO_TAX_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="taxType" type="string">
+            <column name="TAX_TYPE" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="ATaxName" type="string">
+            <column name="A_TAX_NAME" length="50" not-null="true" />
+        </property>
+        <property name="EtaxName" type="string">
+            <column name="E_TAX_NAME" length="50" />
+        </property>
+        <property name="taxable" type="string">
+            <column name="TAXABLE" length="1" />
+        </property>
+        <set name="invoTaxTypeDtls" table="INVO_TAX_TYPE_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TAX_TYPE" length="5" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoTaxTypeDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

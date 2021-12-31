@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PerQualClass" table="PER_QUAL_CLASS" schema="CODEATOR" optimistic-lock="version">
+        <id name="qualClassCode" type="string">
+            <column name="QUAL_CLASS_CODE" length="2" />
+            <generator class="assigned" />
+        </id>
+        <property name="qualClassName" type="string">
+            <column name="QUAL_CLASS_NAME" length="30" not-null="true" />
+        </property>
+        <property name="priorityFlag" type="byte">
+            <column name="PRIORITY_FLAG" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="recordCreateUser" type="string">
+            <column name="RECORD_CREATE_USER" length="15" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="15" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <set name="perQualCodes" table="PER_QUAL_CODE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="QUAL_CLASS_CODE" length="2" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PerQualCode" />
+        </set>
+        <set name="perEmploymentMasters" table="PER_EMPLOYMENT_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="QUAL_CLASS_CODE" length="2" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

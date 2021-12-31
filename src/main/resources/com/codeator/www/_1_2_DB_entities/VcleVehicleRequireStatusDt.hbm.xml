@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleRequireStatusDt" table="VCLE_VEHICLE_REQUIRE_STATUS_DT" schema="CODEATOR"
+    optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleRequireStatusDtId">
+            <key-property name="requireSp" type="long">
+                <column name="REQUIRE_SP" precision="11" scale="0" />
+            </key-property>
+            <key-property name="statusSeq" type="byte">
+                <column name="STATUS_SEQ" precision="2" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleRequireStatus" class="com.codeator.www._1_2_DB_entities.VcleVehicleRequireStatus" fetch="select">
+            <column name="REQUIRE_STATUS" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleRequire" class="com.codeator.www._1_2_DB_entities.VcleVehicleRequire" update="false" insert="false" fetch="select">
+            <column name="REQUIRE_SP" precision="11" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="employeeNo" type="string">
+            <column name="EMPLOYEE_NO" length="10" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        
+        <property name="actionDate" type="date">
+            <column name="ACTION_DATE" length="7" />
+        </property>
+        <property name="actionDateTime" type="string">
+            <column name="ACTION_DATE_TIME" length="20" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

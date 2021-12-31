@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 11, 2021 5:44:34 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoSuppPaymentType" table="INVO_SUPP_PAYMENT_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="paymentType" type="byte">
+            <column name="PAYMENT_TYPE" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="paymentName" type="string">
+            <column name="PAYMENT_NAME" length="75" />
+        </property>
+        <set name="purContractMasters" table="PUR_CONTRACT_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PAYMENT_TYPE" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractMaster" />
+        </set>
+        <set name="invoInvoiceMasters" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PAYMENT_TYPE" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

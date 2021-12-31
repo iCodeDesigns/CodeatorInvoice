@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2021 9:29:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PerOrganizationStructure" table="PER_ORGANIZATION_STRUCTURE" schema="CODEATOR" optimistic-lock="version">
+        <id name="orgId" type="string">
+            <column name="ORG_ID" length="5" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perOrgunitCode" class="com.codeator.www._1_2_DB_entities.PerOrgunitCode" fetch="select">
+            <column name="ORGUNIT_CODE" length="3" not-null="true" />
+        </many-to-one>
+        <property name="orgCode" type="string">
+            <column name="ORG_CODE" length="15" not-null="true" />
+        </property>
+        <property name="orgName" type="string">
+            <column name="ORG_NAME" length="100" not-null="true" />
+        </property>
+        <property name="parentOrgId" type="string">
+            <column name="PARENT_ORG_ID" length="5" />
+        </property>
+        <property name="orgDesc" type="string">
+            <column name="ORG_DESC" length="500" />
+        </property>
+        <property name="recordCreateUser" type="string">
+            <column name="RECORD_CREATE_USER" length="15" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="15" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <property name="locationCode" type="string">
+            <column name="LOCATION_CODE" length="3" not-null="true" />
+        </property>
+        <property name="orgExec" type="java.lang.Boolean">
+            <column name="ORG_EXEC" precision="1" scale="0" />
+        </property>
+        <set name="vcleIssueDocumentLiqs" table="VCLE_ISSUE_DOCUMENT_LIQ" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORG_ID" length="5" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentLiq" />
+        </set>
+        <set name="vcleIssueDocumentMans" table="VCLE_ISSUE_DOCUMENT_MAN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORG_ID" length="5" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMan" />
+        </set>
+        <set name="perEmploymentMasters" table="PER_EMPLOYMENT_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORG_ID" length="5" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" />
+        </set>
+        <set name="vcleIssueDocumentLins" table="VCLE_ISSUE_DOCUMENT_LIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORG_ID" length="5" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentLin" />
+        </set>
+        <set name="vcleIssueDocumentMains" table="VCLE_ISSUE_DOCUMENT_MAIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORG_ID" length="5" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMain" />
+        </set>
+        <set name="vcleIssueDocumentFins" table="VCLE_ISSUE_DOCUMENT_FIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORG_ID" length="5" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentFin" />
+        </set>
+    </class>
+</hibernate-mapping>

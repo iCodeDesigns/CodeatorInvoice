@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleWorkOnSaturdays" table="VCLE_WORK_ON_SATURDAYS" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleWorkOnSaturdaysId">
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="execDay" type="date">
+                <column name="EXEC_DAY" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleJobType" class="com.codeator.www._1_2_DB_entities.VcleJobType" fetch="select">
+            <column name="JOB_TYPE" precision="3" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" update="false" insert="false" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="val" type="java.lang.Short">
+            <column name="VAL" precision="3" scale="0" />
+        </property>
+        <property name="chkSuspend" type="java.lang.Boolean">
+            <column name="CHK_SUSPEND" precision="1" scale="0" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="100" />
+        </property>
+        <property name="empStartMin" type="java.lang.Byte">
+            <column name="EMP_START_MIN" precision="2" scale="0" />
+        </property>
+        <property name="empStartHour" type="java.lang.Byte">
+            <column name="EMP_START_HOUR" precision="2" scale="0" />
+        </property>
+        <property name="empEndMin" type="java.lang.Byte">
+            <column name="EMP_END_MIN" precision="2" scale="0" />
+        </property>
+        <property name="empEndHour" type="java.lang.Byte">
+            <column name="EMP_END_HOUR" precision="2" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

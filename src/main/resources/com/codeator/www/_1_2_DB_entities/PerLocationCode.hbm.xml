@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PerLocationCode" table="PER_LOCATION_CODE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.PerLocationCodeId">
+            <key-property name="locationCode" type="string">
+                <column name="LOCATION_CODE" length="3" />
+            </key-property>
+            <key-property name="locCode" type="string">
+                <column name="LOC_CODE" length="3" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perGovernorateCode" class="com.codeator.www._1_2_DB_entities.PerGovernorateCode" fetch="select">
+            <column name="COUNTRY_CODE" length="5" />
+            <column name="GOV_CODE" length="5" />
+        </many-to-one>
+        <property name="locName" type="string">
+            <column name="LOC_NAME" length="50" not-null="true" />
+        </property>
+        <property name="locFax" type="string">
+            <column name="LOC_FAX" length="10" />
+        </property>
+        <property name="locTel" type="string">
+            <column name="LOC_TEL" length="10" />
+        </property>
+        <property name="locAddress" type="string">
+            <column name="LOC_ADDRESS" length="100" />
+        </property>
+        <property name="recordCreateUser" type="string">
+            <column name="RECORD_CREATE_USER" length="15" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="15" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <set name="vcleEmployeeMasters" table="VCLE_EMPLOYEE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LOCATION_CODE" length="3" />
+                <column name="LOC_CODE" length="3" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" />
+        </set>
+        <set name="perDeptPlaces" table="PER_DEPT_PLACE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LOCATION_CODE" length="3" />
+                <column name="LOC_CODE" length="3" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PerDeptPlace" />
+        </set>
+        <set name="perEmploymentMasters" table="PER_EMPLOYMENT_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LOCATION_CODE" length="3" />
+                <column name="LOC_CODE" length="3" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" />
+        </set>
+        <set name="stoResponsibilityDepts" table="STO_RESPONSIBILITY_DEPT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LOCATION_CODE" length="3" />
+                <column name="LOC_CODE" length="3" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoResponsibilityDept" />
+        </set>
+        <set name="vcleRecordMovements" table="VCLE_RECORD_MOVEMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LOCATION_CODE" length="3" />
+                <column name="LOC_CODE" length="3" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleRecordMovement" />
+        </set>
+        <set name="vcleVehicleIncomes" table="VCLE_VEHICLE_INCOME" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LOCATION_CODE" length="3" />
+                <column name="LOC_CODE" length="3" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleIncome" />
+        </set>
+        <set name="vcleVehicleClassDtls" table="VCLE_VEHICLE_CLASS_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LOCATION_CODE" length="3" />
+                <column name="LOC_CODE" length="3" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleClassDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

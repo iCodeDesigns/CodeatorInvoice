@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleInstruction" table="VCLE_VEHICLE_INSTRUCTION" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleInstructionId">
+            <key-property name="fiscalDate" type="date">
+                <column name="FISCAL_DATE" length="7" />
+            </key-property>
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="instructionNo" type="int">
+                <column name="INSTRUCTION_NO" precision="6" scale="0" />
+            </key-property>
+            <key-property name="workshopeCode" type="byte">
+                <column name="WORKSHOPE_CODE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleWorkshopeResponse" class="com.codeator.www._1_2_DB_entities.VcleWorkshopeResponse" update="false" insert="false"
+        fetch="select">
+            <column name="WORKSHOPE_CODE" precision="2" scale="0" not-null="true" />
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" update="false" insert="false" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="insReason" type="string">
+            <column name="INS_REASON" length="400" />
+        </property>
+        <property name="insEndDate" type="date">
+            <column name="INS_END_DATE" length="7" />
+        </property>
+        <property name="notifySp" type="java.lang.Integer">
+            <column name="NOTIFY_SP" precision="5" scale="0" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="localSp" type="java.lang.Byte">
+            <column name="LOCAL_SP" precision="2" scale="0" />
+        </property>
+        <property name="instructionType" type="java.lang.Boolean">
+            <column name="INSTRUCTION_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="insSeq" type="java.lang.Byte">
+            <column name="INS_SEQ" precision="2" scale="0" />
+        </property>
+        <property name="boardNumberOld" type="java.lang.Integer">
+            <column name="BOARD_NUMBER_OLD" precision="8" scale="0" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+        <property name="instructionDate" type="date">
+            <column name="INSTRUCTION_DATE" length="7" not-null="true" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="notifyDate" type="date">
+            <column name="NOTIFY_DATE" length="7" />
+        </property>
+        <property name="curTime" type="string">
+            <column name="CUR_TIME" length="5" />
+        </property>
+        <set name="vcleVehicleInstructionDtls" table="VCLE_VEHICLE_INSTRUCTION_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FISCAL_DATE" length="7" not-null="true" />
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+                <column name="INSTRUCTION_NO" precision="6" scale="0" not-null="true" />
+                <column name="WORKSHOPE_CODE" precision="2" scale="0" not-null="true" />
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInstructionDtl" />
+        </set>
+        <set name="vcleVehicleInstructionTeches" table="VCLE_VEHICLE_INSTRUCTION_TECH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FISCAL_DATE" length="7" not-null="true" />
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+                <column name="INSTRUCTION_NO" precision="6" scale="0" not-null="true" />
+                <column name="WORKSHOPE_CODE" precision="2" scale="0" not-null="true" />
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInstructionTech" />
+        </set>
+    </class>
+</hibernate-mapping>

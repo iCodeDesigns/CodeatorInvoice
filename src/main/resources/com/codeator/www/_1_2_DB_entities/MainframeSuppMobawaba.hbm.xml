@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 22, 2021 5:43:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.MainframeSuppMobawaba" table="MAINFRAME_SUPP_MOBAWABA" schema="CODEATOR" optimistic-lock="version">
+        <id name="mainFrameCode" type="string">
+            <column name="MAIN_FRAME_CODE" length="100" />
+            <generator class="assigned" />
+        </id>
+        <property name="prodCode" type="string">
+            <column name="PROD_CODE" length="100" />
+        </property>
+        <property name="receiverCode" type="string">
+            <column name="RECEIVER_CODE" length="100" />
+        </property>
+        <property name="suppName" type="string">
+            <column name="SUPP_NAME" length="500" />
+        </property>
+        <property name="adress" type="string">
+            <column name="ADRESS" length="500" />
+        </property>
+        <property name="taxCardNo" type="string">
+            <column name="TAX_CARD_NO" length="100" />
+        </property>
+        <property name="chkMoved" type="string">
+            <column name="CHK_MOVED" length="1" />
+        </property>
+        <property name="countryCode" type="string">
+            <column name="COUNTRY_CODE" length="5" />
+        </property>
+        <property name="govCode" type="string">
+            <column name="GOV_CODE" length="5" />
+        </property>
+        <property name="serviceSeq" type="string">
+            <column name="SERVICE_SEQ" length="16" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleClassDtl" table="VCLE_VEHICLE_CLASS_DTL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleClassDtlId">
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="useDate" type="date">
+                <column name="USE_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" fetch="select">
+            <column name="VCLE_TYPE" length="2" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" update="false" insert="false" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleClassCode" class="com.codeator.www._1_2_DB_entities.VcleVehicleClassCode" fetch="select">
+            <column name="CLASS_CODE" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleMarkType" class="com.codeator.www._1_2_DB_entities.VcleMarkType" fetch="select">
+            <column name="MARK_TYPE" length="3" />
+        </many-to-one>
+        <many-to-one name="perLocationCode" class="com.codeator.www._1_2_DB_entities.PerLocationCode" fetch="select">
+            <column name="LOCATION_CODE" length="3" />
+            <column name="LOC_CODE" length="3" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perDeptOld" class="com.codeator.www._1_2_DB_entities.PerDeptOld" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" />
+        </many-to-one>
+        <property name="stopDate" type="date">
+            <column name="STOP_DATE" length="7" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardNumber" type="string">
+            <column name="BOARD_NUMBER" length="12" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardNumberOld" type="java.lang.Integer">
+            <column name="BOARD_NUMBER_OLD" precision="8" scale="0" />
+        </property>
+        <property name="stopReason" type="string">
+            <column name="STOP_REASON" length="400" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

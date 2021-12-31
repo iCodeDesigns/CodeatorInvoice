@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptDel" table="STO_RESPONSIBILITY_DEPT_DEL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptDelId">
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="respSp" type="int">
+                <column name="RESP_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="delSp" type="short">
+                <column name="DEL_SP" precision="3" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perDeptOld" class="com.codeator.www._1_2_DB_entities.PerDeptOld" fetch="select">
+            <column name="SECTION_NO_OLD_TO" precision="5" scale="0" />
+            <column name="DEP_NO_OLD_TO" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="stoResponsibilityDept" class="com.codeator.www._1_2_DB_entities.StoResponsibilityDept" update="false" insert="false"
+        fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="RESP_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="issueDateOld" type="date">
+            <column name="ISSUE_DATE_OLD" length="7" />
+        </property>
+        <property name="eznNo" type="java.lang.Long">
+            <column name="EZN_NO" precision="11" scale="0" />
+        </property>
+        <property name="eznDate" type="date">
+            <column name="EZN_DATE" length="7" not-null="true" />
+        </property>
+        <property name="delType" type="java.lang.Boolean">
+            <column name="DEL_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="locType" type="java.lang.Byte">
+            <column name="LOC_TYPE" precision="2" scale="0" />
+        </property>
+        <property name="qtyOld" type="big_decimal">
+            <column name="QTY_OLD" precision="11" scale="3" />
+        </property>
+        <property name="salOld" type="big_decimal">
+            <column name="SAL_OLD" precision="11" scale="3" />
+        </property>
+        <property name="valOld" type="big_decimal">
+            <column name="VAL_OLD" precision="11" scale="3" />
+        </property>
+        <property name="qty" type="big_decimal">
+            <column name="QTY" precision="11" scale="3" not-null="true" />
+        </property>
+        <property name="val" type="big_decimal">
+            <column name="VAL" precision="11" scale="3" />
+        </property>
+        <property name="sal" type="big_decimal">
+            <column name="SAL" precision="11" scale="3" />
+        </property>
+        <property name="respTypeActDel" type="java.lang.Boolean">
+            <column name="RESP_TYPE_ACT_DEL" precision="1" scale="0" />
+        </property>
+        <property name="delRecvType" type="boolean">
+            <column name="DEL_RECV_TYPE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="rmrkDtl" type="string">
+            <column name="RMRK_DTL" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

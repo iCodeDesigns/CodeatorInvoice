@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 24, 2021 10:50:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoAccUintDept" table="INVO_ACC_UINT_DEPT" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.InvoAccUintDeptId">
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perDeptOld" class="com.codeator.www._1_2_DB_entities.PerDeptOld" update="false" insert="false" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoAccUnitsCode" class="com.codeator.www._1_2_DB_entities.InvoAccUnitsCode" update="false" insert="false" fetch="select">
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+        </many-to-one>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="unitTel" type="string">
+            <column name="UNIT_TEL" length="20" />
+        </property>
+        <property name="unitFax" type="string">
+            <column name="UNIT_FAX" length="20" />
+        </property>
+        <property name="chkInvoInternalIdSeq" type="string">
+            <column name="CHK_INVO_INTERNAL_ID_SEQ" length="1" />
+        </property>
+        <property name="invoInternalIdStart" type="string">
+            <column name="INVO_INTERNAL_ID_START" length="15" />
+        </property>
+        <set name="invoDeptTaxJoins" table="INVO_DEPT_TAX_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptTaxJoin" />
+        </set>
+        <set name="purContractServiceTypes" table="PUR_CONTRACT_SERVICE_TYPE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractServiceType" />
+        </set>
+        <set name="appAuthJavaUserses" table="APP_AUTH_JAVA_USERS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppAuthJavaUsers" />
+        </set>
+        <set name="invoDeptUnitJoins" table="INVO_DEPT_UNIT_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptUnitJoin" />
+        </set>
+        <set name="purSuppWorkDtls" table="PUR_SUPP_WORK_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurSuppWorkDtl" />
+        </set>
+        <set name="invoDeptItemJoins" table="INVO_DEPT_ITEM_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptItemJoin" />
+        </set>
+        <set name="invoAdvCollectorCodes" table="INVO_ADV_COLLECTOR_CODE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoAdvCollectorCode" />
+        </set>
+        <set name="invoAdvProducerCodes" table="INVO_ADV_PRODUCER_CODE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoAdvProducerCode" />
+        </set>
+        <set name="invoInvoiceMasters" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+        <set name="purContractTitels" table="PUR_CONTRACT_TITEL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractTitel" />
+        </set>
+    </class>
+</hibernate-mapping>

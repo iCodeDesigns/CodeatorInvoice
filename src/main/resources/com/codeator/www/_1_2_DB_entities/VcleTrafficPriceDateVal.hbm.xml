@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleTrafficPriceDateVal" table="VCLE_TRAFFIC_PRICE_DATE_VAL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleTrafficPriceDateValId">
+            <key-property name="priceSp" type="byte">
+                <column name="PRICE_SP" precision="2" scale="0" />
+            </key-property>
+            <key-property name="priceDate" type="date">
+                <column name="PRICE_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" fetch="select">
+            <column name="VCLE_TYPE" length="2" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleTrafficPriceDate" class="com.codeator.www._1_2_DB_entities.VcleTrafficPriceDate" update="false" insert="false"
+        fetch="select">
+            <column name="PRICE_DATE" length="7" not-null="true" />
+        </many-to-one>
+        <property name="qty" type="java.lang.Short">
+            <column name="QTY" precision="3" scale="0" />
+        </property>
+        <property name="salPrice" type="big_decimal">
+            <column name="SAL_PRICE" precision="6" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

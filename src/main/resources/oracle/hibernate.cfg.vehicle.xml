@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!--
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright (c) 2008, 2016 Oracle and/or its affiliates. All rights reserved.
+
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+The contents of this file are subject to the terms of either the GNU
+General Public License Version 2 only ("GPL") or the Common
+Development and Distribution License("CDDL") (collectively, the
+"License"). You may not use this file except in compliance with the
+License. You can obtain a copy of the License at
+http://www.netbeans.org/cddl-gplv2.html
+or nbbuild/licenses/CDDL-GPL-2-CP. See the License for the
+specific language governing permissions and limitations under the
+License.  When distributing the software, include this License Header
+Notice in each file and include the License file at
+nbbuild/licenses/CDDL-GPL-2-CP.  Oracle designates this
+particular file as subject to the "Classpath" exception as provided
+by Oracle in the GPL Version 2 section of the License file that
+accompanied this code. If applicable, add the following below the
+License Header, with the fields enclosed by brackets [] replaced by
+your own identifying information:
+"Portions Copyrighted [year] [name of copyright owner]"
+
+If you wish your version of this file to be governed by only the CDDL
+or only the GPL Version 2, indicate your decision by adding
+"[Contributor] elects to include this software in this distribution
+under the [CDDL or GPL Version 2] license." If you do not indicate a
+single choice of license, a recipient has the option to distribute
+your version of this file under either the CDDL, the GPL Version 2 or
+to extend the choice of license to its licensees as provided above.
+However, if you add GPL Version 2 code and therefore, elected the GPL
+Version 2 license, then the option applies only if the new code is
+made subject to such option by the copyright holder.
+
+Contributor(s):
+-->
+<hibernate-configuration>
+    <session-factory>
+        <!--<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.1.105:1521:test</property>
+        <property name="hibernate.connection.username">ahram</property>
+        <property name="hibernate.connection.password">vcle</property>-->
+    
+    
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://192.168.1.8:3306/codeator?autoReconnect=true&amp;useSSL=false</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+    
+        <property name="show_sql">true</property>
+        <property name="hibernate.connection.pool_size">1000</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="hibernate.dbcp.initialSize">10</property>
+        <property name="hibernate.dbcp.maxTotal">1000</property>
+        <property name="hibernate.dbcp.maxIdle">50</property>
+        <property name="hibernate.dbcp.minIdle">30</property>
+        <property name="hibernate.dbcp.maxWaitMillis">-1</property>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurContractMasterFile.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AppAuthJavaUsers.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoDocumentStatus.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleWorkTypeTransCar.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleTrafficPriceDate.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoRespEmpReq.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleTrafficLine.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleTransactionDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDeptRequireMax.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleWorkSide.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleFuelBalanceLiquid.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVacationType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInvoiceLiq.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoAdvProducerCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleRecordMovementJoin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDistributeDate.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoDeptItemJoin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoSuppPaymentType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleMarkType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleNotifyTransDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleTrafficEmpPerm.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AppSubTabSpecAuth.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleWorkshopeCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleMainCostCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleClassCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoItemCateGroup.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleWorkTypeJoin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleLicenseReportCr.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleProcedureLicenseJoin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDeptNumber.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoResponsibilityDeptItm.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleProcedureLicenseType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleJobType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleRecordMovement.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/BudLocation.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentMainDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoDeptUnitJoin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleExecutionDate.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleWorkOnSaturdayEmp.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleRequireEmp.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/SupPurchasingOperationsTest.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInspectDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AppSubElem.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleAccident.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AppTabs.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleFuelProvideLiquid.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleModel.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleLicenseReport.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleFuelOpenDay.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleAssociationEmp.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoInvoiceMasterTax.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleCostType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerDeptOld.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDistributeDateOpen.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleMotorChange.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurContractMasterFileBand.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInvoiceDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleLicenseDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleEmployeeOvertime.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleAssociationEmpTrans.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoUnitType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurSupplierTypeCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentLinType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleTransaction.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleIncluding.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurSuppWork.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleEmployeeVacationDate.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerGeneralCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/SupSuppliersInfoTest.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleEmployeeAbsent.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleIncome.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleTankBalance.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDistributeLocation.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInvoiceCar.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoResponsibilityHistoryDel.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurContractPeriodType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDistributeDateAhramAm.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleEmployeeMaster.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/MainframeSuppMobawaba.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentFin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/MainframeSuppTogarya.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocument.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurContractServiceType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoItemCateGroupSecSer.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VclePriceFuelLitre.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerDeptPlace.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AppSubTabAuthType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerLocationCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerQualClass.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInstructionItem.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDistributeMonthsEmp.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoDeptItemJoinDescDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleFuelIssueLiquid.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoDeptResource.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoItemCateCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleClassDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AppSubTab.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoAccUnitsCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleMaster.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleWorkshopeResponse.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoInvoiceMasterItem.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentManType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VclePriceOil.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoDeptTaxJoin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoItemCateGroupSec.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/SupOpertionsTermsTest.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoItemCateGroupSecDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerSectionOld.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDataEntryAdmin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoResponsibilityDept.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerGovernorateCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentMainType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentFinType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerCountryCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInstruction.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInspectCar.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoTaxTokenServerStatus.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerQualCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInvoiceMan.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleRequireStatusDt.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentMain.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AccAccountUnits.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerOrgunitCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleResponseWork.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AccCurrencyCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurActivity.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleRepairType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerEmploymentMaster.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoResponsibilityHistoryEmp.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleInsuranceCompany.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoTaxType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleSuspendType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AppSubElemSpecAuth.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoResponsibilityDeptDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleTrafficPriceDateVal.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleMaintanceRepair.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleResponsibleEmp.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleFiscalDate.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerOrganizationStructure.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurSuppWorkDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDistributeDateAhramPm.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerCityCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleNotifyTrans.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInspect.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoInvoiceMasterStatus.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurSupplier.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDeptNumberJoin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleReceive.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleDriverJoin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PerEmploymentParameter.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleMaintanceRepairDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleTypeUser.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentMan.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleWorkSideDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleWorkOnSaturdays.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoAdvCollectorCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/AppName.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleOilIssue.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleNotifyLocal.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleLicenseReportDt.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleShape.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleWorkType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleFuelBookNumber.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoItemCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/NvUsers.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleExecutionDay.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurContractMaster.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoResponsibilityDeptDel.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleResponsible.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurContractTitel.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleDeptNumberUser.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleOilType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInstructionDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoTaxTypeDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleColorCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurContractServiceJoin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleEmployeeVacation.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurContractMasterDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleRequire.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleEquipmentType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleCountMm.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleTransactionType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/JavaUsersTest.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleRequireStatus.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoAccUintDept.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleLicense.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentLiq.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VclePriceDateMaster.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleTrafficCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleFuelBookNumberDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleEmployeeVacationBal.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleCost.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleIssueDocumentLin.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleShiftType.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/StoResponsibilityHistoryDtl.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleExternalCode.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VclePriceKilometer.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/InvoInvoiceMaster.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/PurSupplierActivity.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleInstructionTech.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleMainCost.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleTravelExchange.hbm.xml"/>
+        <mapping resource="com/codeator/www/_1_2_DB_entities/VcleVehicleResponsibleJoin.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

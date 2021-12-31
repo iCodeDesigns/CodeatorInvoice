@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleOilIssue" table="VCLE_OIL_ISSUE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleOilIssueId">
+            <key-property name="execDate" type="date">
+                <column name="EXEC_DATE" length="7" />
+            </key-property>
+            <key-property name="issueSp" type="int">
+                <column name="ISSUE_SP" precision="9" scale="0" />
+            </key-property>
+            <key-property name="fiscalDate" type="date">
+                <column name="FISCAL_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleWorkshopeCode" class="com.codeator.www._1_2_DB_entities.VcleWorkshopeCode" fetch="select">
+            <column name="WORKSHOPE_CODE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleOilType" class="com.codeator.www._1_2_DB_entities.VcleOilType" fetch="select">
+            <column name="OIL_TYPE" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleDeptNumber" class="com.codeator.www._1_2_DB_entities.VcleDeptNumber" fetch="select">
+            <column name="DEPT_ID" precision="7" scale="0" />
+        </many-to-one>
+        <property name="sideType" type="boolean">
+            <column name="SIDE_TYPE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="issueQun" type="big_decimal">
+            <column name="ISSUE_QUN" precision="7" not-null="true" />
+        </property>
+        <property name="issueSal" type="big_decimal">
+            <column name="ISSUE_SAL" precision="9" />
+        </property>
+        <property name="issueVal" type="big_decimal">
+            <column name="ISSUE_VAL" precision="9" />
+        </property>
+        <property name="countNumber" type="java.lang.Long">
+            <column name="COUNT_NUMBER" precision="11" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

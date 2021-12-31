@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleAssociationEmpTrans" table="VCLE_ASSOCIATION_EMP_TRANS" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleAssociationEmpTransId">
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="execMm" type="date">
+                <column name="EXEC_MM" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleTransactionType" class="com.codeator.www._1_2_DB_entities.VcleTransactionType" fetch="select">
+            <column name="TRANS_TYPE" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleTrafficLine" class="com.codeator.www._1_2_DB_entities.VcleTrafficLine" fetch="select">
+            <column name="LINE_CODE" precision="3" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleExecutionDate" class="com.codeator.www._1_2_DB_entities.VcleExecutionDate" update="false" insert="false" fetch="select">
+            <column name="EXEC_MM" length="7" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleAssociationEmp" class="com.codeator.www._1_2_DB_entities.VcleAssociationEmp" update="false" insert="false" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="employeeNo" type="java.lang.Long">
+            <column name="EMPLOYEE_NO" precision="10" scale="0" />
+        </property>
+        <property name="transDate" type="date">
+            <column name="TRANS_DATE" length="7" />
+        </property>
+        <property name="val" type="big_decimal">
+            <column name="VAL" precision="5" />
+        </property>
+        <property name="recordCreateUser" type="string">
+            <column name="RECORD_CREATE_USER" length="15" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="15" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

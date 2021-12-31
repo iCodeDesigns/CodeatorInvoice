@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleDeptNumberUser" table="VCLE_DEPT_NUMBER_USER" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleDeptNumberUserId">
+            <key-property name="userId" type="big_decimal">
+                <column name="USER_ID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="deptId" type="int">
+                <column name="DEPT_ID" precision="7" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleDeptNumber" class="com.codeator.www._1_2_DB_entities.VcleDeptNumber" update="false" insert="false" fetch="select">
+            <column name="DEPT_ID" precision="7" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="chkDeptOk" type="java.lang.Boolean">
+            <column name="CHK_DEPT_OK" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

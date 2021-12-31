@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PerOrgunitCode" table="PER_ORGUNIT_CODE" schema="CODEATOR" optimistic-lock="version">
+        <id name="orgunitCode" type="string">
+            <column name="ORGUNIT_CODE" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="orgunitName" type="string">
+            <column name="ORGUNIT_NAME" length="50" not-null="true" />
+        </property>
+        <property name="orgunitOrder" type="byte">
+            <column name="ORGUNIT_ORDER" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="recordCreateUser" type="string">
+            <column name="RECORD_CREATE_USER" length="15" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="15" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <set name="perOrganizationStructures" table="PER_ORGANIZATION_STRUCTURE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORGUNIT_CODE" length="3" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PerOrganizationStructure" />
+        </set>
+        <set name="perEmploymentMasters" table="PER_EMPLOYMENT_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ORGUNIT_CODE" length="3" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

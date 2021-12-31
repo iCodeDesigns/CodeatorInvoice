@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleExecutionDay" table="VCLE_EXECUTION_DAY" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleExecutionDayId">
+            <key-property name="execMm" type="date">
+                <column name="EXEC_MM" length="7" />
+            </key-property>
+            <key-property name="dayNo" type="byte">
+                <column name="DAY_NO" precision="2" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleExecutionDate" class="com.codeator.www._1_2_DB_entities.VcleExecutionDate" update="false" insert="false" fetch="select">
+            <column name="EXEC_MM" length="7" not-null="true" />
+        </many-to-one>
+        <property name="dayName" type="string">
+            <column name="DAY_NAME" length="20" />
+        </property>
+        <property name="execDay" type="date">
+            <column name="EXEC_DAY" length="7" />
+        </property>
+        <set name="vcleTankBalances" table="VCLE_TANK_BALANCE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EXEC_MM" length="7" />
+                <column name="DAY_NO" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleTankBalance" />
+        </set>
+    </class>
+</hibernate-mapping>

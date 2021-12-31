@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMainDtl" table="VCLE_ISSUE_DOCUMENT_MAIN_DTL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMainDtlId">
+            <key-property name="vcleDeptType" type="boolean">
+                <column name="VCLE_DEPT_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="userType" type="boolean">
+                <column name="USER_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleIssueDocumentMain" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMain" update="false" insert="false"
+        fetch="select">
+            <column name="VCLE_DEPT_TYPE" precision="1" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" update="false" insert="false" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="editorUserId" type="big_decimal">
+            <column name="EDITOR_USER_ID" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

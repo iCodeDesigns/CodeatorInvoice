@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.SupPurchasingOperationsTest" table="SUP_PURCHASING_OPERATIONS_TEST" schema="CODEATOR"
+    optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.SupPurchasingOperationsTestId">
+            <key-property name="supplierId" type="int">
+                <column name="SUPPLIER_ID" precision="6" scale="0" />
+            </key-property>
+            <key-property name="operationId" type="int">
+                <column name="OPERATION_ID" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="supSuppliersInfoTest" class="com.codeator.www._1_2_DB_entities.SupSuppliersInfoTest" update="false" insert="false"
+        fetch="select">
+            <column name="SUPPLIER_ID" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="orgName" type="string">
+            <column name="ORG_NAME" length="1000" />
+        </property>
+        <property name="postDateTime" type="string">
+            <column name="POST_DATE_TIME" length="20" />
+        </property>
+        <property name="operationName" type="string">
+            <column name="OPERATION_NAME" length="0" />
+        </property>
+        <property name="operationNo" type="string">
+            <column name="OPERATION_NO" length="50" />
+        </property>
+        <property name="operationRegDate" type="string">
+            <column name="OPERATION_REG_DATE" length="20" />
+        </property>
+        <property name="envelopesOpeneingDate" type="string">
+            <column name="ENVELOPES_OPENEING_DATE" length="20" />
+        </property>
+        <property name="operationType" type="string">
+            <column name="OPERATION_TYPE" length="500" />
+        </property>
+        <property name="operationNatural" type="string">
+            <column name="OPERATION_NATURAL" length="500" />
+        </property>
+        <property name="opertaionStatus" type="string">
+            <column name="OPERTAION_STATUS" length="500" />
+        </property>
+        <property name="adsDate" type="string">
+            <column name="ADS_DATE" length="20" />
+        </property>
+        <property name="partingAvil" type="string">
+            <column name="PARTING_AVIL" length="1000" />
+        </property>
+        <property name="anotherOffersAvil" type="string">
+            <column name="ANOTHER_OFFERS_AVIL" length="500" />
+        </property>
+        <property name="evaluationSystem" type="string">
+            <column name="EVALUATION_SYSTEM" length="500" />
+        </property>
+        <property name="bidBookPrice" type="java.lang.Long">
+            <column name="BID_BOOK_PRICE" precision="12" scale="0" />
+        </property>
+        <property name="activeIn" type="string">
+            <column name="ACTIVE_IN" length="2000" />
+        </property>
+        <property name="bidSmallBookPrice" type="java.lang.Long">
+            <column name="BID_SMALL_BOOK_PRICE" precision="12" scale="0" />
+        </property>
+        <property name="primaryInsurance" type="java.lang.Long">
+            <column name="PRIMARY_INSURANCE" precision="12" scale="0" />
+        </property>
+        <property name="discription" type="string">
+            <column name="DISCRIPTION" length="4000" />
+        </property>
+        <property name="conditions" type="string">
+            <column name="CONDITIONS" length="4000" />
+        </property>
+        <property name="notes" type="string">
+            <column name="NOTES" length="4000" />
+        </property>
+        <set name="supOpertionsTermsTests" table="SUP_OPERTIONS_TERMS_TEST" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUPPLIER_ID" precision="6" scale="0" not-null="true" />
+                <column name="OPERATION_ID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.SupOpertionsTermsTest" />
+        </set>
+    </class>
+</hibernate-mapping>

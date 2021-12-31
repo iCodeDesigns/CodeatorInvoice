@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2021 10:16:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PurContractMasterDtl" table="PUR_CONTRACT_MASTER_DTL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.PurContractMasterDtlId">
+            <key-property name="contractSp" type="long">
+                <column name="CONTRACT_SP" precision="16" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="titelSp" type="int">
+                <column name="TITEL_SP" precision="9" scale="0" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="contractSeq" type="int">
+                <column name="CONTRACT_SEQ" precision="6" scale="0" />
+            </key-property>
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="purContractMaster" class="com.codeator.www._1_2_DB_entities.PurContractMaster" update="false" insert="false" fetch="select">
+            <column name="CONTRACT_SP" precision="16" scale="0" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="TITEL_SP" precision="9" scale="0" not-null="true" />
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+        </many-to-one>
+        <property name="conValue" type="big_decimal">
+            <column name="CON_VALUE" precision="11" not-null="true" />
+        </property>
+        <property name="conFromDate" type="date">
+            <column name="CON_FROM_DATE" length="7" />
+        </property>
+        <property name="conToDate" type="date">
+            <column name="CON_TO_DATE" length="7" />
+        </property>
+        <property name="conStatus" type="string">
+            <column name="CON_STATUS" length="1" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <set name="invoInvoiceMasters" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CONTRACT_SP" precision="16" scale="0" />
+                <column name="DEP_NO_OLD_CON" precision="10" scale="0" />
+                <column name="TITEL_SP" precision="9" scale="0" />
+                <column name="SECTION_NO_OLD_CON" precision="5" scale="0" />
+                <column name="CONTRACT_SEQ" precision="6" scale="0" />
+                <column name="ACC_UNIT_CODE_CON" length="2" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2021 10:27:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoDeptItemJoinDescDtl" table="INVO_DEPT_ITEM_JOIN_DESC_DTL" schema="CODEATOR" optimistic-lock="version">
+        <id name="itemSeq" type="long">
+            <column name="ITEM_SEQ" precision="16" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="invoDeptItemJoin" class="com.codeator.www._1_2_DB_entities.InvoDeptItemJoin" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="ITEM_CODE" length="25" not-null="true" />
+            <column name="ACC_UNIT_CODE" length="2" />
+        </many-to-one>
+        <property name="AItemDesc" type="string">
+            <column name="A_ITEM_DESC" length="150" />
+        </property>
+        <property name="EItemDesc" type="string">
+            <column name="E_ITEM_DESC" length="150" />
+        </property>
+        <property name="itemBarcode" type="string">
+            <column name="ITEM_BARCODE" length="50" />
+        </property>
+        <set name="invoInvoiceMasterItems" table="INVO_INVOICE_MASTER_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ITEM_SEQ" precision="16" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterItem" />
+        </set>
+    </class>
+</hibernate-mapping>

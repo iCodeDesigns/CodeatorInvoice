@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" table="VCLE_VEHICLE_MASTER" schema="CODEATOR" optimistic-lock="version">
+        <id name="vehicleSp" type="int">
+            <column name="VEHICLE_SP" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="vcleWorkSide" class="com.codeator.www._1_2_DB_entities.VcleWorkSide" fetch="select">
+            <column name="WORK_SIDE_CODE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" fetch="select">
+            <column name="VCLE_TYPE" length="2" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleShape" class="com.codeator.www._1_2_DB_entities.VcleVehicleShape" fetch="select">
+            <column name="SHAPE_CODE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleModel" class="com.codeator.www._1_2_DB_entities.VcleVehicleModel" update="false" insert="false" fetch="select">
+            <column name="VCLE_TYPE" length="2" />
+            <column name="MARK_TYPE" length="3" />
+            <column name="MODEL_CODE" precision="6" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleEquipmentType" class="com.codeator.www._1_2_DB_entities.VcleEquipmentType" fetch="select">
+            <column name="EQUIPMENT_CODE" precision="6" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleColorCode" class="com.codeator.www._1_2_DB_entities.VcleColorCode" fetch="select">
+            <column name="COLOR_CODE" precision="2" scale="0" />
+        </many-to-one>
+        <property name="fuelType" type="java.lang.Boolean">
+            <column name="FUEL_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="shassNumber" type="string">
+            <column name="SHASS_NUMBER" length="20" />
+        </property>
+        <property name="motorNumber" type="string">
+            <column name="MOTOR_NUMBER" length="40" />
+        </property>
+        <property name="boardNumber" type="string">
+            <column name="BOARD_NUMBER" length="12" not-null="true" />
+        </property>
+        <property name="octane" type="java.lang.Byte">
+            <column name="OCTANE" precision="2" scale="0" />
+        </property>
+        <property name="purchaseValue" type="big_decimal">
+            <column name="PURCHASE_VALUE" precision="12" />
+        </property>
+        <property name="purchaseDate" type="date">
+            <column name="PURCHASE_DATE" length="7" />
+        </property>
+        <property name="depRateVehcl" type="java.lang.Short">
+            <column name="DEP_RATE_VEHCL" precision="3" scale="0" />
+        </property>
+        <property name="depKst" type="big_decimal">
+            <column name="DEP_KST" precision="9" />
+        </property>
+        <property name="manufactureYear" type="java.lang.Short">
+            <column name="MANUFACTURE_YEAR" precision="4" scale="0" />
+        </property>
+        <property name="loadType" type="java.lang.Boolean">
+            <column name="LOAD_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="loadVal" type="big_decimal">
+            <column name="LOAD_VAL" precision="5" />
+        </property>
+        <property name="trafficLetterNumber" type="string">
+            <column name="TRAFFIC_LETTER_NUMBER" length="20" />
+        </property>
+        <property name="trafficLetterDate" type="date">
+            <column name="TRAFFIC_LETTER_DATE" length="7" />
+        </property>
+        <property name="ownerCertNo" type="string">
+            <column name="OWNER_CERT_NO" length="20" />
+        </property>
+        <property name="ownerCertDate" type="date">
+            <column name="OWNER_CERT_DATE" length="7" />
+        </property>
+        <property name="vehicleCc" type="java.lang.Short">
+            <column name="VEHICLE_CC" precision="4" scale="0" />
+        </property>
+        <property name="vehicleCylinder" type="java.lang.Boolean">
+            <column name="VEHICLE_CYLINDER" precision="1" scale="0" />
+        </property>
+        <property name="licensePeriod" type="java.lang.Boolean">
+            <column name="LICENSE_PERIOD" precision="1" scale="0" />
+        </property>
+        <property name="couponNum" type="string">
+            <column name="COUPON_NUM" length="20" />
+        </property>
+        <property name="couponDate" type="date">
+            <column name="COUPON_DATE" length="7" />
+        </property>
+        <property name="insuranceFirstVal" type="big_decimal">
+            <column name="INSURANCE_FIRST_VAL" precision="12" />
+        </property>
+        <property name="vehicleDesc" type="string">
+            <column name="VEHICLE_DESC" length="100" />
+        </property>
+        <property name="boardNumberOld" type="java.lang.Integer">
+            <column name="BOARD_NUMBER_OLD" precision="8" scale="0" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+        <property name="countNumberDate" type="date">
+            <column name="COUNT_NUMBER_DATE" length="7" />
+        </property>
+        <property name="countNumber" type="java.lang.Long">
+            <column name="COUNT_NUMBER" precision="11" scale="0" />
+        </property>
+        <property name="recordCreateUser" type="string">
+            <column name="RECORD_CREATE_USER" length="15" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="15" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <property name="licenseFirstDate" type="date">
+            <column name="LICENSE_FIRST_DATE" length="7" />
+        </property>
+        <property name="vcleStatus" type="java.lang.Boolean">
+            <column name="VCLE_STATUS" precision="1" scale="0" />
+        </property>
+        <property name="vehicleCode" type="java.lang.Short">
+            <column name="VEHICLE_CODE" precision="3" scale="0" />
+        </property>
+        <property name="licenseEndDate" type="date">
+            <column name="LICENSE_END_DATE" length="7" />
+        </property>
+        <property name="inspectDate" type="date">
+            <column name="INSPECT_DATE" length="7" />
+        </property>
+        <property name="chkOwner" type="java.lang.Boolean">
+            <column name="CHK_OWNER" precision="1" scale="0" />
+        </property>
+        <property name="chkSale" type="java.lang.Boolean">
+            <column name="CHK_SALE" precision="1" scale="0" />
+        </property>
+        <property name="saleDate" type="date">
+            <column name="SALE_DATE" length="7" />
+        </property>
+        <property name="saleRmrk" type="string">
+            <column name="SALE_RMRK" length="200" />
+        </property>
+        <property name="chkSpecial" type="java.lang.Boolean">
+            <column name="CHK_SPECIAL" precision="1" scale="0" />
+        </property>
+        <property name="vcleNum" type="java.lang.Integer">
+            <column name="VCLE_NUM" precision="6" scale="0" />
+        </property>
+        <set name="vcleTravelExchanges" table="VCLE_TRAVEL_EXCHANGE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleTravelExchange" />
+        </set>
+        <set name="vcleVehicleInspectCars" table="VCLE_VEHICLE_INSPECT_CAR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInspectCar" />
+        </set>
+        <set name="vcleFuelIssueLiquids" table="VCLE_FUEL_ISSUE_LIQUID" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleFuelIssueLiquid" />
+        </set>
+        <set name="vcleVehicleTransactionDtls" table="VCLE_VEHICLE_TRANSACTION_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleTransactionDtl" />
+        </set>
+        <set name="vcleTrafficLines" table="VCLE_TRAFFIC_LINE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleTrafficLine" />
+        </set>
+        <set name="vcleVehicleDriverJoins" table="VCLE_VEHICLE_DRIVER_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleDriverJoin" />
+        </set>
+        <set name="vcleVehicleAccidents" table="VCLE_VEHICLE_ACCIDENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleAccident" />
+        </set>
+        <set name="vcleVehicleCountMms" table="VCLE_VEHICLE_COUNT_MM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleCountMm" />
+        </set>
+        <set name="vcleVehicleInstructions" table="VCLE_VEHICLE_INSTRUCTION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInstruction" />
+        </set>
+        <set name="vcleMotorChanges" table="VCLE_MOTOR_CHANGE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleMotorChange" />
+        </set>
+        <set name="vcleRecordMovements" table="VCLE_RECORD_MOVEMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleRecordMovement" />
+        </set>
+        <set name="vcleVehicleIncomes" table="VCLE_VEHICLE_INCOME" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleIncome" />
+        </set>
+        <set name="vcleWorkTypeTransCars" table="VCLE_WORK_TYPE_TRANS_CAR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleWorkTypeTransCar" />
+        </set>
+        <set name="vcleVehicleRequires" table="VCLE_VEHICLE_REQUIRE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleRequire" />
+        </set>
+        <set name="vcleVehicleNotifyTranses" table="VCLE_VEHICLE_NOTIFY_TRANS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleNotifyTrans" />
+        </set>
+        <set name="vcleVehicleReceives" table="VCLE_VEHICLE_RECEIVE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleReceive" />
+        </set>
+        <set name="vcleVehicleClassDtls" table="VCLE_VEHICLE_CLASS_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleClassDtl" />
+        </set>
+        <set name="vcleOilIssues" table="VCLE_OIL_ISSUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleOilIssue" />
+        </set>
+        <set name="vcleVehicleInvoiceCars" table="VCLE_VEHICLE_INVOICE_CAR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceCar" />
+        </set>
+        <set name="vcleFuelBookNumberDtls" table="VCLE_FUEL_BOOK_NUMBER_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleFuelBookNumberDtl" />
+        </set>
+        <set name="vcleVehicleCosts" table="VCLE_VEHICLE_COST" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleCost" />
+        </set>
+        <set name="vcleWorkSideDtls" table="VCLE_WORK_SIDE_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleWorkSideDtl" />
+        </set>
+        <set name="vcleVehicleLicenses" table="VCLE_VEHICLE_LICENSE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicense" />
+        </set>
+        <set name="vcleVehicleIncludings" table="VCLE_VEHICLE_INCLUDING_JOIN" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.codeator.www._1_2_DB_entities.VcleVehicleIncluding">
+                <column name="INCLUDE_CODE" precision="5" scale="0" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="vcleVehicleLicenseReportCrs" table="VCLE_VEHICLE_LICENSE_REPORT_CR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseReportCr" />
+        </set>
+        <set name="vcleVehicleResponsibleJoins" table="VCLE_VEHICLE_RESPONSIBLE_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleResponsibleJoin" />
+        </set>
+        <set name="vcleVehicleInvoiceLiqs" table="VCLE_VEHICLE_INVOICE_LIQ" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceLiq" />
+        </set>
+    </class>
+</hibernate-mapping>

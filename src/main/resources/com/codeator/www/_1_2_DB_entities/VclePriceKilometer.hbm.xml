@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VclePriceKilometer" table="VCLE_PRICE_KILOMETER" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VclePriceKilometerId">
+            <key-property name="vcleType" type="string">
+                <column name="VCLE_TYPE" length="2" />
+            </key-property>
+            <key-property name="priceType" type="boolean">
+                <column name="PRICE_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="priceDate" type="date">
+                <column name="PRICE_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" update="false" insert="false" fetch="select">
+            <column name="VCLE_TYPE" length="2" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vclePriceDateMaster" class="com.codeator.www._1_2_DB_entities.VclePriceDateMaster" update="false" insert="false" fetch="select">
+            <column name="PRICE_TYPE" precision="1" scale="0" not-null="true" />
+            <column name="PRICE_DATE" length="7" not-null="true" />
+        </many-to-one>
+        <property name="kiloHourPrice" type="big_decimal">
+            <column name="KILO_HOUR_PRICE" precision="5" not-null="true" />
+        </property>
+        <property name="minVal" type="big_decimal">
+            <column name="MIN_VAL" precision="6" />
+        </property>
+        <property name="maxVal" type="big_decimal">
+            <column name="MAX_VAL" precision="6" />
+        </property>
+    </class>
+</hibernate-mapping>

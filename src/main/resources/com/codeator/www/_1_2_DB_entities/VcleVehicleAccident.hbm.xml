@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleAccident" table="VCLE_VEHICLE_ACCIDENT" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleAccidentId">
+            <key-property name="accidentDate" type="date">
+                <column name="ACCIDENT_DATE" length="7" />
+            </key-property>
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" update="false" insert="false" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="reportNo" type="string">
+            <column name="REPORT_NO" length="20" />
+        </property>
+        <property name="reportDate" type="date">
+            <column name="REPORT_DATE" length="7" />
+        </property>
+        <property name="accidentPlace" type="string">
+            <column name="ACCIDENT_PLACE" length="100" />
+        </property>
+        <property name="reportDesc" type="string">
+            <column name="REPORT_DESC" length="400" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardNumberOld" type="java.lang.Integer">
+            <column name="BOARD_NUMBER_OLD" precision="8" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

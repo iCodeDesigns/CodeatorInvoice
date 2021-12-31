@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleRequire" table="VCLE_VEHICLE_REQUIRE" schema="CODEATOR" optimistic-lock="version">
+        <id name="requireSp" type="long">
+            <column name="REQUIRE_SP" precision="11" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" fetch="select">
+            <column name="VCLE_TYPE" length="2" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleRequireStatus" class="com.codeator.www._1_2_DB_entities.VcleVehicleRequireStatus" fetch="select">
+            <column name="REQUIRE_STATUS" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleRequire" class="com.codeator.www._1_2_DB_entities.VcleVehicleRequire" fetch="select">
+            <column name="REQUIRE_SP_OLD" precision="11" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMasterByEmployeeIdDriver" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID_DRIVER" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMasterByEmployeeId" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perDeptOld" class="com.codeator.www._1_2_DB_entities.PerDeptOld" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="requireType" type="byte">
+            <column name="REQUIRE_TYPE" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="reqNo" type="java.lang.Byte">
+            <column name="REQ_NO" precision="2" scale="0" />
+        </property>
+        <property name="requireDate" type="date">
+            <column name="REQUIRE_DATE" length="7" />
+        </property>
+        <property name="requireStartHour" type="string">
+            <column name="REQUIRE_START_HOUR" length="20" />
+        </property>
+        <property name="requireEndHour" type="string">
+            <column name="REQUIRE_END_HOUR" length="20" />
+        </property>
+        <property name="requirePlace" type="string">
+            <column name="REQUIRE_PLACE" length="100" />
+        </property>
+        <property name="driverPlace" type="string">
+            <column name="DRIVER_PLACE" length="100" />
+        </property>
+        <property name="execDate" type="date">
+            <column name="EXEC_DATE" length="7" />
+        </property>
+        <property name="delayDate" type="date">
+            <column name="DELAY_DATE" length="7" />
+        </property>
+        <property name="employeeNoApproval" type="java.lang.Long">
+            <column name="EMPLOYEE_NO_APPROVAL" precision="11" scale="0" />
+        </property>
+        <property name="chkOk" type="java.lang.Byte">
+            <column name="CHK_OK" precision="2" scale="0" />
+        </property>
+        <property name="currDate" type="string">
+            <column name="CURR_DATE" length="20" />
+        </property>
+        <property name="requireDateTime" type="string">
+            <column name="REQUIRE_DATE_TIME" length="20" />
+        </property>
+        <property name="guestNo" type="java.lang.Byte">
+            <column name="GUEST_NO" precision="2" scale="0" />
+        </property>
+        <property name="requireToDate" type="date">
+            <column name="REQUIRE_TO_DATE" length="7" />
+        </property>
+        <property name="requireToDateTime" type="string">
+            <column name="REQUIRE_TO_DATE_TIME" length="20" />
+        </property>
+        <property name="totDay" type="java.lang.Byte">
+            <column name="TOT_DAY" precision="2" scale="0" />
+        </property>
+        <set name="vcleVehicleRequires" table="VCLE_VEHICLE_REQUIRE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REQUIRE_SP_OLD" precision="11" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleRequire" />
+        </set>
+        <set name="vcleVehicleRequireStatusDts" table="VCLE_VEHICLE_REQUIRE_STATUS_DT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REQUIRE_SP" precision="11" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleRequireStatusDt" />
+        </set>
+        <one-to-one name="vcleRecordMovementJoin" class="com.codeator.www._1_2_DB_entities.VcleRecordMovementJoin"></one-to-one>
+    </class>
+</hibernate-mapping>

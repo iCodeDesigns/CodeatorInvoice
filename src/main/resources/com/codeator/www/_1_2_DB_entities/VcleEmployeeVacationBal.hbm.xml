@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleEmployeeVacationBal" table="VCLE_EMPLOYEE_VACATION_BAL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleEmployeeVacationBalId">
+            <key-property name="fiscalYear" type="short">
+                <column name="FISCAL_YEAR" precision="4" scale="0" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" update="false" insert="false" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="iniVacBal" type="java.lang.Byte">
+            <column name="INI_VAC_BAL" precision="2" scale="0" />
+        </property>
+        <property name="totalVac" type="java.lang.Byte">
+            <column name="TOTAL_VAC" precision="2" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleEmployeeAbsent" table="VCLE_EMPLOYEE_ABSENT" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleEmployeeAbsentId">
+            <key-property name="workshopeCode" type="byte">
+                <column name="WORKSHOPE_CODE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="fromDate" type="date">
+                <column name="FROM_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" update="false" insert="false" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="elaDate" type="date">
+            <column name="ELA_DATE" length="7" />
+        </property>
+        <property name="absentType" type="java.lang.Boolean">
+            <column name="ABSENT_TYPE" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

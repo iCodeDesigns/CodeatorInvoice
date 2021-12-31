@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleMaintanceRepairDtl" table="VCLE_MAINTANCE_REPAIR_DTL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleMaintanceRepairDtlId">
+            <key-property name="costCode" type="string">
+                <column name="COST_CODE" length="10" />
+            </key-property>
+            <key-property name="employeeIdHave" type="long">
+                <column name="EMPLOYEE_ID_HAVE" precision="10" scale="0" />
+            </key-property>
+            <key-property name="instructionDate" type="date">
+                <column name="INSTRUCTION_DATE" length="7" />
+            </key-property>
+            <key-property name="enterDate" type="date">
+                <column name="ENTER_DATE" length="7" />
+            </key-property>
+            <key-property name="notifyDate" type="date">
+                <column name="NOTIFY_DATE" length="7" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="repairSeq" type="short">
+                <column name="REPAIR_SEQ" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleRepairType" class="com.codeator.www._1_2_DB_entities.VcleVehicleRepairType" fetch="select">
+            <column name="REPAIR_TYPE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleSuspendType" class="com.codeator.www._1_2_DB_entities.VcleSuspendType" fetch="select">
+            <column name="SUSPEND_CODE" precision="6" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleMaintanceRepair" class="com.codeator.www._1_2_DB_entities.VcleMaintanceRepair" update="false" insert="false" fetch="select">
+            <column name="NOTIFY_DATE" length="7" not-null="true" />
+            <column name="INSTRUCTION_DATE" length="7" not-null="true" />
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            <column name="EMPLOYEE_ID_HAVE" precision="10" scale="0" not-null="true" />
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            <column name="COST_CODE" length="10" not-null="true" />
+            <column name="ENTER_DATE" length="7" not-null="true" />
+        </many-to-one>
+        <property name="locCode" type="string">
+            <column name="LOC_CODE" length="3" />
+        </property>
+        <property name="fiscalDate" type="date">
+            <column name="FISCAL_DATE" length="7" />
+        </property>
+        <property name="invoiceType" type="java.lang.Byte">
+            <column name="INVOICE_TYPE" precision="2" scale="0" />
+        </property>
+        <property name="qty" type="big_decimal">
+            <column name="QTY" precision="9" />
+        </property>
+        <property name="itemGha" type="java.lang.Boolean">
+            <column name="ITEM_GHA" precision="1" scale="0" />
+        </property>
+        <property name="invoiceSp" type="string">
+            <column name="INVOICE_SP" length="240" />
+        </property>
+        <property name="locationCode" type="string">
+            <column name="LOCATION_CODE" length="3" />
+        </property>
+        <property name="storeType" type="java.lang.Boolean">
+            <column name="STORE_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="storeCode" type="java.lang.Long">
+            <column name="STORE_CODE" precision="12" scale="0" />
+        </property>
+        <property name="issueNo" type="java.lang.Long">
+            <column name="ISSUE_NO" precision="11" scale="0" />
+        </property>
+        <property name="itemNumber" type="java.lang.Long">
+            <column name="ITEM_NUMBER" precision="15" scale="0" />
+        </property>
+        <property name="storeCodeItem" type="java.lang.Long">
+            <column name="STORE_CODE_ITEM" precision="12" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="150" />
+        </property>
+    </class>
+</hibernate-mapping>

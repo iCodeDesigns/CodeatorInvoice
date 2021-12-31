@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptItm" table="STO_RESPONSIBILITY_DEPT_ITM" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptItmId">
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="respSpHave" type="int">
+                <column name="RESP_SP_HAVE" precision="6" scale="0" />
+            </key-property>
+            <key-property name="floorSp" type="int">
+                <column name="FLOOR_SP" precision="7" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="respSp" type="int">
+                <column name="RESP_SP" precision="7" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="itemName" type="string">
+            <column name="ITEM_NAME" length="200" not-null="true" />
+        </property>
+        <property name="recvType" type="boolean">
+            <column name="RECV_TYPE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="eznDate" type="date">
+            <column name="EZN_DATE" length="7" not-null="true" />
+        </property>
+        <property name="qty" type="big_decimal">
+            <column name="QTY" precision="11" scale="3" not-null="true" />
+        </property>
+        <property name="extEmpName" type="string">
+            <column name="EXT_EMP_NAME" length="200" />
+        </property>
+        <property name="itemClass" type="string">
+            <column name="ITEM_CLASS" length="200" />
+        </property>
+        <property name="eznNo" type="java.lang.Long">
+            <column name="EZN_NO" precision="11" scale="0" />
+        </property>
+        <property name="employeeNo" type="java.lang.Long">
+            <column name="EMPLOYEE_NO" precision="10" scale="0" />
+        </property>
+        <property name="qtyInitial" type="big_decimal">
+            <column name="QTY_INITIAL" precision="11" scale="3" />
+        </property>
+        <property name="sal" type="big_decimal">
+            <column name="SAL" precision="11" scale="3" />
+        </property>
+        <property name="val" type="big_decimal">
+            <column name="VAL" precision="20" scale="3" />
+        </property>
+        <property name="statusItem" type="java.lang.Boolean">
+            <column name="STATUS_ITEM" precision="1" scale="0" />
+        </property>
+        <property name="unitCode" type="java.lang.Short">
+            <column name="UNIT_CODE" precision="3" scale="0" />
+        </property>
+        <property name="unitCodeInitial" type="java.lang.Short">
+            <column name="UNIT_CODE_INITIAL" precision="3" scale="0" />
+        </property>
+        <property name="issueDateInitial" type="date">
+            <column name="ISSUE_DATE_INITIAL" length="7" />
+        </property>
+        <property name="employeeNoTo" type="java.lang.Long">
+            <column name="EMPLOYEE_NO_TO" precision="10" scale="0" />
+        </property>
+        <property name="employeeIdTo" type="java.lang.Long">
+            <column name="EMPLOYEE_ID_TO" precision="10" scale="0" />
+        </property>
+        <property name="userId" type="java.lang.Long">
+            <column name="USER_ID" precision="10" scale="0" />
+        </property>
+        <property name="cateCode" type="string">
+            <column name="CATE_CODE" length="2" />
+        </property>
+        <property name="groupCode" type="string">
+            <column name="GROUP_CODE" length="3" />
+        </property>
+        <property name="sectionCode" type="string">
+            <column name="SECTION_CODE" length="3" />
+        </property>
+        <property name="itemCode" type="string">
+            <column name="ITEM_CODE" length="3" />
+        </property>
+        <property name="itemDigital" type="java.lang.Long">
+            <column name="ITEM_DIGITAL" precision="11" scale="0" />
+        </property>
+        <property name="serialNo" type="string">
+            <column name="SERIAL_NO" length="60" />
+        </property>
+    </class>
+</hibernate-mapping>

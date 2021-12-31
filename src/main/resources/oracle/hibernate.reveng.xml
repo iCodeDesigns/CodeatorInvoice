@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<!--
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright (c) 2008, 2016 Oracle and/or its affiliates. All rights reserved.
+
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+The contents of this file are subject to the terms of either the GNU
+General Public License Version 2 only ("GPL") or the Common
+Development and Distribution License("CDDL") (collectively, the
+"License"). You may not use this file except in compliance with the
+License. You can obtain a copy of the License at
+http://www.netbeans.org/cddl-gplv2.html
+or nbbuild/licenses/CDDL-GPL-2-CP. See the License for the
+specific language governing permissions and limitations under the
+License.  When distributing the software, include this License Header
+Notice in each file and include the License file at
+nbbuild/licenses/CDDL-GPL-2-CP.  Oracle designates this
+particular file as subject to the "Classpath" exception as provided
+by Oracle in the GPL Version 2 section of the License file that
+accompanied this code. If applicable, add the following below the
+License Header, with the fields enclosed by brackets [] replaced by
+your own identifying information:
+"Portions Copyrighted [year] [name of copyright owner]"
+
+If you wish your version of this file to be governed by only the CDDL
+or only the GPL Version 2, indicate your decision by adding
+"[Contributor] elects to include this software in this distribution
+under the [CDDL or GPL Version 2] license." If you do not indicate a
+single choice of license, a recipient has the option to distribute
+your version of this file under either the CDDL, the GPL Version 2 or
+to extend the choice of license to its licensees as provided above.
+However, if you add GPL Version 2 code and therefore, elected the GPL
+Version 2 license, then the option applies only if the new code is
+made subject to such option by the copyright holder.
+
+Contributor(s):
+-->
+<hibernate-reverse-engineering>
+    <schema-selection match-schema="AHRAM"/>
+    <table-filter match-name="VCLE_DISTRIBUTE_LOCATION"/>
+    <table-filter match-name="VCLE_ASSOCIATION_EMP"/>
+    <table-filter match-name="VCLE_VEHICLE_RESPONSIBLE_EMP"/>
+    <table-filter match-name="VCLE_TRANSACTION_TYPE"/>
+    <table-filter match-name="VCLE_DEPT_NUMBER_USER"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_MAIN"/>
+    <table-filter match-name="VCLE_SUSPEND_TYPE"/>
+    <table-filter match-name="PER_ORGANIZATION_STRUCTURE"/>
+    <table-filter match-name="VCLE_DATA_ENTRY_ADMIN"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_MAN_TYPE"/>
+    <table-filter match-name="VCLE_VEHICLE_INSTRUCTION_TECH"/>
+    <table-filter match-name="VCLE_VEHICLE_LICENSE_REPORT_CR"/>
+    <table-filter match-name="STO_RESP_EMP_REQ"/>
+    <table-filter match-name="VCLE_VEHICLE_INVOICE_CAR"/>
+    <table-filter match-name="VCLE_VEHICLE_INSTRUCTION_ITEM"/>
+    <table-filter match-name="VCLE_MAIN_COST_CODE"/>
+    <table-filter match-name="VCLE_OIL_TYPE"/>
+    <table-filter match-name="VCLE_WORK_SIDE_DTL"/>
+    <table-filter match-name="VCLE_PROCEDURE_LICENSE_JOIN"/>
+    <table-filter match-name="VCLE_VEHICLE_TYPE_USER"/>
+    <table-filter match-name="VCLE_FUEL_BALANCE_LIQUID"/>
+    <table-filter match-name="STO_RESPONSIBILITY_HISTORY_EMP"/>
+    <table-filter match-name="VCLE_VEHICLE_NOTIFY_LOCAL"/>
+    <table-filter match-name="VCLE_WORK_TYPE_TRANS_CAR"/>
+    <table-filter match-name="VCLE_DISTRIBUTE_DATE_AHRAM_PM"/>
+    <table-filter match-name="VCLE_VEHICLE_INVOICE_LIQ"/>
+    <table-filter match-name="PER_GOVERNORATE_CODE"/>
+    <table-filter match-name="VCLE_INSURANCE_COMPANY"/>
+    <table-filter match-name="VCLE_VEHICLE_COST"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_FIN_TYPE"/>
+    <table-filter match-name="VCLE_VEHICLE_INSTRUCTION"/>
+    <table-filter match-name="VCLE_DISTRIBUTE_DATE_AHRAM_AM"/>
+    <table-filter match-name="VCLE_TRAFFIC_PRICE_DATE_VAL"/>
+    <table-filter match-name="VCLE_FUEL_BOOK_NUMBER"/>
+    <table-filter match-name="VCLE_VEHICLE_NOTIFY_TRANS"/>
+    <table-filter match-name="STO_ITEM_CATE_GROUP"/>
+    <table-filter match-name="VCLE_EMPLOYEE_ABSENT"/>
+    <table-filter match-name="VCLE_EMPLOYEE_MASTER"/>
+    <table-filter match-name="VCLE_VACATION_TYPE"/>
+    <table-filter match-name="VCLE_EMPLOYEE_VACATION"/>
+    <table-filter match-name="VCLE_EXECUTION_DAY"/>
+    <table-filter match-name="VCLE_VEHICLE_LICENSE_REPORT"/>
+    <table-filter match-name="PER_COUNTRY_CODE"/>
+    <table-filter match-name="PER_CITY_CODE"/>
+    <table-filter match-name="VCLE_FUEL_PROVIDE_LIQUID"/>
+    <table-filter match-name="VCLE_WORK_TYPE_JOIN"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_FIN"/>
+    <table-filter match-name="VCLE_FISCAL_DATE"/>
+    <table-filter match-name="STO_ITEM_CATE_GROUP_SEC"/>
+    <table-filter match-name="VCLE_VEHICLE_INCLUDING_JOIN"/>
+    <table-filter match-name="VCLE_DISTRIBUTE_DATE_OPEN"/>
+    <table-filter match-name="VCLE_FUEL_BOOK_NUMBER_DTL"/>
+    <table-filter match-name="VCLE_MAINTANCE_REPAIR"/>
+    <table-filter match-name="VCLE_VEHICLE_TRANSACTION"/>
+    <table-filter match-name="VCLE_PRICE_KILOMETER"/>
+    <table-filter match-name="VCLE_COST_TYPE"/>
+    <table-filter match-name="VCLE_DISTRIBUTE_DATE"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_LIN_TYPE"/>
+    <table-filter match-name="PER_QUAL_CODE"/>
+    <table-filter match-name="VCLE_VEHICLE_MASTER"/>
+    <table-filter match-name="VCLE_VEHICLE_INSTRUCTION_DTL"/>
+    <table-filter match-name="VCLE_WORK_ON_SATURDAYS"/>
+    <table-filter match-name="PER_DEPT_OLD"/>
+    <table-filter match-name="VCLE_FUEL_ISSUE_LIQUID"/>
+    <table-filter match-name="VCLE_VEHICLE_INVOICE_DTL"/>
+    <table-filter match-name="VCLE_EXTERNAL_CODE"/>
+    <table-filter match-name="PER_QUAL_CLASS"/>
+    <table-filter match-name="PER_SECTION_OLD"/>
+    <table-filter match-name="VCLE_VEHICLE_REQUIRE"/>
+    <table-filter match-name="VCLE_EQUIPMENT_TYPE"/>
+    <table-filter match-name="VCLE_DEPT_NUMBER"/>
+    <table-filter match-name="VCLE_VEHICLE_NOTIFY_TRANS_DTL"/>
+    <table-filter match-name="VCLE_PRICE_OIL"/>
+    <table-filter match-name="PER_EMPLOYMENT_MASTER"/>
+    <table-filter match-name="VCLE_TRAFFIC_PRICE_DATE"/>
+    <table-filter match-name="VCLE_VEHICLE_INSPECT_DTL"/>
+    <table-filter match-name="VCLE_COLOR_CODE"/>
+    <table-filter match-name="VCLE_VEHICLE_MODEL"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_DTL"/>
+    <table-filter match-name="VCLE_WORK_ON_SATURDAY_EMP"/>
+    <table-filter match-name="STO_RESPONSIBILITY_HISTORY_DTL"/>
+    <table-filter match-name="VCLE_ASSOCIATION_EMP_TRANS"/>
+    <table-filter match-name="VCLE_TRAFFIC_CODE"/>
+    <table-filter match-name="VCLE_VEHICLE_INSPECT_CAR"/>
+    <table-filter match-name="VCLE_VEHICLE_LICENSE_DTL"/>
+    <table-filter match-name="VCLE_OIL_ISSUE"/>
+    <table-filter match-name="VCLE_VEHICLE_INCOME"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_MAN"/>
+    <table-filter match-name="VCLE_MAINTANCE_REPAIR_DTL"/>
+    <table-filter match-name="VCLE_WORK_SIDE"/>
+    <table-filter match-name="VCLE_TANK_BALANCE"/>
+    <table-filter match-name="VCLE_VEHICLE_TRANSACTION_DTL"/>
+    <table-filter match-name="PER_ORGUNIT_CODE"/>
+    <table-filter match-name="VCLE_TRAFFIC_EMP_PERM"/>
+    <table-filter match-name="STO_ITEM_CATE_CODE"/>
+    <table-filter match-name="VCLE_VEHICLE_LICENSE_REPORT_DT"/>
+    <table-filter match-name="VCLE_DEPT_NUMBER_JOIN"/>
+    <table-filter match-name="VCLE_WORKSHOPE_RESPONSE"/>
+    <table-filter match-name="VCLE_RECORD_MOVEMENT"/>
+    <table-filter match-name="VCLE_MOTOR_CHANGE"/>
+    <table-filter match-name="VCLE_VEHICLE_ACCIDENT"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_MAIN_TYPE"/>
+    <table-filter match-name="VCLE_VEHICLE_RESPONSIBLE"/>
+    <table-filter match-name="STO_ITEM_CATE_GROUP_SEC_DTL"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT"/>
+    <table-filter match-name="VCLE_EXECUTION_DATE"/>
+    <table-filter match-name="VCLE_VEHICLE_CLASS_DTL"/>
+    <table-filter match-name="VCLE_VEHICLE_RESPONSIBLE_JOIN"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_LIN"/>
+    <table-filter match-name="VCLE_VEHICLE_REPAIR_TYPE"/>
+    <table-filter match-name="VCLE_RECORD_MOVEMENT_JOIN"/>
+    <table-filter match-name="VCLE_VEHICLE_INCLUDING"/>
+    <table-filter match-name="VCLE_TRAVEL_EXCHANGE"/>
+    <table-filter match-name="PER_LOCATION_CODE"/>
+    <table-filter match-name="VCLE_WORK_TYPE"/>
+    <table-filter match-name="VCLE_PRICE_FUEL_LITRE"/>
+    <table-filter match-name="VCLE_PRICE_DATE_MASTER"/>
+    <table-filter match-name="PER_EMPLOYMENT_PARAMETER"/>
+    <table-filter match-name="VCLE_TRAFFIC_LINE"/>
+    <table-filter match-name="VCLE_EMPLOYEE_VACATION_BAL"/>
+    <table-filter match-name="VCLE_VEHICLE_RECEIVE"/>
+    <table-filter match-name="STO_ITEM_CATE_GROUP_SEC_SER"/>
+    <table-filter match-name="VCLE_PROCEDURE_LICENSE_TYPE"/>
+    <table-filter match-name="PER_GENERAL_CODE"/>
+    <table-filter match-name="VCLE_EMPLOYEE_VACATION_DATE"/>
+    <table-filter match-name="VCLE_FUEL_OPEN_DAY"/>
+    <table-filter match-name="VCLE_DEPT_REQUIRE_MAX"/>
+    <!--<table-filter match-name="VCLE_MAX_REQUIRE"/>-->
+    <table-filter match-name="VCLE_EMPLOYEE_OVERTIME"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_LIQ"/>
+    <table-filter match-name="VCLE_MAIN_COST"/>
+    <table-filter match-name="VCLE_MARK_TYPE"/>
+    <table-filter match-name="VCLE_VEHICLE_REQUIRE_EMP"/>
+    <table-filter match-name="VCLE_VEHICLE_LICENSE"/>
+    <table-filter match-name="VCLE_VEHICLE_COUNT_MM"/>
+    <table-filter match-name="VCLE_VEHICLE_CLASS_CODE"/>
+    <table-filter match-name="VCLE_VEHICLE_RESPONSE_WORK"/>
+    <table-filter match-name="VCLE_VEHICLE_SHAPE"/>
+    <table-filter match-name="VCLE_SHIFT_TYPE"/>
+    <table-filter match-name="VCLE_VEHICLE_INSPECT"/>
+    <table-filter match-name="VCLE_DISTRIBUTE_MONTHS_EMP"/>
+    <table-filter match-name="VCLE_VEHICLE_INVOICE_MAN"/>
+    <table-filter match-name="VCLE_VEHICLE_DRIVER_JOIN"/>
+    <table-filter match-name="VCLE_JOB_TYPE"/>
+    <table-filter match-name="VCLE_WORKSHOPE_CODE"/>
+    <table-filter match-name="VCLE_VEHICLE_TYPE"/>
+    <table-filter match-name="VCLE_ISSUE_DOCUMENT_MAIN_DTL"/>
+    <table-filter match-name="VCLE_VEHICLE_REQUIRE_STATUS"/>
+    <table-filter match-name="VCLE_VEHICLE_REQUIRE_STATUS_DT"/>  
+    <table-filter match-name="STO_RESPONSIBILITY_DEPT"/>
+    <table-filter match-name="STO_RESPONSIBILITY_DEPT_DTL"/>
+    <table-filter match-name="BUD_LOCATION"/>
+    <table-filter match-name="STO_RESPONSIBILITY_DEPT_DEL"/>
+    <table-filter match-name="PER_DEPT_PLACE"/>
+    <table-filter match-name="STO_RESPONSIBILITY_DEPT_ITM"/>  
+    <table-filter match-name="STO_RESPONSIBILITY_HISTORY_DEL"/>  
+    <table-filter match-name="SUP_SUPPLIERS_INFO_TEST"/>
+    <table-filter match-name="SUP_PURCHASING_OPERATIONS_TEST"/>
+    <table-filter match-name="SUP_OPERTIONS_TERMS_TEST"/>  
+    <table-filter match-name="PUR_SUPPLIER"/>
+    <table-filter match-name="PUR_SUPPLIER_ACTIVITY"/>
+    <table-filter match-name="PUR_SUPPLIER_BANK"/>
+    <table-filter match-name="PUR_SUPPLIER_BRANCH"/>
+    <table-filter match-name="PUR_SUPPLIER_DOC"/>
+    <table-filter match-name="PUR_SUPPLIER_DOC_IMAGE"/>
+    <table-filter match-name="PUR_SUPPLIER_DOC_TYPE"/>
+    <table-filter match-name="PUR_SUPPLIER_ITEM"/>
+    <table-filter match-name="PUR_SUPPLIER_SPECIALIST"/>
+    <table-filter match-name="PUR_SUPPLIER_STATE"/>
+    <table-filter match-name="PUR_SUPPLIER_STATE_DETAIL"/>
+    <table-filter match-name="PUR_SUPPLIER_TYPE_CODE"/>  
+    <table-filter match-name="NV_USERS"/>
+    <table-filter match-name="ACC_CURRENCY_CODE"/>
+    <table-filter match-name="BUD_LOCATION_ACTIVITY"/>
+    <table-filter match-name="PUR_ACTIVITY"/>
+    <table-filter match-name="INVO_ITEM_CODE"/>   
+    <!--<table-filter match-name="INV_UNIT_TYPE"/>-->
+    <!--<table-filter match-name="INV_ACC_TAX_SUBTYPE_JOIN"/>-->
+    <!--<table-filter match-name="INV_INVOICE_MASTER_ITEM"/>-->
+    <!--<table-filter match-name="INV_INVOICE_MASTER_ITEM_TAX"/>-->
+    <!--<table-filter match-name="INV_INVOICE_MASTER"/>-->
+    <!--<table-filter match-name="INV_TAX_SUBTYPE"/>-->
+    <!--<table-filter match-name="INV_TAX_TYPE"/>-->
+    <!--<table-filter match-name="INV_ITEM_CODE_DESC"/>-->
+    <!--<table-filter match-name="INV_ACC_ITEM_JOIN"/>-->
+    <!--<table-filter match-name="INV_ACC_DEPT_EMP_JOIN"/>-->
+    <table-filter match-name="PUR_SUPP_WORK"/>    
+    <table-filter match-name="ACC_ACCOUNT_UNITS"/>    
+    <table-filter match-name="JAVA_USERS_TEST"/>
+    <table-filter match-name="INVO_DEPT_ITEM_JOIN"/>
+    <table-filter match-name="INVO_DEPT_TAX_JOIN"/>
+    <table-filter match-name="INVO_DEPT_UNIT_JOIN"/>
+    <table-filter match-name="INVO_DOCUMENT_STATUS"/>
+    <table-filter match-name="INVO_INVOICE_MASTER"/>
+    <table-filter match-name="INVO_INVOICE_MASTER_ITEM"/>
+    <table-filter match-name="INVO_INVOICE_MASTER_STATUS"/>
+    <table-filter match-name="INVO_INVOICE_MASTER_TAX"/>
+    <table-filter match-name="INVO_DEPT_ITEM_JOIN_DESC_DTL"/>
+    <table-filter match-name="INVO_TAX_TYPE"/>
+    <table-filter match-name="INVO_TAX_TYPE_DTL"/>
+    <table-filter match-name="INVO_UNIT_TYPE"/>
+    <table-filter match-name="INVO_TAX_TOKEN_SERVER_STATUS"/>
+    <table-filter match-name="INVO_ACC_UINT_DEPT"/>
+    <table-filter match-name="INVO_ACC_UNITS_CODE"/>
+    <table-filter match-name="APP_NAME"/>
+    <table-filter match-name="APP_SUB_ELEM"/>
+    <table-filter match-name="APP_SUB_ELEM_SPEC_AUTH"/>
+    <table-filter match-name="APP_SUB_TAB"/>
+    <table-filter match-name="APP_SUB_TAB_AUTH_TYPE"/>
+    <table-filter match-name="APP_SUB_TAB_SPEC_AUTH"/>
+    <table-filter match-name="APP_TABS"/>
+    <table-filter match-name="APP_AUTH_JAVA_USERS"/>
+    <table-filter match-name="PUR_SUPP_WORK_DTL"/>
+    <table-filter match-name="INVO_DEPT_RESOURCE"/> 
+    <table-filter match-name="INVO_SUPP_PAYMENT_TYPE"/>   
+    <table-filter match-name="PUR_CONTRACT_MASTER"/>
+    <table-filter match-name="PUR_CONTRACT_MASTER_DTL"/>
+    <table-filter match-name="PUR_CONTRACT_SERVICE_TYPE"/>    
+    <table-filter match-name="PUR_CONTRACT_MASTER_FILE"/>
+    <table-filter match-name="PUR_CONTRACT_MASTER_FILE_BAND"/>
+    <table-filter match-name="PUR_CONTRACT_PERIOD_TYPE"/>    
+    <table-filter match-name="PUR_CONTRACT_TITEL"/>
+    <table-filter match-name="PUR_CONTRACT_SERVICE_JOIN"/>
+    <table-filter match-name="MAINFRAME_SUPP_MOBAWABA"/>  
+    <table-filter match-name="MAINFRAME_SUPP_TOGARYA"/>
+    <table-filter match-name="INVO_ADV_COLLECTOR_CODE"/>  
+    <table-filter match-name="INVO_ADV_PRODUCER_CODE"/>        
+</hibernate-reverse-engineering>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMain" table="VCLE_ISSUE_DOCUMENT_MAIN" schema="CODEATOR" optimistic-lock="version">
+        <id name="vcleDeptType" type="boolean">
+            <column name="VCLE_DEPT_TYPE" precision="1" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perOrganizationStructure" class="com.codeator.www._1_2_DB_entities.PerOrganizationStructure" fetch="select">
+            <column name="ORG_ID" length="5" />
+        </many-to-one>
+        <property name="chkAccountUnit" type="java.lang.Boolean">
+            <column name="CHK_ACCOUNT_UNIT" precision="1" scale="0" />
+        </property>
+        <property name="chkOrgId" type="java.lang.Boolean">
+            <column name="CHK_ORG_ID" precision="1" scale="0" />
+        </property>
+        <property name="chkCurrency" type="java.lang.Boolean">
+            <column name="CHK_CURRENCY" precision="1" scale="0" />
+        </property>
+        <property name="currencyCode" type="string">
+            <column name="CURRENCY_CODE" length="4" />
+        </property>
+        <property name="accountUnitCode" type="string">
+            <column name="ACCOUNT_UNIT_CODE" length="4" />
+        </property>
+        <property name="fiscalYear" type="java.lang.Short">
+            <column name="FISCAL_YEAR" precision="4" scale="0" />
+        </property>
+        <property name="issueDocStatus" type="string">
+            <column name="ISSUE_DOC_STATUS" length="2" />
+        </property>
+        <set name="vcleIssueDocumentMainTypes" table="VCLE_ISSUE_DOCUMENT_MAIN_TYPE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VCLE_DEPT_TYPE" precision="1" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMainType" />
+        </set>
+        <set name="vcleIssueDocumentMainDtls" table="VCLE_ISSUE_DOCUMENT_MAIN_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VCLE_DEPT_TYPE" precision="1" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMainDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleNotifyLocal" table="VCLE_VEHICLE_NOTIFY_LOCAL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleNotifyLocalId">
+            <key-property name="fiscalDate" type="date">
+                <column name="FISCAL_DATE" length="7" />
+            </key-property>
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="employeeIdEmp" type="long">
+                <column name="EMPLOYEE_ID_EMP" precision="10" scale="0" />
+            </key-property>
+            <key-property name="instructionNo" type="int">
+                <column name="INSTRUCTION_NO" precision="6" scale="0" />
+            </key-property>
+            <key-property name="workshopeCode" type="byte">
+                <column name="WORKSHOPE_CODE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="localSp" type="byte">
+                <column name="LOCAL_SP" precision="2" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="localSeq" type="java.lang.Byte">
+            <column name="LOCAL_SEQ" precision="2" scale="0" />
+        </property>
+        <property name="localStartDate" type="date">
+            <column name="LOCAL_START_DATE" length="7" />
+        </property>
+        <property name="localEndDate" type="date">
+            <column name="LOCAL_END_DATE" length="7" />
+        </property>
+        <property name="localRmrk" type="string">
+            <column name="LOCAL_RMRK" length="400" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleFuelBookNumber" table="VCLE_FUEL_BOOK_NUMBER" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleFuelBookNumberId">
+            <key-property name="fiscalDate" type="date">
+                <column name="FISCAL_DATE" length="7" />
+            </key-property>
+            <key-property name="fuelType" type="boolean">
+                <column name="FUEL_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="bookSp" type="int">
+                <column name="BOOK_SP" precision="9" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="orderDate" type="date">
+            <column name="ORDER_DATE" length="7" />
+        </property>
+        <property name="priceDate" type="date">
+            <column name="PRICE_DATE" length="7" />
+        </property>
+        <property name="issueDate" type="date">
+            <column name="ISSUE_DATE" length="7" />
+        </property>
+        <property name="litreType" type="boolean">
+            <column name="LITRE_TYPE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="litreQty" type="java.lang.Short">
+            <column name="LITRE_QTY" precision="3" scale="0" />
+        </property>
+        <property name="litrePrice" type="big_decimal">
+            <column name="LITRE_PRICE" precision="5" />
+        </property>
+        <property name="fromBook" type="java.lang.Integer">
+            <column name="FROM_BOOK" precision="9" scale="0" />
+        </property>
+        <property name="toBook" type="java.lang.Integer">
+            <column name="TO_BOOK" precision="9" scale="0" />
+        </property>
+        <property name="returnDate" type="date">
+            <column name="RETURN_DATE" length="7" />
+        </property>
+        <property name="octane" type="java.lang.Boolean">
+            <column name="OCTANE" precision="1" scale="0" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+        <property name="vehicleSpOnly" type="java.lang.Integer">
+            <column name="VEHICLE_SP_ONLY" precision="6" scale="0" />
+        </property>
+        <property name="boardDigitalOnly" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL_ONLY" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa1Only" type="string">
+            <column name="BOARD_ALFA1_ONLY" length="1" />
+        </property>
+        <property name="boardAlfa2Only" type="string">
+            <column name="BOARD_ALFA2_ONLY" length="1" />
+        </property>
+        <property name="boardAlfa3Only" type="string">
+            <column name="BOARD_ALFA3_ONLY" length="1" />
+        </property>
+        <property name="litreValAll" type="big_decimal">
+            <column name="LITRE_VAL_ALL" precision="7" />
+        </property>
+        <set name="vcleFuelBookNumberDtls" table="VCLE_FUEL_BOOK_NUMBER_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FISCAL_DATE" length="7" not-null="true" />
+                <column name="FUEL_TYPE" precision="1" scale="0" not-null="true" />
+                <column name="BOOK_SP" precision="9" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleFuelBookNumberDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

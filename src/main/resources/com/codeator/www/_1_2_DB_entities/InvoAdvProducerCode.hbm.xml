@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 24, 2021 10:50:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoAdvProducerCode" table="INVO_ADV_PRODUCER_CODE" schema="CODEATOR" optimistic-lock="version">
+        <id name="advProducerSeq" type="int">
+            <column name="ADV_PRODUCER_SEQ" precision="9" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoAccUintDept" class="com.codeator.www._1_2_DB_entities.InvoAccUintDept" fetch="select">
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="advProducerCode" type="java.lang.Short">
+            <column name="ADV_PRODUCER_CODE" precision="4" scale="0" />
+        </property>
+        <property name="advProducerName" type="string">
+            <column name="ADV_PRODUCER_NAME" length="100" />
+        </property>
+        <set name="invoInvoiceMasters" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ADV_PRODUCER_SEQ" precision="9" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+        <set name="purSuppWorkDtls" table="PUR_SUPP_WORK_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ADV_PRODUCER_SEQ" precision="9" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurSuppWorkDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleOilType" table="VCLE_OIL_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="oilType" type="byte">
+            <column name="OIL_TYPE" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="oilName" type="string">
+            <column name="OIL_NAME" length="100" not-null="true" />
+        </property>
+        <set name="vcleOilIssues" table="VCLE_OIL_ISSUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OIL_TYPE" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleOilIssue" />
+        </set>
+        <set name="vclePriceOils" table="VCLE_PRICE_OIL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OIL_TYPE" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VclePriceOil" />
+        </set>
+    </class>
+</hibernate-mapping>

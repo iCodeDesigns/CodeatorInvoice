@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VclePriceDateMaster" table="VCLE_PRICE_DATE_MASTER" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VclePriceDateMasterId">
+            <key-property name="priceType" type="boolean">
+                <column name="PRICE_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="priceDate" type="date">
+                <column name="PRICE_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="100" />
+        </property>
+        <set name="vclePriceKilometers" table="VCLE_PRICE_KILOMETER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PRICE_TYPE" precision="1" scale="0" not-null="true" />
+                <column name="PRICE_DATE" length="7" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VclePriceKilometer" />
+        </set>
+        <set name="vclePriceOils" table="VCLE_PRICE_OIL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PRICE_TYPE" precision="1" scale="0" not-null="true" />
+                <column name="PRICE_DATE" length="7" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VclePriceOil" />
+        </set>
+        <set name="vclePriceFuelLitres" table="VCLE_PRICE_FUEL_LITRE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PRICE_TYPE" precision="1" scale="0" not-null="true" />
+                <column name="PRICE_DATE" length="7" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VclePriceFuelLitre" />
+        </set>
+    </class>
+</hibernate-mapping>

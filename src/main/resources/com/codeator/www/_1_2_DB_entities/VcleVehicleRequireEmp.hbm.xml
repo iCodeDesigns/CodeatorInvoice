@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleRequireEmp" table="VCLE_VEHICLE_REQUIRE_EMP" schema="CODEATOR" optimistic-lock="version">
+        <id name="employeeId" type="long">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            <generator class="foreign">
+                <param name="property">perEmploymentMaster</param>
+            </generator>
+        </id>
+        <one-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" constrained="true"></one-to-one>
+        <property name="requireType" type="java.lang.Boolean">
+            <column name="REQUIRE_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="150" />
+        </property>
+        <property name="chkResp" type="java.lang.Boolean">
+            <column name="CHK_RESP" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

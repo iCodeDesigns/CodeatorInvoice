@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2021 10:16:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PurContractMaster" table="PUR_CONTRACT_MASTER" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.PurContractMasterId">
+            <key-property name="contractSp" type="long">
+                <column name="CONTRACT_SP" precision="16" scale="0" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="titelSp" type="int">
+                <column name="TITEL_SP" precision="9" scale="0" />
+            </key-property>
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="purSuppWork" class="com.codeator.www._1_2_DB_entities.PurSuppWork" fetch="select">
+            <column name="SUPP_SEQ" precision="16" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="purContractTitel" class="com.codeator.www._1_2_DB_entities.PurContractTitel" update="false" insert="false" fetch="select">
+            <column name="TITEL_SP" precision="9" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+        </many-to-one>
+        <many-to-one name="invoSuppPaymentType" class="com.codeator.www._1_2_DB_entities.InvoSuppPaymentType" fetch="select">
+            <column name="PAYMENT_TYPE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="purContractPeriodType" class="com.codeator.www._1_2_DB_entities.PurContractPeriodType" fetch="select">
+            <column name="PERIOD_TYPE" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="contractDate" type="date">
+            <column name="CONTRACT_DATE" length="7" not-null="true" />
+        </property>
+        <property name="contractValue" type="big_decimal">
+            <column name="CONTRACT_VALUE" precision="11" not-null="true" />
+        </property>
+        <property name="contractFromDate" type="date">
+            <column name="CONTRACT_FROM_DATE" length="7" />
+        </property>
+        <property name="contractToDate" type="date">
+            <column name="CONTRACT_TO_DATE" length="7" />
+        </property>
+        <property name="contractStatus" type="string">
+            <column name="CONTRACT_STATUS" length="1" />
+        </property>
+        <property name="contractTax" type="string">
+            <column name="CONTRACT_TAX" length="1" />
+        </property>
+        <property name="periodVal" type="java.lang.Integer">
+            <column name="PERIOD_VAL" precision="6" scale="0" />
+        </property>
+        <property name="contractAlertDate" type="date">
+            <column name="CONTRACT_ALERT_DATE" length="7" />
+        </property>
+        <property name="incRate" type="big_decimal">
+            <column name="INC_RATE" precision="5" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="insertDate" type="date">
+            <column name="INSERT_DATE" length="7" />
+        </property>
+        <property name="insertDateTime" type="string">
+            <column name="INSERT_DATE_TIME" length="20" />
+        </property>
+        <property name="updateDate" type="date">
+            <column name="UPDATE_DATE" length="7" />
+        </property>
+        <property name="updateDateTime" type="string">
+            <column name="UPDATE_DATE_TIME" length="20" />
+        </property>
+        <set name="purContractMasterFiles" table="PUR_CONTRACT_MASTER_FILE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CONTRACT_SP" precision="16" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="TITEL_SP" precision="9" scale="0" not-null="true" />
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractMasterFile" />
+        </set>
+        <set name="purContractServiceJoins" table="PUR_CONTRACT_SERVICE_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CONTRACT_SP" precision="16" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="TITEL_SP" precision="9" scale="0" not-null="true" />
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractServiceJoin" />
+        </set>
+        <set name="purContractMasterDtls" table="PUR_CONTRACT_MASTER_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CONTRACT_SP" precision="16" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="TITEL_SP" precision="9" scale="0" not-null="true" />
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractMasterDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

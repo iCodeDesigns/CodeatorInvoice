@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VclePriceFuelLitre" table="VCLE_PRICE_FUEL_LITRE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VclePriceFuelLitreId">
+            <key-property name="priceType" type="boolean">
+                <column name="PRICE_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="priceDate" type="date">
+                <column name="PRICE_DATE" length="7" />
+            </key-property>
+            <key-property name="fuelType" type="boolean">
+                <column name="FUEL_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="octane" type="byte">
+                <column name="OCTANE" precision="2" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vclePriceDateMaster" class="com.codeator.www._1_2_DB_entities.VclePriceDateMaster" update="false" insert="false" fetch="select">
+            <column name="PRICE_TYPE" precision="1" scale="0" not-null="true" />
+            <column name="PRICE_DATE" length="7" not-null="true" />
+        </many-to-one>
+        <property name="litrePrice" type="big_decimal">
+            <column name="LITRE_PRICE" precision="5" />
+        </property>
+    </class>
+</hibernate-mapping>

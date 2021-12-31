@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2021 9:29:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.BudLocation" table="BUD_LOCATION" schema="CODEATOR" optimistic-lock="version">
+        <id name="locationCode" type="string">
+            <column name="LOCATION_CODE" length="3" />
+            <generator class="assigned" />
+        </id>
+        <property name="locationName" type="string">
+            <column name="LOCATION_NAME" length="150" not-null="true" />
+        </property>
+        <property name="filterLocationName" type="string">
+            <column name="FILTER_LOCATION_NAME" length="150" />
+        </property>
+        <property name="recordCreationUser" type="string">
+            <column name="RECORD_CREATION_USER" length="30" />
+        </property>
+        <property name="recordCreationDate" type="date">
+            <column name="RECORD_CREATION_DATE" length="7" />
+        </property>
+        <property name="lastUpdateUser" type="string">
+            <column name="LAST_UPDATE_USER" length="30" />
+        </property>
+        <property name="lastUpdateDate" type="date">
+            <column name="LAST_UPDATE_DATE" length="7" />
+        </property>
+        <property name="lastUpdateTransaction" type="string">
+            <column name="LAST_UPDATE_TRANSACTION" length="1" />
+        </property>
+        <property name="locationDatabaseName" type="string">
+            <column name="LOCATION_DATABASE_NAME" length="30" />
+        </property>
+        <property name="taxCardNo" type="string">
+            <column name="TAX_CARD_NO" length="30" />
+        </property>
+        <property name="locationAddress" type="string">
+            <column name="LOCATION_ADDRESS" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

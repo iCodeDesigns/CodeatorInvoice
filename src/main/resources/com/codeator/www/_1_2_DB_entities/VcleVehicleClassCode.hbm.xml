@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleClassCode" table="VCLE_VEHICLE_CLASS_CODE" schema="CODEATOR" optimistic-lock="version">
+        <id name="classCode" type="byte">
+            <column name="CLASS_CODE" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="className" type="string">
+            <column name="CLASS_NAME" length="100" not-null="true" />
+        </property>
+        <set name="vcleVehicleClassDtls" table="VCLE_VEHICLE_CLASS_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CLASS_CODE" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleClassDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

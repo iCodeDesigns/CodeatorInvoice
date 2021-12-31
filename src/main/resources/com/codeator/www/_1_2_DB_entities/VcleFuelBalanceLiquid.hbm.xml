@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleFuelBalanceLiquid" table="VCLE_FUEL_BALANCE_LIQUID" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleFuelBalanceLiquidId">
+            <key-property name="locCode" type="string">
+                <column name="LOC_CODE" length="3" />
+            </key-property>
+            <key-property name="execDate" type="date">
+                <column name="EXEC_DATE" length="7" />
+            </key-property>
+            <key-property name="shiftType" type="boolean">
+                <column name="SHIFT_TYPE" precision="1" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleShiftType" class="com.codeator.www._1_2_DB_entities.VcleShiftType" update="false" insert="false" fetch="select">
+            <column name="SHIFT_TYPE" precision="1" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleFuelOpenDay" class="com.codeator.www._1_2_DB_entities.VcleFuelOpenDay" update="false" insert="false" fetch="select">
+            <column name="EXEC_DATE" length="7" not-null="true" />
+        </many-to-one>
+        <property name="fiscalDate" type="date">
+            <column name="FISCAL_DATE" length="7" not-null="true" />
+        </property>
+        <property name="fristBnzStartQun" type="big_decimal">
+            <column name="FRIST_BNZ_START_QUN" precision="12" scale="3" />
+        </property>
+        <property name="fristBnzStartNum" type="big_decimal">
+            <column name="FRIST_BNZ_START_NUM" precision="12" scale="3" />
+        </property>
+        <property name="fristBnzQun" type="big_decimal">
+            <column name="FRIST_BNZ_QUN" precision="12" scale="3" />
+        </property>
+        <property name="fristBnzNum" type="big_decimal">
+            <column name="FRIST_BNZ_NUM" precision="12" scale="3" />
+        </property>
+        <property name="fristBnzSign" type="java.lang.Boolean">
+            <column name="FRIST_BNZ_SIGN" precision="1" scale="0" />
+        </property>
+        <property name="fristBnzFrk" type="big_decimal">
+            <column name="FRIST_BNZ_FRK" precision="12" />
+        </property>
+        <property name="secondBnzStartQun" type="big_decimal">
+            <column name="SECOND_BNZ_START_QUN" precision="12" scale="3" />
+        </property>
+        <property name="secondBnzStartNum" type="big_decimal">
+            <column name="SECOND_BNZ_START_NUM" precision="12" scale="3" />
+        </property>
+        <property name="secondBnzQun" type="big_decimal">
+            <column name="SECOND_BNZ_QUN" precision="12" scale="3" />
+        </property>
+        <property name="secondBnzNum" type="big_decimal">
+            <column name="SECOND_BNZ_NUM" precision="12" scale="3" />
+        </property>
+        <property name="secondBnzSign" type="java.lang.Boolean">
+            <column name="SECOND_BNZ_SIGN" precision="1" scale="0" />
+        </property>
+        <property name="secondBnzFrk" type="big_decimal">
+            <column name="SECOND_BNZ_FRK" precision="12" scale="3" />
+        </property>
+        <property name="fristSolStartQun" type="big_decimal">
+            <column name="FRIST_SOL_START_QUN" precision="12" scale="3" />
+        </property>
+        <property name="fristSolStartNum" type="big_decimal">
+            <column name="FRIST_SOL_START_NUM" precision="12" scale="3" />
+        </property>
+        <property name="fristSolQun" type="big_decimal">
+            <column name="FRIST_SOL_QUN" precision="12" scale="3" />
+        </property>
+        <property name="fristSolNum" type="big_decimal">
+            <column name="FRIST_SOL_NUM" precision="12" scale="3" />
+        </property>
+        <property name="fristSolSign" type="java.lang.Boolean">
+            <column name="FRIST_SOL_SIGN" precision="1" scale="0" />
+        </property>
+        <property name="fristSolFrk" type="big_decimal">
+            <column name="FRIST_SOL_FRK" precision="12" scale="3" />
+        </property>
+        <property name="eznSeqBal" type="java.lang.Long">
+            <column name="EZN_SEQ_BAL" precision="10" scale="0" />
+        </property>
+        <property name="chkLockShift" type="java.lang.Boolean">
+            <column name="CHK_LOCK_SHIFT" precision="1" scale="0" />
+        </property>
+        <property name="chkLockDay" type="java.lang.Boolean">
+            <column name="CHK_LOCK_DAY" precision="1" scale="0" />
+        </property>
+        <property name="secondSolStartNum" type="big_decimal">
+            <column name="SECOND_SOL_START_NUM" precision="12" scale="3" />
+        </property>
+        <property name="secondSolNum" type="big_decimal">
+            <column name="SECOND_SOL_NUM" precision="12" scale="3" />
+        </property>
+    </class>
+</hibernate-mapping>

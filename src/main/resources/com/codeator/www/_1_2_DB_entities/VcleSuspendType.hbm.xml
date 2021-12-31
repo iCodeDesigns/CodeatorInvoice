@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleSuspendType" table="VCLE_SUSPEND_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="suspendCode" type="int">
+            <column name="SUSPEND_CODE" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="suspendNane" type="string">
+            <column name="SUSPEND_NANE" length="150" not-null="true" />
+        </property>
+        <set name="vcleMaintanceRepairDtls" table="VCLE_MAINTANCE_REPAIR_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUSPEND_CODE" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleMaintanceRepairDtl" />
+        </set>
+        <set name="vcleVehicleInstructionDtls" table="VCLE_VEHICLE_INSTRUCTION_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUSPEND_CODE" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInstructionDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

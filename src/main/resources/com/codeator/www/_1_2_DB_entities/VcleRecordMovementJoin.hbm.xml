@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleRecordMovementJoin" table="VCLE_RECORD_MOVEMENT_JOIN" schema="CODEATOR" optimistic-lock="version">
+        <id name="requireSp" type="long">
+            <column name="REQUIRE_SP" precision="11" scale="0" />
+            <generator class="foreign">
+                <param name="property">vcleVehicleRequire</param>
+            </generator>
+        </id>
+        <one-to-one name="vcleVehicleRequire" class="com.codeator.www._1_2_DB_entities.VcleVehicleRequire" constrained="true"></one-to-one>
+        <many-to-one name="vcleRecordMovement" class="com.codeator.www._1_2_DB_entities.VcleRecordMovement" fetch="select">
+            <column name="GOING_SP" precision="11" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleDeptNumber" class="com.codeator.www._1_2_DB_entities.VcleDeptNumber" fetch="select">
+            <column name="DEPT_ID" precision="7" scale="0" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perDeptOld" class="com.codeator.www._1_2_DB_entities.PerDeptOld" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" />
+        </many-to-one>
+        <property name="placeName" type="string">
+            <column name="PLACE_NAME" length="200" />
+        </property>
+        <property name="userId" type="string">
+            <column name="USER_ID" length="22" />
+        </property>
+        <property name="requireType" type="boolean">
+            <column name="REQUIRE_TYPE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="personNum" type="java.lang.Byte">
+            <column name="PERSON_NUM" precision="2" scale="0" />
+        </property>
+        <property name="personName" type="string">
+            <column name="PERSON_NAME" length="200" />
+        </property>
+        <property name="chkPerson" type="java.lang.Boolean">
+            <column name="CHK_PERSON" precision="1" scale="0" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="22" />
+        </property>
+    </class>
+</hibernate-mapping>

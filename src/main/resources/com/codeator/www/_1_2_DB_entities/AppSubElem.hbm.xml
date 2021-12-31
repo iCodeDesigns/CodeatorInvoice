@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2021 2:01:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.AppSubElem" table="APP_SUB_ELEM" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.AppSubElemId">
+            <key-property name="applicationId" type="short">
+                <column name="APPLICATION_ID" precision="3" scale="0" />
+            </key-property>
+            <key-property name="tabId" type="int">
+                <column name="TAB_ID" precision="5" scale="0" />
+            </key-property>
+            <key-property name="subTabId" type="int">
+                <column name="SUB_TAB_ID" precision="8" scale="0" />
+            </key-property>
+            <key-property name="elementId" type="int">
+                <column name="ELEMENT_ID" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="appSubTab" class="com.codeator.www._1_2_DB_entities.AppSubTab" update="false" insert="false" fetch="select">
+            <column name="APPLICATION_ID" precision="3" scale="0" not-null="true" />
+            <column name="TAB_ID" precision="5" scale="0" not-null="true" />
+            <column name="SUB_TAB_ID" precision="8" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="elementName" type="string">
+            <column name="ELEMENT_NAME" length="20" not-null="true" />
+        </property>
+        <property name="elementType" type="string">
+            <column name="ELEMENT_TYPE" length="10" />
+        </property>
+        <set name="appSubElemSpecAuths" table="APP_SUB_ELEM_SPEC_AUTH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="APPLICATION_ID" precision="3" scale="0" not-null="true" />
+                <column name="TAB_ID" precision="5" scale="0" not-null="true" />
+                <column name="SUB_TAB_ID" precision="8" scale="0" not-null="true" />
+                <column name="ELEMENT_ID" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppSubElemSpecAuth" />
+        </set>
+    </class>
+</hibernate-mapping>

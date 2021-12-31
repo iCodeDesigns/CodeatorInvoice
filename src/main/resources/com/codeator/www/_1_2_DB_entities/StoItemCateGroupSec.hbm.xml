@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.StoItemCateGroupSec" table="STO_ITEM_CATE_GROUP_SEC" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.StoItemCateGroupSecId">
+            <key-property name="groupCode" type="string">
+                <column name="GROUP_CODE" length="3" />
+            </key-property>
+            <key-property name="cateCode" type="string">
+                <column name="CATE_CODE" length="2" />
+            </key-property>
+            <key-property name="sectionCode" type="string">
+                <column name="SECTION_CODE" length="3" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="stoItemCateGroup" class="com.codeator.www._1_2_DB_entities.StoItemCateGroup" update="false" insert="false" fetch="select">
+            <column name="CATE_CODE" length="2" not-null="true" />
+            <column name="GROUP_CODE" length="3" not-null="true" />
+        </many-to-one>
+        <property name="sectionName" type="string">
+            <column name="SECTION_NAME" length="200" not-null="true" />
+        </property>
+        <set name="stoItemCateGroupSecDtls" table="STO_ITEM_CATE_GROUP_SEC_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GROUP_CODE" length="3" not-null="true" />
+                <column name="CATE_CODE" length="2" not-null="true" />
+                <column name="SECTION_CODE" length="3" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoItemCateGroupSecDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 22, 2021 5:43:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PurSuppWork" table="PUR_SUPP_WORK" schema="CODEATOR" optimistic-lock="version">
+        <id name="suppSeq" type="long">
+            <column name="SUPP_SEQ" precision="16" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perGovernorateCode" class="com.codeator.www._1_2_DB_entities.PerGovernorateCode" fetch="select">
+            <column name="COUNTRY_CODE" length="5" />
+            <column name="GOV_CODE" length="5" />
+        </many-to-one>
+        <many-to-one name="purSupplier" class="com.codeator.www._1_2_DB_entities.PurSupplier" fetch="select">
+            <column name="SUPP_CODE" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perCountryCode" class="com.codeator.www._1_2_DB_entities.PerCountryCode" fetch="select">
+            <column name="COUNTRY_CODE_FOREIGN" length="5" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMasterByUpdateEmpId" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="UPDATE_EMP_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMasterByInsertEmpId" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="INSERT_EMP_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="locationCode" type="string">
+            <column name="LOCATION_CODE" length="3" />
+        </property>
+        <property name="suppNo" type="string">
+            <column name="SUPP_NO" length="10" />
+        </property>
+        <property name="suppName" type="string">
+            <column name="SUPP_NAME" length="100" />
+        </property>
+        <property name="suppStateType" type="string">
+            <column name="SUPP_STATE_TYPE" length="1" />
+        </property>
+        <property name="suppStatus" type="string">
+            <column name="SUPP_STATUS" length="1" />
+        </property>
+        <property name="buildingNum" type="string">
+            <column name="BUILDING_NUM" length="10" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="200" />
+        </property>
+        <property name="identNo" type="string">
+            <column name="IDENT_NO" length="20" />
+        </property>
+        <property name="taxCardNo" type="string">
+            <column name="TAX_CARD_NO" length="30" />
+        </property>
+        <property name="taxFileNo" type="string">
+            <column name="TAX_FILE_NO" length="30" />
+        </property>
+        <property name="taxDate" type="date">
+            <column name="TAX_DATE" length="7" />
+        </property>
+        <property name="taxEnddate" type="date">
+            <column name="TAX_ENDDATE" length="7" />
+        </property>
+        <property name="taxCardNoNew" type="java.lang.Integer">
+            <column name="TAX_CARD_NO_NEW" precision="9" scale="0" />
+        </property>
+        <property name="chkUpd" type="string">
+            <column name="CHK_UPD" length="1" />
+        </property>
+        <property name="insertDate" type="date">
+            <column name="INSERT_DATE" length="7" />
+        </property>
+        <property name="insertDateTime" type="string">
+            <column name="INSERT_DATE_TIME" length="20" />
+        </property>
+        <property name="updateDate" type="date">
+            <column name="UPDATE_DATE" length="7" />
+        </property>
+        <property name="updateDateTime" type="string">
+            <column name="UPDATE_DATE_TIME" length="20" />
+        </property>
+        <property name="passportNum" type="string">
+            <column name="PASSPORT_NUM" length="20" />
+        </property>
+        <property name="identType" type="string">
+            <column name="IDENT_TYPE" length="1" />
+        </property>
+        <property name="chkSource" type="string">
+            <column name="CHK_SOURCE" length="1" />
+        </property>
+        <set name="purContractMasters" table="PUR_CONTRACT_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUPP_SEQ" precision="16" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractMaster" />
+        </set>
+        <set name="purSuppWorkDtls" table="PUR_SUPP_WORK_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUPP_SEQ" precision="16" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurSuppWorkDtl" />
+        </set>
+        <set name="invoInvoiceMasters" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUPP_SEQ" precision="16" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

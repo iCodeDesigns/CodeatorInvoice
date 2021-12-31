@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleLicense" table="VCLE_VEHICLE_LICENSE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseId">
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="licenseMm" type="date">
+                <column name="LICENSE_MM" length="7" />
+            </key-property>
+            <key-property name="licenseType" type="short">
+                <column name="LICENSE_TYPE" precision="3" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" update="false" insert="false" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleTrafficCode" class="com.codeator.www._1_2_DB_entities.VcleTrafficCode" fetch="select">
+            <column name="TRAFFIC_CODE" precision="3" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleProcedureLicenseType" class="com.codeator.www._1_2_DB_entities.VcleProcedureLicenseType" update="false" insert="false"
+        fetch="select">
+            <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleInsuranceCompany" class="com.codeator.www._1_2_DB_entities.VcleInsuranceCompany" fetch="select">
+            <column name="COMPANY_CODE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMasterByEmployeeIdReceive" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID_RECEIVE" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMasterByEmployeeId" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="procedureDate" type="date">
+            <column name="PROCEDURE_DATE" length="7" />
+        </property>
+        <property name="licenseEndDate" type="date">
+            <column name="LICENSE_END_DATE" length="7" />
+        </property>
+        <property name="licenseReceiveDate" type="date">
+            <column name="LICENSE_RECEIVE_DATE" length="7" />
+        </property>
+        <property name="inspectDateOld" type="date">
+            <column name="INSPECT_DATE_OLD" length="7" />
+        </property>
+        <property name="inspectDateNew" type="date">
+            <column name="INSPECT_DATE_NEW" length="7" />
+        </property>
+        <property name="employeeIdRev" type="java.lang.Long">
+            <column name="EMPLOYEE_ID_REV" precision="10" scale="0" />
+        </property>
+        <property name="formNum" type="java.lang.Integer">
+            <column name="FORM_NUM" precision="6" scale="0" />
+        </property>
+        <property name="totalValue" type="big_decimal">
+            <column name="TOTAL_VALUE" precision="9" />
+        </property>
+        <property name="boardNumberOld" type="java.lang.Integer">
+            <column name="BOARD_NUMBER_OLD" precision="8" scale="0" />
+        </property>
+        <property name="boardNumber" type="string">
+            <column name="BOARD_NUMBER" length="12" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+        <property name="motorNumberOld" type="string">
+            <column name="MOTOR_NUMBER_OLD" length="40" />
+        </property>
+        <property name="motorNumberNew" type="string">
+            <column name="MOTOR_NUMBER_NEW" length="40" />
+        </property>
+        <property name="shassNumberOld" type="string">
+            <column name="SHASS_NUMBER_OLD" length="20" />
+        </property>
+        <property name="shassNumberNew" type="string">
+            <column name="SHASS_NUMBER_NEW" length="20" />
+        </property>
+        <property name="employeeIdDept" type="java.lang.Long">
+            <column name="EMPLOYEE_ID_DEPT" precision="10" scale="0" />
+        </property>
+        <property name="employeeIdMan" type="java.lang.Long">
+            <column name="EMPLOYEE_ID_MAN" precision="10" scale="0" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="currDate" type="date">
+            <column name="CURR_DATE" length="7" />
+        </property>
+        <property name="userEmployeeNo" type="java.lang.Long">
+            <column name="USER_EMPLOYEE_NO" precision="10" scale="0" />
+        </property>
+        <property name="boardDigitalNew" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL_NEW" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa1New" type="string">
+            <column name="BOARD_ALFA1_NEW" length="1" />
+        </property>
+        <property name="boardAlfa2New" type="string">
+            <column name="BOARD_ALFA2_NEW" length="1" />
+        </property>
+        <property name="boardAlfa3New" type="string">
+            <column name="BOARD_ALFA3_NEW" length="1" />
+        </property>
+        <property name="vcleNum" type="java.lang.Integer">
+            <column name="VCLE_NUM" precision="6" scale="0" />
+        </property>
+        <property name="changeType" type="java.lang.Boolean">
+            <column name="CHANGE_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="certificateType" type="java.lang.Boolean">
+            <column name="CERTIFICATE_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="chkPrint" type="java.lang.Boolean">
+            <column name="CHK_PRINT" precision="1" scale="0" />
+        </property>
+        <set name="vcleVehicleLicenseDtls" table="VCLE_VEHICLE_LICENSE_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+                <column name="LICENSE_MM" length="7" not-null="true" />
+                <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

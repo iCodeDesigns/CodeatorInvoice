@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleTransactionType" table="VCLE_TRANSACTION_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="transType" type="byte">
+            <column name="TRANS_TYPE" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="transName" type="string">
+            <column name="TRANS_NAME" length="60" />
+        </property>
+        <set name="vcleAssociationEmpTranses" table="VCLE_ASSOCIATION_EMP_TRANS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TRANS_TYPE" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleAssociationEmpTrans" />
+        </set>
+    </class>
+</hibernate-mapping>

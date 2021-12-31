@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2021 10:16:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PurContractTitel" table="PUR_CONTRACT_TITEL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.PurContractTitelId">
+            <key-property name="titelSp" type="int">
+                <column name="TITEL_SP" precision="9" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="invoAccUintDept" class="com.codeator.www._1_2_DB_entities.InvoAccUintDept" update="false" insert="false" fetch="select">
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="titelName" type="string">
+            <column name="TITEL_NAME" length="200" />
+        </property>
+        <set name="purContractMasters" table="PUR_CONTRACT_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TITEL_SP" precision="9" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleMaintanceRepair" table="VCLE_MAINTANCE_REPAIR" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleMaintanceRepairId">
+            <key-property name="notifyDate" type="date">
+                <column name="NOTIFY_DATE" length="7" />
+            </key-property>
+            <key-property name="instructionDate" type="date">
+                <column name="INSTRUCTION_DATE" length="7" />
+            </key-property>
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="employeeIdHave" type="long">
+                <column name="EMPLOYEE_ID_HAVE" precision="10" scale="0" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="costCode" type="string">
+                <column name="COST_CODE" length="10" />
+            </key-property>
+            <key-property name="enterDate" type="date">
+                <column name="ENTER_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleMainCostCode" class="com.codeator.www._1_2_DB_entities.VcleMainCostCode" update="false" insert="false" fetch="select">
+            <column name="COST_CODE" length="10" not-null="true" />
+        </many-to-one>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="150" />
+        </property>
+        <property name="exitDate" type="date">
+            <column name="EXIT_DATE" length="7" />
+        </property>
+        <set name="vcleMaintanceRepairDtls" table="VCLE_MAINTANCE_REPAIR_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NOTIFY_DATE" length="7" not-null="true" />
+                <column name="INSTRUCTION_DATE" length="7" not-null="true" />
+                <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+                <column name="EMPLOYEE_ID_HAVE" precision="10" scale="0" not-null="true" />
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+                <column name="COST_CODE" length="10" not-null="true" />
+                <column name="ENTER_DATE" length="7" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleMaintanceRepairDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2021 2:01:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.AppSubTab" table="APP_SUB_TAB" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.AppSubTabId">
+            <key-property name="applicationId" type="short">
+                <column name="APPLICATION_ID" precision="3" scale="0" />
+            </key-property>
+            <key-property name="tabId" type="int">
+                <column name="TAB_ID" precision="5" scale="0" />
+            </key-property>
+            <key-property name="subTabId" type="int">
+                <column name="SUB_TAB_ID" precision="8" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="appTabs" class="com.codeator.www._1_2_DB_entities.AppTabs" update="false" insert="false" fetch="select">
+            <column name="APPLICATION_ID" precision="3" scale="0" not-null="true" />
+            <column name="TAB_ID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="appSubTabAuthType" class="com.codeator.www._1_2_DB_entities.AppSubTabAuthType" fetch="select">
+            <column name="AUTH_TYPE_ID" precision="3" scale="0" />
+        </many-to-one>
+        <property name="subTabName" type="string">
+            <column name="SUB_TAB_NAME" length="100" not-null="true" />
+        </property>
+        <property name="subTabAccessservlet" type="string">
+            <column name="SUB_TAB_ACCESSSERVLET" length="100" not-null="true" />
+        </property>
+        <property name="availableToUserControl" type="string">
+            <column name="AVAILABLE_TO_USER_CONTROL" length="10" />
+        </property>
+        <property name="subTabIndex" type="java.lang.Integer">
+            <column name="SUB_TAB_INDEX" precision="8" scale="0" />
+        </property>
+        <set name="appSubTabSpecAuths" table="APP_SUB_TAB_SPEC_AUTH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="APPLICATION_ID" precision="3" scale="0" not-null="true" />
+                <column name="TAB_ID" precision="5" scale="0" not-null="true" />
+                <column name="SUB_TAB_ID" precision="8" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppSubTabSpecAuth" />
+        </set>
+        <set name="appSubElems" table="APP_SUB_ELEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="APPLICATION_ID" precision="3" scale="0" not-null="true" />
+                <column name="TAB_ID" precision="5" scale="0" not-null="true" />
+                <column name="SUB_TAB_ID" precision="8" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppSubElem" />
+        </set>
+    </class>
+</hibernate-mapping>

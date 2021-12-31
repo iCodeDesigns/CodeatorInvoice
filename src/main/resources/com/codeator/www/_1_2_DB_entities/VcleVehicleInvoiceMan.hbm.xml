@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceMan" table="VCLE_VEHICLE_INVOICE_MAN" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceManId">
+            <key-property name="invoiceType" type="byte">
+                <column name="INVOICE_TYPE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="invoiceSp" type="int">
+                <column name="INVOICE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="invoiceDate" type="date">
+                <column name="INVOICE_DATE" length="7" />
+            </key-property>
+            <key-property name="currDate" type="date">
+                <column name="CURR_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleMainCostCode" class="com.codeator.www._1_2_DB_entities.VcleMainCostCode" fetch="select">
+            <column name="COST_CODE" length="10" />
+        </many-to-one>
+        <many-to-one name="vcleIssueDocumentMan" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMan" fetch="select">
+            <column name="FISCAL_YEAR" precision="4" scale="0" />
+            <column name="VC_ISSUE_DOC_SP" precision="12" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleExternalCode" class="com.codeator.www._1_2_DB_entities.VcleExternalCode" fetch="select">
+            <column name="SIDE_CODE" precision="6" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleCostType" class="com.codeator.www._1_2_DB_entities.VcleCostType" fetch="select">
+            <column name="COST_TYPE" precision="1" scale="0" not-null="true" />
+            <column name="COST_CODE_TYPE" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="ghaName" type="string">
+            <column name="GHA_NAME" length="200" />
+        </property>
+        <property name="invoiceN0" type="java.lang.Integer">
+            <column name="INVOICE_N0" precision="6" scale="0" />
+        </property>
+        <property name="invoiceValue" type="big_decimal">
+            <column name="INVOICE_VALUE" precision="11" />
+        </property>
+        <property name="invoiceTax" type="big_decimal">
+            <column name="INVOICE_TAX" precision="7" />
+        </property>
+        <property name="userEmployeeNo" type="java.lang.Long">
+            <column name="USER_EMPLOYEE_NO" precision="10" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="100" />
+        </property>
+        <property name="chkText" type="java.lang.Boolean">
+            <column name="CHK_TEXT" precision="1" scale="0" />
+        </property>
+        <property name="issueDocSerial" type="java.lang.Long">
+            <column name="ISSUE_DOC_SERIAL" precision="12" scale="0" />
+        </property>
+        <property name="issueDocDate" type="date">
+            <column name="ISSUE_DOC_DATE" length="7" />
+        </property>
+        <set name="vcleVehicleInvoiceCars" table="VCLE_VEHICLE_INVOICE_CAR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="INVOICE_TYPE" precision="2" scale="0" not-null="true" />
+                <column name="INVOICE_SP" precision="6" scale="0" not-null="true" />
+                <column name="INVOICE_DATE" length="7" not-null="true" />
+                <column name="CURR_DATE" length="7" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceCar" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 11, 2021 5:44:34 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterStatus" table="INVO_INVOICE_MASTER_STATUS" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterStatusId">
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="invoSp" type="long">
+                <column name="INVO_SP" precision="16" scale="0" />
+            </key-property>
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+            <key-property name="logSeq" type="short">
+                <column name="LOG_SEQ" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoDocumentStatus" class="com.codeator.www._1_2_DB_entities.InvoDocumentStatus" fetch="select">
+            <column name="DOC_STATUS" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoInvoiceMaster" class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" update="false" insert="false" fetch="select">
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="INVO_SP" precision="16" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="deskId" type="string">
+            <column name="DESK_ID" length="20" />
+        </property>
+        <property name="currDate" type="date">
+            <column name="CURR_DATE" length="7" />
+        </property>
+        <property name="currDateTime" type="string">
+            <column name="CURR_DATE_TIME" length="20" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

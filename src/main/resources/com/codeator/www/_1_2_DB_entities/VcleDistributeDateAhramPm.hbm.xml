@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleDistributeDateAhramPm" table="VCLE_DISTRIBUTE_DATE_AHRAM_PM" schema="CODEATOR"
+    optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleDistributeDateAhramPmId">
+            <key-property name="travelDd" type="byte">
+                <column name="TRAVEL_DD" precision="2" scale="0" />
+            </key-property>
+            <key-property name="fiscalYear" type="short">
+                <column name="FISCAL_YEAR" precision="4" scale="0" />
+            </key-property>
+            <key-property name="travelMm" type="byte">
+                <column name="TRAVEL_MM" precision="2" scale="0" />
+            </key-property>
+            <key-property name="travelSp" type="int">
+                <column name="TRAVEL_SP" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleDistributeLocation" class="com.codeator.www._1_2_DB_entities.VcleDistributeLocation" fetch="select">
+            <column name="DISTRIBUTE_CODE" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleDistributeDate" class="com.codeator.www._1_2_DB_entities.VcleDistributeDate" update="false" insert="false" fetch="select">
+            <column name="TRAVEL_DD" precision="2" scale="0" not-null="true" />
+            <column name="TRAVEL_MM" precision="2" scale="0" not-null="true" />
+            <column name="FISCAL_YEAR" precision="4" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="execMm" type="date">
+            <column name="EXEC_MM" length="7" />
+        </property>
+        <property name="val" type="big_decimal">
+            <column name="VAL" precision="7" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

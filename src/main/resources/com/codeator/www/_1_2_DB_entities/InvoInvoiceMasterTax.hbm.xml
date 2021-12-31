@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 11, 2021 5:44:34 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterTax" table="INVO_INVOICE_MASTER_TAX" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterTaxId">
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="invoSpItem" type="int">
+                <column name="INVO_SP_ITEM" precision="5" scale="0" />
+            </key-property>
+            <key-property name="invoSp" type="long">
+                <column name="INVO_SP" precision="16" scale="0" />
+            </key-property>
+            <key-property name="taxSubtype" type="string">
+                <column name="TAX_SUBTYPE" length="5" />
+            </key-property>
+            <key-property name="taxType" type="string">
+                <column name="TAX_TYPE" length="5" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="invoTaxTypeDtl" class="com.codeator.www._1_2_DB_entities.InvoTaxTypeDtl" update="false" insert="false" fetch="select">
+            <column name="TAX_TYPE" length="5" not-null="true" />
+            <column name="TAX_SUBTYPE" length="5" not-null="true" />
+        </many-to-one>
+        <many-to-one name="invoInvoiceMasterItem" class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterItem" update="false" insert="false"
+        fetch="select">
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            <column name="INVO_SP" precision="16" scale="0" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="INVO_SP_ITEM" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="amount" type="big_decimal">
+            <column name="AMOUNT" precision="16" scale="5" not-null="true" />
+        </property>
+        <property name="rate" type="big_decimal">
+            <column name="RATE" precision="5" scale="3" />
+        </property>
+    </class>
+</hibernate-mapping>

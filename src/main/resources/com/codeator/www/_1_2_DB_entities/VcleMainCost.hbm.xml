@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleMainCost" table="VCLE_MAIN_COST" schema="CODEATOR" optimistic-lock="version">
+        <id name="mainCode" type="string">
+            <column name="MAIN_CODE" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="mainName" type="string">
+            <column name="MAIN_NAME" length="100" not-null="true" />
+        </property>
+        <set name="vcleMainCostCodes" table="VCLE_MAIN_COST_CODE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MAIN_CODE" length="10" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleMainCostCode" />
+        </set>
+        <set name="vcleVehicleResponsibleEmps" table="VCLE_VEHICLE_RESPONSIBLE_EMP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MAIN_CODE" length="10" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleResponsibleEmp" />
+        </set>
+        <set name="vcleVehicleResponseWorks" table="VCLE_VEHICLE_RESPONSE_WORK" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MAIN_CODE" length="10" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleResponseWork" />
+        </set>
+        <set name="vcleIssueDocuments" table="VCLE_ISSUE_DOCUMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MAIN_CODE" length="10" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocument" />
+        </set>
+        <set name="vcleEmployeeMasters" table="VCLE_EMPLOYEE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MAIN_CODE" length="10" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

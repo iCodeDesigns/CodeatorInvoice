@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2021 10:16:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PurContractMasterFileBand" table="PUR_CONTRACT_MASTER_FILE_BAND" schema="CODEATOR"
+    optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.PurContractMasterFileBandId">
+            <key-property name="titelSp" type="int">
+                <column name="TITEL_SP" precision="9" scale="0" />
+            </key-property>
+            <key-property name="fileSp" type="int">
+                <column name="FILE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="contractSp" type="long">
+                <column name="CONTRACT_SP" precision="16" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="bandSp" type="int">
+                <column name="BAND_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="purContractMasterFile" class="com.codeator.www._1_2_DB_entities.PurContractMasterFile" update="false" insert="false"
+        fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="TITEL_SP" precision="9" scale="0" not-null="true" />
+            <column name="CONTRACT_SP" precision="16" scale="0" not-null="true" />
+            <column name="FILE_SP" precision="6" scale="0" not-null="true" />
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+        </many-to-one>
+        <property name="bandName" type="string">
+            <column name="BAND_NAME" length="75" />
+        </property>
+        <property name="bandContent" type="string">
+            <column name="BAND_CONTENT" length="400" />
+        </property>
+    </class>
+</hibernate-mapping>

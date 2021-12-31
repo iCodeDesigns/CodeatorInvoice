@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleIncome" table="VCLE_VEHICLE_INCOME" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleIncomeId">
+            <key-property name="goingSp" type="long">
+                <column name="GOING_SP" precision="11" scale="0" />
+            </key-property>
+            <key-property name="goingYear" type="short">
+                <column name="GOING_YEAR" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleWorkType" class="com.codeator.www._1_2_DB_entities.VcleWorkType" fetch="select">
+            <column name="WORK_TYPE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleWorkSide" class="com.codeator.www._1_2_DB_entities.VcleWorkSide" fetch="select">
+            <column name="WORK_SIDE_CODE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" fetch="select">
+            <column name="VCLE_TYPE" length="2" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleFiscalDate" class="com.codeator.www._1_2_DB_entities.VcleFiscalDate" fetch="select">
+            <column name="FISCAL_DATE" length="7" />
+        </many-to-one>
+        <many-to-one name="vcleExecutionDate" class="com.codeator.www._1_2_DB_entities.VcleExecutionDate" fetch="select">
+            <column name="EXEC_MM" length="7" />
+        </many-to-one>
+        <many-to-one name="vcleDeptNumber" class="com.codeator.www._1_2_DB_entities.VcleDeptNumber" fetch="select">
+            <column name="DEPT_ID" precision="7" scale="0" />
+        </many-to-one>
+        <many-to-one name="perLocationCode" class="com.codeator.www._1_2_DB_entities.PerLocationCode" fetch="select">
+            <column name="LOCATION_CODE" length="3" />
+            <column name="LOC_CODE" length="3" />
+        </many-to-one>
+        <many-to-one name="perGovernorateCode" class="com.codeator.www._1_2_DB_entities.PerGovernorateCode" fetch="select">
+            <column name="COUNTRY_CODE" length="5" />
+            <column name="GOV_CODE" length="5" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perDeptOld" class="com.codeator.www._1_2_DB_entities.PerDeptOld" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" />
+        </many-to-one>
+        <property name="requireSp" type="java.lang.Short">
+            <column name="REQUIRE_SP" precision="3" scale="0" />
+        </property>
+        <property name="requireType" type="java.lang.Boolean">
+            <column name="REQUIRE_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="goingDate" type="date">
+            <column name="GOING_DATE" length="7" />
+        </property>
+        <property name="goingCountNumber" type="java.lang.Long">
+            <column name="GOING_COUNT_NUMBER" precision="11" scale="0" />
+        </property>
+        <property name="goingTimeType" type="java.lang.Boolean">
+            <column name="GOING_TIME_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="goingHh" type="java.lang.Byte">
+            <column name="GOING_HH" precision="2" scale="0" />
+        </property>
+        <property name="goingMi" type="java.lang.Byte">
+            <column name="GOING_MI" precision="2" scale="0" />
+        </property>
+        <property name="goingTime" type="big_decimal">
+            <column name="GOING_TIME" precision="7" />
+        </property>
+        <property name="comingCountNumber" type="java.lang.Long">
+            <column name="COMING_COUNT_NUMBER" precision="11" scale="0" />
+        </property>
+        <property name="comingTimeType" type="java.lang.Boolean">
+            <column name="COMING_TIME_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="comingHh" type="java.lang.Byte">
+            <column name="COMING_HH" precision="2" scale="0" />
+        </property>
+        <property name="comingMi" type="java.lang.Byte">
+            <column name="COMING_MI" precision="2" scale="0" />
+        </property>
+        <property name="comingTime" type="big_decimal">
+            <column name="COMING_TIME" precision="7" />
+        </property>
+        <property name="comingDate" type="date">
+            <column name="COMING_DATE" length="7" />
+        </property>
+        <property name="placeName" type="string">
+            <column name="PLACE_NAME" length="200" />
+        </property>
+        <property name="totTime" type="big_decimal">
+            <column name="TOT_TIME" precision="7" />
+        </property>
+        <property name="totDay" type="java.lang.Short">
+            <column name="TOT_DAY" precision="4" scale="0" />
+        </property>
+        <property name="totKiloHour" type="big_decimal">
+            <column name="TOT_KILO_HOUR" precision="11" />
+        </property>
+        <property name="kiloHourPrice" type="big_decimal">
+            <column name="KILO_HOUR_PRICE" precision="5" />
+        </property>
+        <property name="totVal" type="big_decimal">
+            <column name="TOT_VAL" precision="9" />
+        </property>
+        <property name="disCountNumber" type="java.lang.Long">
+            <column name="DIS_COUNT_NUMBER" precision="11" scale="0" />
+        </property>
+        <property name="sideType" type="java.lang.Boolean">
+            <column name="SIDE_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+        <property name="boardNumberOld" type="java.lang.Integer">
+            <column name="BOARD_NUMBER_OLD" precision="8" scale="0" />
+        </property>
+        <property name="boardNumber" type="string">
+            <column name="BOARD_NUMBER" length="12" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+        <property name="goingRmrk" type="string">
+            <column name="GOING_RMRK" length="200" />
+        </property>
+        <property name="comingRmrk" type="string">
+            <column name="COMING_RMRK" length="200" />
+        </property>
+        <property name="employeeIdRes" type="java.lang.Long">
+            <column name="EMPLOYEE_ID_RES" precision="10" scale="0" />
+        </property>
+        <property name="employeeIdMan" type="java.lang.Long">
+            <column name="EMPLOYEE_ID_MAN" precision="10" scale="0" />
+        </property>
+        <property name="goingDay" type="java.lang.Byte">
+            <column name="GOING_DAY" precision="2" scale="0" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="22" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <property name="userId" type="string">
+            <column name="USER_ID" length="22" />
+        </property>
+        <property name="chkPrint" type="java.lang.Boolean">
+            <column name="CHK_PRINT" precision="1" scale="0" />
+        </property>
+        <property name="totValActual" type="big_decimal">
+            <column name="TOT_VAL_ACTUAL" precision="11" />
+        </property>
+        <property name="valDay" type="big_decimal">
+            <column name="VAL_DAY" precision="9" />
+        </property>
+        <property name="valDayRem" type="big_decimal">
+            <column name="VAL_DAY_REM" precision="9" />
+        </property>
+    </class>
+</hibernate-mapping>

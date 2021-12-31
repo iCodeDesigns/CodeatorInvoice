@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceCar" table="VCLE_VEHICLE_INVOICE_CAR" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceCarId">
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="invoiceDate" type="date">
+                <column name="INVOICE_DATE" length="7" />
+            </key-property>
+            <key-property name="currDate" type="date">
+                <column name="CURR_DATE" length="7" />
+            </key-property>
+            <key-property name="invoiceSp" type="int">
+                <column name="INVOICE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="invoiceType" type="byte">
+                <column name="INVOICE_TYPE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="vcleSeq" type="int">
+                <column name="VCLE_SEQ" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" update="false" insert="false" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleInvoiceMan" class="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceMan" update="false" insert="false"
+        fetch="select">
+            <column name="INVOICE_TYPE" precision="2" scale="0" not-null="true" />
+            <column name="INVOICE_SP" precision="6" scale="0" not-null="true" />
+            <column name="INVOICE_DATE" length="7" not-null="true" />
+            <column name="CURR_DATE" length="7" not-null="true" />
+        </many-to-one>
+        <property name="invoiceNo" type="java.lang.Integer">
+            <column name="INVOICE_NO" precision="6" scale="0" />
+        </property>
+        <property name="qty40" type="big_decimal">
+            <column name="QTY_40" precision="11" />
+        </property>
+        <property name="val40" type="big_decimal">
+            <column name="VAL_40" precision="11" />
+        </property>
+        <property name="qty55" type="big_decimal">
+            <column name="QTY_55" precision="11" />
+        </property>
+        <property name="val55" type="big_decimal">
+            <column name="VAL_55" precision="11" />
+        </property>
+        <property name="qty21" type="big_decimal">
+            <column name="QTY_21" precision="11" />
+        </property>
+        <property name="val21" type="big_decimal">
+            <column name="VAL_21" precision="11" />
+        </property>
+        <property name="qty99" type="big_decimal">
+            <column name="QTY_99" precision="11" />
+        </property>
+        <property name="val99" type="big_decimal">
+            <column name="VAL_99" precision="11" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

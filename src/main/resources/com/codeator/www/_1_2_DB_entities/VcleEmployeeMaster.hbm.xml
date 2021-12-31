@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" table="VCLE_EMPLOYEE_MASTER" schema="CODEATOR" optimistic-lock="version">
+        <id name="employeeId" type="long">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="vcleWorkType" class="com.codeator.www._1_2_DB_entities.VcleWorkType" fetch="select">
+            <column name="WORK_TYPE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleShiftType" class="com.codeator.www._1_2_DB_entities.VcleShiftType" fetch="select">
+            <column name="SHIFT_TYPE" precision="1" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleMainCostCode" class="com.codeator.www._1_2_DB_entities.VcleMainCostCode" fetch="select">
+            <column name="COST_CODE" length="10" />
+        </many-to-one>
+        <many-to-one name="vcleMainCost" class="com.codeator.www._1_2_DB_entities.VcleMainCost" fetch="select">
+            <column name="MAIN_CODE" length="10" />
+        </many-to-one>
+        <many-to-one name="vcleJobType" class="com.codeator.www._1_2_DB_entities.VcleJobType" fetch="select">
+            <column name="JOB_TYPE" precision="3" scale="0" />
+        </many-to-one>
+        <many-to-one name="perLocationCode" class="com.codeator.www._1_2_DB_entities.PerLocationCode" fetch="select">
+            <column name="LOCATION_CODE" length="3" />
+            <column name="LOC_CODE" length="3" />
+        </many-to-one>
+        <property name="employeeNo" type="long">
+            <column name="EMPLOYEE_NO" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="nationalNo" type="string">
+            <column name="NATIONAL_NO" length="15" />
+        </property>
+        <property name="licenseDgree" type="java.lang.Boolean">
+            <column name="LICENSE_DGREE" precision="1" scale="0" />
+        </property>
+        <property name="licenseFromDate" type="date">
+            <column name="LICENSE_FROM_DATE" length="7" />
+        </property>
+        <property name="cardCode" type="java.lang.Integer">
+            <column name="CARD_CODE" precision="6" scale="0" />
+        </property>
+        <property name="licenseToDate" type="date">
+            <column name="LICENSE_TO_DATE" length="7" />
+        </property>
+        <property name="licensePeriod" type="java.lang.Boolean">
+            <column name="LICENSE_PERIOD" precision="1" scale="0" />
+        </property>
+        <property name="birthDate" type="date">
+            <column name="BIRTH_DATE" length="7" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="150" />
+        </property>
+        <property name="cellPhone1" type="string">
+            <column name="CELL_PHONE1" length="11" />
+        </property>
+        <property name="cellPhone2" type="string">
+            <column name="CELL_PHONE2" length="11" />
+        </property>
+        <property name="homePhone" type="java.lang.Integer">
+            <column name="HOME_PHONE" precision="8" scale="0" />
+        </property>
+        <property name="timeFromHh" type="java.lang.Byte">
+            <column name="TIME_FROM_HH" precision="2" scale="0" />
+        </property>
+        <property name="timeToHh" type="java.lang.Byte">
+            <column name="TIME_TO_HH" precision="2" scale="0" />
+        </property>
+        <property name="timeFromMi" type="java.lang.Byte">
+            <column name="TIME_FROM_MI" precision="2" scale="0" />
+        </property>
+        <property name="timeToMi" type="java.lang.Byte">
+            <column name="TIME_TO_MI" precision="2" scale="0" />
+        </property>
+        <property name="jobDate" type="date">
+            <column name="JOB_DATE" length="7" />
+        </property>
+        <property name="jobNameBasic" type="string">
+            <column name="JOB_NAME_BASIC" length="100" />
+        </property>
+        <property name="empName" type="string">
+            <column name="EMP_NAME" length="75" />
+        </property>
+        <property name="licenseState" type="java.lang.Boolean">
+            <column name="LICENSE_STATE" precision="1" scale="0" />
+        </property>
+        <property name="sectionNoOld" type="java.lang.Integer">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" />
+        </property>
+        <property name="depNoOld" type="java.lang.Long">
+            <column name="DEP_NO_OLD" precision="10" scale="0" />
+        </property>
+        <property name="recordCreateUser" type="string">
+            <column name="RECORD_CREATE_USER" length="15" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="15" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <property name="chkOwner" type="java.lang.Boolean">
+            <column name="CHK_OWNER" precision="1" scale="0" />
+        </property>
+        <set name="vcleDistributeDateAhramPms" table="VCLE_DISTRIBUTE_DATE_AHRAM_PM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDistributeDateAhramPm" />
+        </set>
+        <set name="vcleWorkTypeJoins" table="VCLE_WORK_TYPE_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleWorkTypeJoin" />
+        </set>
+        <set name="vcleFuelBookNumbers" table="VCLE_FUEL_BOOK_NUMBER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleFuelBookNumber" />
+        </set>
+        <set name="vcleDistributeDateAhramAms" table="VCLE_DISTRIBUTE_DATE_AHRAM_AM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDistributeDateAhramAm" />
+        </set>
+        <set name="vcleEmployeeAbsents" table="VCLE_EMPLOYEE_ABSENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleEmployeeAbsent" />
+        </set>
+        <one-to-one name="vcleVehicleResponsibleEmp" class="com.codeator.www._1_2_DB_entities.VcleVehicleResponsibleEmp"></one-to-one>
+        <set name="vcleVehicleReceives" table="VCLE_VEHICLE_RECEIVE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleReceive" />
+        </set>
+        <set name="vcleVehicleNotifyTransDtls" table="VCLE_VEHICLE_NOTIFY_TRANS_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleNotifyTransDtl" />
+        </set>
+        <set name="vcleVehicleAccidents" table="VCLE_VEHICLE_ACCIDENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleAccident" />
+        </set>
+        <set name="vcleEmployeeVacationBals" table="VCLE_EMPLOYEE_VACATION_BAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleEmployeeVacationBal" />
+        </set>
+        <set name="vcleDistributeMonthsEmps" table="VCLE_DISTRIBUTE_MONTHS_EMP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDistributeMonthsEmp" />
+        </set>
+        <set name="vcleEmployeeOvertimes" table="VCLE_EMPLOYEE_OVERTIME" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleEmployeeOvertime" />
+        </set>
+        <set name="vcleIssueDocuments" table="VCLE_ISSUE_DOCUMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocument" />
+        </set>
+        <set name="vcleVehicleResponsibles" table="VCLE_VEHICLE_RESPONSIBLE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleResponsible" />
+        </set>
+        <one-to-one name="vcleWorkOnSaturdayEmp" class="com.codeator.www._1_2_DB_entities.VcleWorkOnSaturdayEmp"></one-to-one>
+        <set name="vcleEmployeeVacations" table="VCLE_EMPLOYEE_VACATION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleEmployeeVacation" />
+        </set>
+        <set name="vcleFuelIssueLiquids" table="VCLE_FUEL_ISSUE_LIQUID" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleFuelIssueLiquid" />
+        </set>
+        <set name="vcleVehicleInstructionTeches" table="VCLE_VEHICLE_INSTRUCTION_TECH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID_TECH" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInstructionTech" />
+        </set>
+        <set name="vcleWorkshopeResponses" table="VCLE_WORKSHOPE_RESPONSE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleWorkshopeResponse" />
+        </set>
+        <set name="vcleWorkOnSaturdayses" table="VCLE_WORK_ON_SATURDAYS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleWorkOnSaturdays" />
+        </set>
+    </class>
+</hibernate-mapping>

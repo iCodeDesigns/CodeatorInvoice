@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleProcedureLicenseJoin" table="VCLE_PROCEDURE_LICENSE_JOIN" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleProcedureLicenseJoinId">
+            <key-property name="licenseType" type="short">
+                <column name="LICENSE_TYPE" precision="3" scale="0" />
+            </key-property>
+            <key-property name="vcleType" type="string">
+                <column name="VCLE_TYPE" length="2" />
+            </key-property>
+            <key-property name="costCode" type="int">
+                <column name="COST_CODE" precision="6" scale="0" />
+            </key-property>
+            <key-property name="costType" type="boolean">
+                <column name="COST_TYPE" precision="1" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" update="false" insert="false" fetch="select">
+            <column name="VCLE_TYPE" length="2" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleProcedureLicenseType" class="com.codeator.www._1_2_DB_entities.VcleProcedureLicenseType" update="false" insert="false"
+        fetch="select">
+            <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleCostType" class="com.codeator.www._1_2_DB_entities.VcleCostType" update="false" insert="false" fetch="select">
+            <column name="COST_TYPE" precision="1" scale="0" not-null="true" />
+            <column name="COST_CODE" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="val" type="big_decimal">
+            <column name="VAL" precision="9" />
+        </property>
+    </class>
+</hibernate-mapping>

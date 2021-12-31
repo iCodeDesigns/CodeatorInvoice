@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleMotorChange" table="VCLE_MOTOR_CHANGE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleMotorChangeId">
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="changeType" type="boolean">
+                <column name="CHANGE_TYPE" precision="1" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" update="false" insert="false" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="changeSp" type="short">
+            <column name="CHANGE_SP" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="purchaseDate" type="date">
+            <column name="PURCHASE_DATE" length="7" />
+        </property>
+        <property name="purchaseValue" type="big_decimal">
+            <column name="PURCHASE_VALUE" precision="9" />
+        </property>
+        <property name="motorNumber" type="string">
+            <column name="MOTOR_NUMBER" length="40" />
+        </property>
+        <property name="fixDate" type="date">
+            <column name="FIX_DATE" length="7" not-null="true" />
+        </property>
+        <property name="fixLetterNo" type="java.lang.Integer">
+            <column name="FIX_LETTER_NO" precision="9" scale="0" />
+        </property>
+        <property name="shassNumber" type="string">
+            <column name="SHASS_NUMBER" length="40" />
+        </property>
+        <property name="invoiceNumber" type="java.lang.Integer">
+            <column name="INVOICE_NUMBER" precision="6" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2021 2:01:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.AppSubTabAuthType" table="APP_SUB_TAB_AUTH_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="authTypeId" type="short">
+            <column name="AUTH_TYPE_ID" precision="3" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="authTypeName" type="string">
+            <column name="AUTH_TYPE_NAME" length="30" not-null="true" />
+        </property>
+        <set name="appSubTabs" table="APP_SUB_TAB" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AUTH_TYPE_ID" precision="3" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppSubTab" />
+        </set>
+    </class>
+</hibernate-mapping>

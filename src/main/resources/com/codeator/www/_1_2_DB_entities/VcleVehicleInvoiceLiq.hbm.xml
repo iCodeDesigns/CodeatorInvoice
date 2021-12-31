@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceLiq" table="VCLE_VEHICLE_INVOICE_LIQ" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceLiqId">
+            <key-property name="invoiceSp" type="int">
+                <column name="INVOICE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="invoiceDate" type="date">
+                <column name="INVOICE_DATE" length="7" />
+            </key-property>
+            <key-property name="currDate" type="date">
+                <column name="CURR_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleIssueDocumentLiq" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentLiq" fetch="select">
+            <column name="FISCAL_YEAR" precision="4" scale="0" />
+            <column name="VC_ISSUE_DOC_SP" precision="12" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleCostType" class="com.codeator.www._1_2_DB_entities.VcleCostType" fetch="select">
+            <column name="COST_TYPE" precision="1" scale="0" not-null="true" />
+            <column name="COST_CODE" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="invoiceN0" type="java.lang.Integer">
+            <column name="INVOICE_N0" precision="6" scale="0" />
+        </property>
+        <property name="userEmployeeNo" type="java.lang.Long">
+            <column name="USER_EMPLOYEE_NO" precision="10" scale="0" />
+        </property>
+        <property name="ghaName" type="string">
+            <column name="GHA_NAME" length="200" />
+        </property>
+        <property name="invoiceValue" type="big_decimal">
+            <column name="INVOICE_VALUE" precision="11" />
+        </property>
+        <property name="issueDocDate" type="date">
+            <column name="ISSUE_DOC_DATE" length="7" />
+        </property>
+        <property name="issueDocSerial" type="java.lang.Long">
+            <column name="ISSUE_DOC_SERIAL" precision="12" scale="0" />
+        </property>
+        <property name="boardNumber" type="string">
+            <column name="BOARD_NUMBER" length="240" />
+        </property>
+        <property name="fuelType" type="java.lang.Boolean">
+            <column name="FUEL_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

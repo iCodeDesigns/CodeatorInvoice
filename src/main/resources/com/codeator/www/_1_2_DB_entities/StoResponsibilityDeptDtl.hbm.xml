@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptDtl" table="STO_RESPONSIBILITY_DEPT_DTL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptDtlId">
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="respSp" type="int">
+                <column name="RESP_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="itemDescSp" type="short">
+                <column name="ITEM_DESC_SP" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="stoResponsibilityDept" class="com.codeator.www._1_2_DB_entities.StoResponsibilityDept" update="false" insert="false"
+        fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="RESP_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="itemDigital" type="string">
+            <column name="ITEM_DIGITAL" length="11" />
+        </property>
+        <property name="serialNoInc" type="string">
+            <column name="SERIAL_NO_INC" length="60" />
+        </property>
+        <property name="itemRespDesc" type="string">
+            <column name="ITEM_RESP_DESC" length="200" not-null="true" />
+        </property>
+        <property name="respTypeActDtl" type="java.lang.Boolean">
+            <column name="RESP_TYPE_ACT_DTL" precision="1" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

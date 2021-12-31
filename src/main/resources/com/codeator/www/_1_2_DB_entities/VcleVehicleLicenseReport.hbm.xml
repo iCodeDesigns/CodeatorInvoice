@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseReport" table="VCLE_VEHICLE_LICENSE_REPORT" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseReportId">
+            <key-property name="reportType" type="boolean">
+                <column name="REPORT_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="fiscalDate" type="date">
+                <column name="FISCAL_DATE" length="7" />
+            </key-property>
+            <key-property name="reportSp" type="int">
+                <column name="REPORT_SP" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" fetch="select">
+            <column name="VCLE_TYPE" length="2" />
+        </many-to-one>
+        <many-to-one name="vcleProcedureLicenseType" class="com.codeator.www._1_2_DB_entities.VcleProcedureLicenseType" fetch="select">
+            <column name="LICENSE_TYPE" precision="3" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleIssueDocumentLin" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentLin" fetch="select">
+            <column name="FISCAL_YEAR" precision="4" scale="0" />
+            <column name="VC_ISSUE_DOC_SP" precision="12" scale="0" />
+        </many-to-one>
+        <property name="reportDate" type="date">
+            <column name="REPORT_DATE" length="7" />
+        </property>
+        <property name="execMm" type="date">
+            <column name="EXEC_MM" length="7" />
+        </property>
+        <property name="vcIssueDocSeq" type="java.lang.Integer">
+            <column name="VC_ISSUE_DOC_SEQ" precision="6" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="licenseMm" type="date">
+            <column name="LICENSE_MM" length="7" not-null="true" />
+        </property>
+        <set name="vcleVehicleLicenseDtls" table="VCLE_VEHICLE_LICENSE_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REPORT_TYPE" precision="1" scale="0" />
+                <column name="FISCAL_DATE" length="7" />
+                <column name="REPORT_SP" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseDtl" />
+        </set>
+        <set name="vcleVehicleLicenseReportDts" table="VCLE_VEHICLE_LICENSE_REPORT_DT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REPORT_TYPE" precision="1" scale="0" not-null="true" />
+                <column name="FISCAL_DATE" length="7" not-null="true" />
+                <column name="REPORT_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseReportDt" />
+        </set>
+        <set name="vcleVehicleLicenseReportCrs" table="VCLE_VEHICLE_LICENSE_REPORT_CR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REPORT_TYPE" precision="1" scale="0" not-null="true" />
+                <column name="FISCAL_DATE" length="7" not-null="true" />
+                <column name="REPORT_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseReportCr" />
+        </set>
+    </class>
+</hibernate-mapping>

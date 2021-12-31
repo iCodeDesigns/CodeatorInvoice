@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 11, 2021 5:44:34 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoUnitType" table="INVO_UNIT_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="unitType" type="string">
+            <column name="UNIT_TYPE" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="AUnitName" type="string">
+            <column name="A_UNIT_NAME" length="75" not-null="true" />
+        </property>
+        <property name="EUnitName" type="string">
+            <column name="E_UNIT_NAME" length="75" />
+        </property>
+        <property name="calcType" type="string">
+            <column name="CALC_TYPE" length="1" />
+        </property>
+        <set name="invoDeptUnitJoins" table="INVO_DEPT_UNIT_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UNIT_TYPE" length="5" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptUnitJoin" />
+        </set>
+        <set name="invoInvoiceMasterItems" table="INVO_INVOICE_MASTER_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UNIT_TYPE" length="5" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterItem" />
+        </set>
+    </class>
+</hibernate-mapping>

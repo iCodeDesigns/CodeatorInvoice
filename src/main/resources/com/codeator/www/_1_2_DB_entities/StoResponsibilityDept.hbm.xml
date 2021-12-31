@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.StoResponsibilityDept" table="STO_RESPONSIBILITY_DEPT" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptId">
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="respSp" type="int">
+                <column name="RESP_SP" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perDeptOld" class="com.codeator.www._1_2_DB_entities.PerDeptOld" update="false" insert="false" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perLocationCode" class="com.codeator.www._1_2_DB_entities.PerLocationCode" fetch="select">
+            <column name="LOCATION_CODE" length="3" />
+            <column name="LOC_CODE" length="3" />
+        </many-to-one>
+        <many-to-one name="stoResponsibilityDept" class="com.codeator.www._1_2_DB_entities.StoResponsibilityDept" fetch="select">
+            <column name="SECTION_NO_OLD_FROM" precision="5" scale="0" />
+            <column name="DEP_NO_OLD_FROM" precision="10" scale="0" />
+            <column name="RESP_SP_FROM" precision="6" scale="0" />
+        </many-to-one>
+        <property name="recvType" type="boolean">
+            <column name="RECV_TYPE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="eznDate" type="date">
+            <column name="EZN_DATE" length="7" not-null="true" />
+        </property>
+        <property name="qty" type="big_decimal">
+            <column name="QTY" precision="11" scale="3" not-null="true" />
+        </property>
+        <property name="itemName" type="string">
+            <column name="ITEM_NAME" length="200" />
+        </property>
+        <property name="respTypeAct" type="java.lang.Boolean">
+            <column name="RESP_TYPE_ACT" precision="1" scale="0" />
+        </property>
+        <property name="itemDesc" type="string">
+            <column name="ITEM_DESC" length="200" />
+        </property>
+        <property name="itemClass" type="string">
+            <column name="ITEM_CLASS" length="200" />
+        </property>
+        <property name="eznNo" type="java.lang.Long">
+            <column name="EZN_NO" precision="11" scale="0" />
+        </property>
+        <property name="qtyInitial" type="big_decimal">
+            <column name="QTY_INITIAL" precision="11" scale="3" />
+        </property>
+        <property name="sal" type="big_decimal">
+            <column name="SAL" precision="11" scale="3" />
+        </property>
+        <property name="val" type="big_decimal">
+            <column name="VAL" precision="11" scale="3" />
+        </property>
+        <property name="statusItem" type="java.lang.Boolean">
+            <column name="STATUS_ITEM" precision="1" scale="0" />
+        </property>
+        <property name="unitCode" type="java.lang.Short">
+            <column name="UNIT_CODE" precision="3" scale="0" />
+        </property>
+        <property name="unitCodeInitial" type="java.lang.Short">
+            <column name="UNIT_CODE_INITIAL" precision="3" scale="0" />
+        </property>
+        <property name="issueDateInitial" type="date">
+            <column name="ISSUE_DATE_INITIAL" length="7" />
+        </property>
+        <property name="employeeNo" type="java.lang.Long">
+            <column name="EMPLOYEE_NO" precision="10" scale="0" />
+        </property>
+        <property name="employeeNoErr" type="java.lang.Long">
+            <column name="EMPLOYEE_NO_ERR" precision="10" scale="0" />
+        </property>
+        <property name="itemInclude" type="string">
+            <column name="ITEM_INCLUDE" length="200" />
+        </property>
+        <property name="userId" type="java.lang.Long">
+            <column name="USER_ID" precision="10" scale="0" />
+        </property>
+        <property name="cateCode" type="string">
+            <column name="CATE_CODE" length="2" />
+        </property>
+        <property name="groupCode" type="string">
+            <column name="GROUP_CODE" length="3" />
+        </property>
+        <property name="sectionCode" type="string">
+            <column name="SECTION_CODE" length="3" />
+        </property>
+        <property name="itemCode" type="string">
+            <column name="ITEM_CODE" length="3" />
+        </property>
+        <property name="itemDigital" type="string">
+            <column name="ITEM_DIGITAL" length="11" />
+        </property>
+        <property name="serialNo" type="string">
+            <column name="SERIAL_NO" length="60" />
+        </property>
+        <property name="decisionNo" type="string">
+            <column name="DECISION_NO" length="20" />
+        </property>
+        <property name="decisionDate" type="date">
+            <column name="DECISION_DATE" length="7" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <set name="stoResponsibilityDepts" table="STO_RESPONSIBILITY_DEPT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD_FROM" precision="5" scale="0" />
+                <column name="DEP_NO_OLD_FROM" precision="10" scale="0" />
+                <column name="RESP_SP_FROM" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoResponsibilityDept" />
+        </set>
+        <set name="stoResponsibilityDeptDels" table="STO_RESPONSIBILITY_DEPT_DEL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="RESP_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptDel" />
+        </set>
+        <set name="stoResponsibilityDeptDtls" table="STO_RESPONSIBILITY_DEPT_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="RESP_SP" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

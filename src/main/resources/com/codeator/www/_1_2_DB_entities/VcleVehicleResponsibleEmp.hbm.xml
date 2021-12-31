@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleResponsibleEmp" table="VCLE_VEHICLE_RESPONSIBLE_EMP" schema="CODEATOR"
+    optimistic-lock="version">
+        <id name="employeeId" type="long">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            <generator class="foreign">
+                <param name="property">vcleEmployeeMaster</param>
+            </generator>
+        </id>
+        <many-to-one name="vcleWorkshopeCode" class="com.codeator.www._1_2_DB_entities.VcleWorkshopeCode" fetch="select">
+            <column name="WORKSHOPE_CODE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleResponsibleEmp" class="com.codeator.www._1_2_DB_entities.VcleVehicleResponsibleEmp" fetch="select">
+            <column name="EMPLOYEE_ID_BOSS" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleRepairType" class="com.codeator.www._1_2_DB_entities.VcleVehicleRepairType" fetch="select">
+            <column name="REPAIR_TYPE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleMainCost" class="com.codeator.www._1_2_DB_entities.VcleMainCost" fetch="select">
+            <column name="MAIN_CODE" length="10" not-null="true" />
+        </many-to-one>
+        <one-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" constrained="true"></one-to-one>
+        <property name="employeeNo" type="java.lang.Long">
+            <column name="EMPLOYEE_NO" precision="10" scale="0" />
+        </property>
+        <property name="responseType" type="java.lang.Boolean">
+            <column name="RESPONSE_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="vcleType" type="string">
+            <column name="VCLE_TYPE" length="2" />
+        </property>
+        <set name="vcleVehicleResponseWorks" table="VCLE_VEHICLE_RESPONSE_WORK" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleResponseWork" />
+        </set>
+        <set name="vcleVehicleResponsibleEmps" table="VCLE_VEHICLE_RESPONSIBLE_EMP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID_BOSS" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleResponsibleEmp" />
+        </set>
+    </class>
+</hibernate-mapping>

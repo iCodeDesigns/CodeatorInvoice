@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 24, 2021 10:50:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" table="PER_EMPLOYMENT_MASTER" schema="CODEATOR" optimistic-lock="version">
+        <id name="employeeId" type="long">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perEmploymentParameter" class="com.codeator.www._1_2_DB_entities.PerEmploymentParameter" fetch="select">
+            <column name="EMPLOYMENT_SOURCE_CODE" length="5" />
+        </many-to-one>
+        <many-to-one name="perGeneralCode" class="com.codeator.www._1_2_DB_entities.PerGeneralCode" fetch="select">
+            <column name="GENERAL_CODE" length="3" />
+        </many-to-one>
+        <many-to-one name="perOrganizationStructure" class="com.codeator.www._1_2_DB_entities.PerOrganizationStructure" fetch="select">
+            <column name="ORG_ID" length="5" />
+        </many-to-one>
+        <many-to-one name="perOrgunitCode" class="com.codeator.www._1_2_DB_entities.PerOrgunitCode" fetch="select">
+            <column name="ORGUNIT_CODE" length="3" />
+        </many-to-one>
+        <many-to-one name="perQualClass" class="com.codeator.www._1_2_DB_entities.PerQualClass" fetch="select">
+            <column name="QUAL_CLASS_CODE" length="2" />
+        </many-to-one>
+        <many-to-one name="perQualCode" class="com.codeator.www._1_2_DB_entities.PerQualCode" fetch="select">
+            <column name="QUAL_CODE" length="5" />
+        </many-to-one>
+        <many-to-one name="perDeptOld" class="com.codeator.www._1_2_DB_entities.PerDeptOld" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perLocationCode" class="com.codeator.www._1_2_DB_entities.PerLocationCode" fetch="select">
+            <column name="LOCATION_CODE" length="3" />
+            <column name="LOC_CODE" length="3" />
+        </many-to-one>
+        <property name="employeeNo" type="string">
+            <column name="EMPLOYEE_NO" length="10" not-null="true" />
+        </property>
+        <property name="empEname" type="string">
+            <column name="EMP_ENAME" length="75" />
+        </property>
+        <property name="empAname" type="string">
+            <column name="EMP_ANAME" length="75" not-null="true" />
+        </property>
+        <property name="contractDate" type="date">
+            <column name="CONTRACT_DATE" length="7" />
+        </property>
+        <property name="contractEnddate" type="date">
+            <column name="CONTRACT_ENDDATE" length="7" />
+        </property>
+        <property name="birthDate" type="date">
+            <column name="BIRTH_DATE" length="7" />
+        </property>
+        <property name="qualYear" type="date">
+            <column name="QUAL_YEAR" length="7" />
+        </property>
+        <property name="subDepNoOld" type="java.lang.Long">
+            <column name="SUB_DEP_NO_OLD" precision="10" scale="0" />
+        </property>
+        <property name="secSubDepNo" type="java.lang.Long">
+            <column name="SEC_SUB_DEP_NO" precision="10" scale="0" />
+        </property>
+        <set name="stoResponsibilityHistoryEmps" table="STO_RESPONSIBILITY_HISTORY_EMP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoResponsibilityHistoryEmp" />
+        </set>
+        <set name="vcleVehicleDriverJoins" table="VCLE_VEHICLE_DRIVER_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleDriverJoin" />
+        </set>
+        <set name="stoResponsibilityDepts" table="STO_RESPONSIBILITY_DEPT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoResponsibilityDept" />
+        </set>
+        <set name="invoAccUintDepts" table="INVO_ACC_UINT_DEPT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoAccUintDept" />
+        </set>
+        <set name="stoResponsibilityDeptItms" table="STO_RESPONSIBILITY_DEPT_ITM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptItm" />
+        </set>
+        <set name="vcleIssueDocumentLiqs" table="VCLE_ISSUE_DOCUMENT_LIQ" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentLiq" />
+        </set>
+        <one-to-one name="stoRespEmpReq" class="com.codeator.www._1_2_DB_entities.StoRespEmpReq"></one-to-one>
+        <set name="vcleVehicleRequiresForEmployeeIdDriver" table="VCLE_VEHICLE_REQUIRE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID_DRIVER" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleRequire" />
+        </set>
+        <set name="purContractMasters" table="PUR_CONTRACT_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractMaster" />
+        </set>
+        <set name="vcleIssueDocumentMainDtls" table="VCLE_ISSUE_DOCUMENT_MAIN_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMainDtl" />
+        </set>
+        <set name="vcleVehicleClassDtls" table="VCLE_VEHICLE_CLASS_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleClassDtl" />
+        </set>
+        <set name="purSuppWorkDtls" table="PUR_SUPP_WORK_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurSuppWorkDtl" />
+        </set>
+        <one-to-one name="vcleVehicleRequireEmp" class="com.codeator.www._1_2_DB_entities.VcleVehicleRequireEmp"></one-to-one>
+        <set name="vcleVehicleRequiresForEmployeeId" table="VCLE_VEHICLE_REQUIRE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleRequire" />
+        </set>
+        <one-to-one name="vcleAssociationEmp" class="com.codeator.www._1_2_DB_entities.VcleAssociationEmp"></one-to-one>
+        <set name="invoInvoiceMastersForEmployeeIdPaid" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID_PAID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+        <set name="vcleTrafficEmpPerms" table="VCLE_TRAFFIC_EMP_PERM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleTrafficEmpPerm" />
+        </set>
+        <set name="vcleVehicleLicensesForEmployeeId" table="VCLE_VEHICLE_LICENSE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicense" />
+        </set>
+        <set name="invoItemCodes" table="INVO_ITEM_CODE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoItemCode" />
+        </set>
+        <set name="purContractServiceTypes" table="PUR_CONTRACT_SERVICE_TYPE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractServiceType" />
+        </set>
+        <set name="purSuppWorksForUpdateEmpId" table="PUR_SUPP_WORK" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UPDATE_EMP_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurSuppWork" />
+        </set>
+        <one-to-one name="appAuthJavaUsers" class="com.codeator.www._1_2_DB_entities.AppAuthJavaUsers"></one-to-one>
+        <set name="purSuppWorksForInsertEmpId" table="PUR_SUPP_WORK" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="INSERT_EMP_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurSuppWork" />
+        </set>
+        <set name="vcleRecordMovements" table="VCLE_RECORD_MOVEMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleRecordMovement" />
+        </set>
+        <set name="invoInvoiceMastersForEmployeeId" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+        <set name="invoInvoiceMasterStatuses" table="INVO_INVOICE_MASTER_STATUS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterStatus" />
+        </set>
+        <set name="vcleVehicleIncomes" table="VCLE_VEHICLE_INCOME" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleIncome" />
+        </set>
+        <set name="vcleTrafficLines" table="VCLE_TRAFFIC_LINE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleTrafficLine" />
+        </set>
+        <set name="vcleMotorChanges" table="VCLE_MOTOR_CHANGE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleMotorChange" />
+        </set>
+        <set name="vcleVehicleRequireStatusDts" table="VCLE_VEHICLE_REQUIRE_STATUS_DT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleRequireStatusDt" />
+        </set>
+        <set name="vcleIssueDocumentMans" table="VCLE_ISSUE_DOCUMENT_MAN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMan" />
+        </set>
+        <set name="invoAdvProducerCodes" table="INVO_ADV_PRODUCER_CODE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoAdvProducerCode" />
+        </set>
+        <set name="appSubElemSpecAuthsForEmployeeId" table="APP_SUB_ELEM_SPEC_AUTH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppSubElemSpecAuth" />
+        </set>
+        <set name="vcleVehicleLicenseDtls" table="VCLE_VEHICLE_LICENSE_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseDtl" />
+        </set>
+        <set name="appSubElemSpecAuthsForEmployeeIdAction" table="APP_SUB_ELEM_SPEC_AUTH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID_ACTION" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppSubElemSpecAuth" />
+        </set>
+        <set name="invoAdvCollectorCodes" table="INVO_ADV_COLLECTOR_CODE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoAdvCollectorCode" />
+        </set>
+        <set name="appSubTabSpecAuthsForEmployeeId" table="APP_SUB_TAB_SPEC_AUTH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppSubTabSpecAuth" />
+        </set>
+        <set name="vcleTravelExchanges" table="VCLE_TRAVEL_EXCHANGE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleTravelExchange" />
+        </set>
+        <set name="vcleVehicleLicensesForEmployeeIdReceive" table="VCLE_VEHICLE_LICENSE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID_RECEIVE" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicense" />
+        </set>
+        <set name="vcleRecordMovementJoins" table="VCLE_RECORD_MOVEMENT_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleRecordMovementJoin" />
+        </set>
+        <set name="appSubTabSpecAuthsForEmployeeIdAction" table="APP_SUB_TAB_SPEC_AUTH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID_ACTION" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.AppSubTabSpecAuth" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.StoItemCateGroupSecSer" table="STO_ITEM_CATE_GROUP_SEC_SER" schema="CODEATOR" optimistic-lock="version">
+        <id name="itemSerSp" type="int">
+            <column name="ITEM_SER_SP" precision="9" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="stoItemCateGroupSecDtl" class="com.codeator.www._1_2_DB_entities.StoItemCateGroupSecDtl" fetch="select">
+            <column name="ITEM_NUMBER_SP" precision="9" scale="0" />
+        </many-to-one>
+        <property name="accountNo" type="string">
+            <column name="ACCOUNT_NO" length="15" />
+        </property>
+        <property name="assLocCode" type="string">
+            <column name="ASS_LOC_CODE" length="5" />
+        </property>
+        <property name="assGroupNo" type="string">
+            <column name="ASS_GROUP_NO" length="5" />
+        </property>
+        <property name="assGroupName" type="string">
+            <column name="ASS_GROUP_NAME" length="50" />
+        </property>
+        <property name="assAssetNo" type="string">
+            <column name="ASS_ASSET_NO" length="5" />
+        </property>
+        <property name="assAssetTitle" type="string">
+            <column name="ASS_ASSET_TITLE" length="100" />
+        </property>
+        <property name="assMachineNo" type="string">
+            <column name="ASS_MACHINE_NO" length="15" />
+        </property>
+        <property name="assMotorNo" type="string">
+            <column name="ASS_MOTOR_NO" length="15" />
+        </property>
+        <property name="assShasaihNo" type="string">
+            <column name="ASS_SHASAIH_NO" length="15" />
+        </property>
+        <property name="assAssetStatus" type="java.lang.Byte">
+            <column name="ASS_ASSET_STATUS" precision="2" scale="0" />
+        </property>
+        <property name="itemDigital" type="java.lang.Long">
+            <column name="ITEM_DIGITAL" precision="11" scale="0" />
+        </property>
+        <property name="cateCode" type="string">
+            <column name="CATE_CODE" length="2" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

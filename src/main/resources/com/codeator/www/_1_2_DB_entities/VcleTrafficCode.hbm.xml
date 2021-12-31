@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleTrafficCode" table="VCLE_TRAFFIC_CODE" schema="CODEATOR" optimistic-lock="version">
+        <id name="trafficCode" type="short">
+            <column name="TRAFFIC_CODE" precision="3" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perGovernorateCode" class="com.codeator.www._1_2_DB_entities.PerGovernorateCode" fetch="select">
+            <column name="COUNTRY_CODE" length="5" />
+            <column name="GOV_CODE" length="5" />
+        </many-to-one>
+        <property name="trafficName" type="string">
+            <column name="TRAFFIC_NAME" length="100" not-null="true" />
+        </property>
+        <set name="vcleVehicleLicenses" table="VCLE_VEHICLE_LICENSE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TRAFFIC_CODE" precision="3" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicense" />
+        </set>
+    </class>
+</hibernate-mapping>

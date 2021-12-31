@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleDeptNumberJoin" table="VCLE_DEPT_NUMBER_JOIN" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleDeptNumberJoinId">
+            <key-property name="deptId" type="int">
+                <column name="DEPT_ID" precision="7" scale="0" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleDeptNumber" class="com.codeator.www._1_2_DB_entities.VcleDeptNumber" update="false" insert="false" fetch="select">
+            <column name="DEPT_ID" precision="7" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perDeptOld" class="com.codeator.www._1_2_DB_entities.PerDeptOld" update="false" insert="false" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

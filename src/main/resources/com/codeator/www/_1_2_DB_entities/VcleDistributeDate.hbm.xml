@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleDistributeDate" table="VCLE_DISTRIBUTE_DATE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleDistributeDateId">
+            <key-property name="travelDd" type="byte">
+                <column name="TRAVEL_DD" precision="2" scale="0" />
+            </key-property>
+            <key-property name="travelMm" type="byte">
+                <column name="TRAVEL_MM" precision="2" scale="0" />
+            </key-property>
+            <key-property name="fiscalYear" type="short">
+                <column name="FISCAL_YEAR" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleDistributeDateOpen" class="com.codeator.www._1_2_DB_entities.VcleDistributeDateOpen" update="false" insert="false"
+        fetch="select">
+            <column name="FISCAL_YEAR" precision="4" scale="0" not-null="true" />
+            <column name="TRAVEL_MM" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="rmrkDay" type="string">
+            <column name="RMRK_DAY" length="100" />
+        </property>
+        <property name="travelDate" type="date">
+            <column name="TRAVEL_DATE" length="7" />
+        </property>
+        <set name="vcleDistributeDateAhramPms" table="VCLE_DISTRIBUTE_DATE_AHRAM_PM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TRAVEL_DD" precision="2" scale="0" not-null="true" />
+                <column name="TRAVEL_MM" precision="2" scale="0" not-null="true" />
+                <column name="FISCAL_YEAR" precision="4" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDistributeDateAhramPm" />
+        </set>
+        <set name="vcleDistributeDateAhramAms" table="VCLE_DISTRIBUTE_DATE_AHRAM_AM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TRAVEL_DD" precision="2" scale="0" not-null="true" />
+                <column name="TRAVEL_MM" precision="2" scale="0" not-null="true" />
+                <column name="FISCAL_YEAR" precision="4" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDistributeDateAhramAm" />
+        </set>
+    </class>
+</hibernate-mapping>

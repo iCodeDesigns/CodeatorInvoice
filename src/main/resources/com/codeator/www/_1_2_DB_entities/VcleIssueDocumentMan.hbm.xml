@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMan" table="VCLE_ISSUE_DOCUMENT_MAN" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentManId">
+            <key-property name="fiscalYear" type="short">
+                <column name="FISCAL_YEAR" precision="4" scale="0" />
+            </key-property>
+            <key-property name="vcIssueDocSp" type="long">
+                <column name="VC_ISSUE_DOC_SP" precision="12" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perOrganizationStructure" class="com.codeator.www._1_2_DB_entities.PerOrganizationStructure" fetch="select">
+            <column name="ORG_ID" length="5" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="currencyCode" type="string">
+            <column name="CURRENCY_CODE" length="4" />
+        </property>
+        <property name="issueDocSerial" type="java.lang.Long">
+            <column name="ISSUE_DOC_SERIAL" precision="12" scale="0" />
+        </property>
+        <property name="issueDocDate" type="date">
+            <column name="ISSUE_DOC_DATE" length="7" />
+        </property>
+        <property name="issueType" type="string">
+            <column name="ISSUE_TYPE" length="2" />
+        </property>
+        <property name="editorUserId" type="big_decimal">
+            <column name="EDITOR_USER_ID" precision="22" scale="0" />
+        </property>
+        <property name="issueDocStatus" type="string">
+            <column name="ISSUE_DOC_STATUS" length="2" />
+        </property>
+        <property name="vcDeserveValue" type="big_decimal">
+            <column name="VC_DESERVE_VALUE" precision="16" scale="3" />
+        </property>
+        <property name="vcCutValue" type="big_decimal">
+            <column name="VC_CUT_VALUE" precision="16" scale="3" />
+        </property>
+        <property name="vcDeserveNoyes" type="string">
+            <column name="VC_DESERVE_NOYES" length="100" />
+        </property>
+        <property name="vcDeserveName" type="string">
+            <column name="VC_DESERVE_NAME" length="150" />
+        </property>
+        <property name="accountUnitCode" type="string">
+            <column name="ACCOUNT_UNIT_CODE" length="4" />
+        </property>
+        <property name="vcDeserveDocCount" type="java.lang.Short">
+            <column name="VC_DESERVE_DOC_COUNT" precision="3" scale="0" />
+        </property>
+        <property name="vcIssueDocType" type="string">
+            <column name="VC_ISSUE_DOC_TYPE" length="5" />
+        </property>
+        <set name="vcleVehicleInvoiceMans" table="VCLE_VEHICLE_INVOICE_MAN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FISCAL_YEAR" precision="4" scale="0" />
+                <column name="VC_ISSUE_DOC_SP" precision="12" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInvoiceMan" />
+        </set>
+        <set name="vcleIssueDocumentManTypes" table="VCLE_ISSUE_DOCUMENT_MAN_TYPE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FISCAL_YEAR" precision="4" scale="0" not-null="true" />
+                <column name="VC_ISSUE_DOC_SP" precision="12" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentManType" />
+        </set>
+    </class>
+</hibernate-mapping>

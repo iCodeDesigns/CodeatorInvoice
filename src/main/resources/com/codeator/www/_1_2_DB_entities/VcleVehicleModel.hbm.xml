@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleModel" table="VCLE_VEHICLE_MODEL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleModelId">
+            <key-property name="vcleType" type="string">
+                <column name="VCLE_TYPE" length="2" />
+            </key-property>
+            <key-property name="markType" type="string">
+                <column name="MARK_TYPE" length="3" />
+            </key-property>
+            <key-property name="modelCode" type="int">
+                <column name="MODEL_CODE" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" update="false" insert="false" fetch="select">
+            <column name="VCLE_TYPE" length="2" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleMarkType" class="com.codeator.www._1_2_DB_entities.VcleMarkType" update="false" insert="false" fetch="select">
+            <column name="MARK_TYPE" length="3" not-null="true" />
+        </many-to-one>
+        <property name="modelName" type="string">
+            <column name="MODEL_NAME" length="100" not-null="true" />
+        </property>
+        <set name="vcleVehicleMasters" table="VCLE_VEHICLE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VCLE_TYPE" length="2" />
+                <column name="MARK_TYPE" length="3" />
+                <column name="MODEL_CODE" precision="6" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

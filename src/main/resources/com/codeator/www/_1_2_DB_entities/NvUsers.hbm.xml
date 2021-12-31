@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2021 9:29:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.NvUsers" table="NV_USERS" schema="CODEATOR" optimistic-lock="version">
+        <id name="userId" type="big_decimal">
+            <column name="USER_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="loginName" type="string">
+            <column name="LOGIN_NAME" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="USER_NAME" length="200" />
+        </property>
+        <property name="userPass" type="string">
+            <column name="USER_PASS" length="20" />
+        </property>
+        <property name="confirmPass" type="string">
+            <column name="CONFIRM_PASS" length="20" />
+        </property>
+        <property name="userData" type="string">
+            <column name="USER_DATA" length="1000" />
+        </property>
+        <property name="userType" type="string">
+            <column name="USER_TYPE" length="1" />
+        </property>
+        <property name="userClass" type="java.lang.Byte">
+            <column name="USER_CLASS" precision="2" scale="0" />
+        </property>
+        <property name="userStatus" type="java.lang.Byte">
+            <column name="USER_STATUS" precision="2" scale="0" />
+        </property>
+        <property name="stopDate" type="date">
+            <column name="STOP_DATE" length="7" />
+        </property>
+        <property name="stopReason" type="string">
+            <column name="STOP_REASON" length="1000" />
+        </property>
+    </class>
+</hibernate-mapping>

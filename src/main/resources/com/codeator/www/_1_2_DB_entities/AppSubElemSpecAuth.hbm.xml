@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 27, 2021 2:01:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.AppSubElemSpecAuth" table="APP_SUB_ELEM_SPEC_AUTH" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.AppSubElemSpecAuthId">
+            <key-property name="applicationId" type="short">
+                <column name="APPLICATION_ID" precision="3" scale="0" />
+            </key-property>
+            <key-property name="tabId" type="int">
+                <column name="TAB_ID" precision="5" scale="0" />
+            </key-property>
+            <key-property name="subTabId" type="int">
+                <column name="SUB_TAB_ID" precision="8" scale="0" />
+            </key-property>
+            <key-property name="elementId" type="int">
+                <column name="ELEMENT_ID" precision="5" scale="0" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perEmploymentMasterByEmployeeId" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" update="false" insert="false"
+        fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMasterByEmployeeIdAction" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID_ACTION" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="appSubElem" class="com.codeator.www._1_2_DB_entities.AppSubElem" update="false" insert="false" fetch="select">
+            <column name="APPLICATION_ID" precision="3" scale="0" not-null="true" />
+            <column name="TAB_ID" precision="5" scale="0" not-null="true" />
+            <column name="SUB_TAB_ID" precision="8" scale="0" not-null="true" />
+            <column name="ELEMENT_ID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="actionDate" type="date">
+            <column name="ACTION_DATE" length="7" />
+        </property>
+        <property name="actionDateDetails" type="string">
+            <column name="ACTION_DATE_DETAILS" length="25" />
+        </property>
+        <property name="primaryAuthPass" type="java.lang.Byte">
+            <column name="PRIMARY_AUTH_PASS" precision="2" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

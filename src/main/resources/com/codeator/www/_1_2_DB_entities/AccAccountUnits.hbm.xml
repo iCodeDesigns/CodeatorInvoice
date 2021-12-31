@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2021 9:29:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.AccAccountUnits" table="ACC_ACCOUNT_UNITS" schema="CODEATOR" optimistic-lock="version">
+        <id name="accountUnitCode" type="string">
+            <column name="ACCOUNT_UNIT_CODE" length="4" />
+            <generator class="assigned" />
+        </id>
+        <property name="accountUnitName" type="string">
+            <column name="ACCOUNT_UNIT_NAME" length="100" not-null="true" />
+        </property>
+        <property name="reviewFlag" type="boolean">
+            <column name="REVIEW_FLAG" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="recordCreateUser" type="string">
+            <column name="RECORD_CREATE_USER" length="15" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateUser" type="string">
+            <column name="RECORD_UPDATE_USER" length="15" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <property name="accountUnitMain" type="boolean">
+            <column name="ACCOUNT_UNIT_MAIN" precision="1" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

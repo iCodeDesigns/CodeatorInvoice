@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.StoItemCateCode" table="STO_ITEM_CATE_CODE" schema="CODEATOR" optimistic-lock="version">
+        <id name="cateCode" type="string">
+            <column name="CATE_CODE" length="2" />
+            <generator class="assigned" />
+        </id>
+        <property name="cateName" type="string">
+            <column name="CATE_NAME" length="200" not-null="true" />
+        </property>
+        <set name="stoItemCateGroups" table="STO_ITEM_CATE_GROUP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CATE_CODE" length="2" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoItemCateGroup" />
+        </set>
+    </class>
+</hibernate-mapping>

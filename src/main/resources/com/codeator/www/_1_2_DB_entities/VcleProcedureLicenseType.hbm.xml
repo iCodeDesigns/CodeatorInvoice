@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleProcedureLicenseType" table="VCLE_PROCEDURE_LICENSE_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="licenseType" type="short">
+            <column name="LICENSE_TYPE" precision="3" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="licenseTypeName" type="string">
+            <column name="LICENSE_TYPE_NAME" length="100" not-null="true" />
+        </property>
+        <set name="vcleProcedureLicenseJoins" table="VCLE_PROCEDURE_LICENSE_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleProcedureLicenseJoin" />
+        </set>
+        <set name="vcleVehicleLicenses" table="VCLE_VEHICLE_LICENSE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicense" />
+        </set>
+        <set name="vcleVehicleInspects" table="VCLE_VEHICLE_INSPECT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInspect" />
+        </set>
+        <set name="vcleVehicleLicenseReports" table="VCLE_VEHICLE_LICENSE_REPORT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LICENSE_TYPE" precision="3" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicenseReport" />
+        </set>
+    </class>
+</hibernate-mapping>

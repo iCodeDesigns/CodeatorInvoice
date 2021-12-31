@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleInsuranceCompany" table="VCLE_INSURANCE_COMPANY" schema="CODEATOR" optimistic-lock="version">
+        <id name="companyCode" type="byte">
+            <column name="COMPANY_CODE" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="icompanyName" type="string">
+            <column name="ICOMPANY_NAME" length="60" not-null="true" />
+        </property>
+        <set name="vcleVehicleLicenses" table="VCLE_VEHICLE_LICENSE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COMPANY_CODE" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleLicense" />
+        </set>
+    </class>
+</hibernate-mapping>

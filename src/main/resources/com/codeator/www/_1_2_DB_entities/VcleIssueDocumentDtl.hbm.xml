@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleIssueDocumentDtl" table="VCLE_ISSUE_DOCUMENT_DTL" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentDtlId">
+            <key-property name="fiscalDate" type="date">
+                <column name="FISCAL_DATE" length="7" />
+            </key-property>
+            <key-property name="issueDocSp" type="int">
+                <column name="ISSUE_DOC_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="issueDocSerial" type="byte">
+                <column name="ISSUE_DOC_SERIAL" precision="2" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleIssueDocument" class="com.codeator.www._1_2_DB_entities.VcleIssueDocument" update="false" insert="false" fetch="select">
+            <column name="FISCAL_DATE" length="7" not-null="true" />
+            <column name="ISSUE_DOC_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="documentValue" type="big_decimal">
+            <column name="DOCUMENT_VALUE" precision="16" scale="3" not-null="true" />
+        </property>
+        <property name="documentNo" type="string">
+            <column name="DOCUMENT_NO" length="10" />
+        </property>
+        <property name="documentCount" type="java.lang.Short">
+            <column name="DOCUMENT_COUNT" precision="3" scale="0" />
+        </property>
+        <property name="documentType" type="string">
+            <column name="DOCUMENT_TYPE" length="75" />
+        </property>
+        <property name="documentDate" type="date">
+            <column name="DOCUMENT_DATE" length="7" />
+        </property>
+        <property name="documentNote" type="string">
+            <column name="DOCUMENT_NOTE" length="150" />
+        </property>
+    </class>
+</hibernate-mapping>

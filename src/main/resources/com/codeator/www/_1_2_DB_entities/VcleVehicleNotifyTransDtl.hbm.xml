@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleNotifyTransDtl" table="VCLE_VEHICLE_NOTIFY_TRANS_DTL" schema="CODEATOR"
+    optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleNotifyTransDtlId">
+            <key-property name="workshopeCode" type="byte">
+                <column name="WORKSHOPE_CODE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+            <key-property name="notifySp" type="int">
+                <column name="NOTIFY_SP" precision="9" scale="0" />
+            </key-property>
+            <key-property name="fiscalDate" type="date">
+                <column name="FISCAL_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleWorkshopeCode" class="com.codeator.www._1_2_DB_entities.VcleWorkshopeCode" update="false" insert="false" fetch="select">
+            <column name="WORKSHOPE_CODE" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleNotifyTrans" class="com.codeator.www._1_2_DB_entities.VcleVehicleNotifyTrans" update="false" insert="false"
+        fetch="select">
+            <column name="FISCAL_DATE" length="7" not-null="true" />
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+            <column name="NOTIFY_SP" precision="9" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="finishRespDate" type="date">
+            <column name="FINISH_RESP_DATE" length="7" />
+        </property>
+        <property name="curTime" type="string">
+            <column name="CUR_TIME" length="5" />
+        </property>
+        <property name="instructionDateIni" type="date">
+            <column name="INSTRUCTION_DATE_INI" length="7" />
+        </property>
+        <property name="notifyRmrkResp" type="string">
+            <column name="NOTIFY_RMRK_RESP" length="200" />
+        </property>
+        <property name="chkNotifyOk" type="java.lang.Boolean">
+            <column name="CHK_NOTIFY_OK" precision="1" scale="0" />
+        </property>
+        <property name="curSysdate" type="date">
+            <column name="CUR_SYSDATE" length="7" />
+        </property>
+        <property name="chkIns" type="java.lang.Boolean">
+            <column name="CHK_INS" precision="1" scale="0" />
+        </property>
+        <property name="instructionNoSp" type="java.lang.Integer">
+            <column name="INSTRUCTION_NO_SP" precision="8" scale="0" />
+        </property>
+        <property name="instructionTypeIni" type="java.lang.Boolean">
+            <column name="INSTRUCTION_TYPE_INI" precision="1" scale="0" />
+        </property>
+        <property name="notifyRmrk" type="string">
+            <column name="NOTIFY_RMRK" length="200" />
+        </property>
+        <property name="chkLockResp" type="java.lang.Boolean">
+            <column name="CHK_LOCK_RESP" precision="1" scale="0" />
+        </property>
+        <property name="chkStatus" type="java.lang.Boolean">
+            <column name="CHK_STATUS" precision="1" scale="0" />
+        </property>
+        <property name="notifySeq" type="java.lang.Integer">
+            <column name="NOTIFY_SEQ" precision="6" scale="0" />
+        </property>
+        <property name="sendDate" type="date">
+            <column name="SEND_DATE" length="7" />
+        </property>
+        <property name="curDateTime" type="string">
+            <column name="CUR_DATE_TIME" length="20" />
+        </property>
+        <property name="notifyDate" type="date">
+            <column name="NOTIFY_DATE" length="7" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardNumberOld" type="java.lang.Integer">
+            <column name="BOARD_NUMBER_OLD" precision="8" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

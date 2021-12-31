@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleWorkTypeJoin" table="VCLE_WORK_TYPE_JOIN" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleWorkTypeJoinId">
+            <key-property name="workType" type="byte">
+                <column name="WORK_TYPE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleWorkType" class="com.codeator.www._1_2_DB_entities.VcleWorkType" update="false" insert="false" fetch="select">
+            <column name="WORK_TYPE" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" update="false" insert="false" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="empPass" type="string">
+            <column name="EMP_PASS" length="20" />
+        </property>
+        <set name="vcleVehicleNotifyTranses" table="VCLE_VEHICLE_NOTIFY_TRANS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORK_TYPE" precision="2" scale="0" />
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleNotifyTrans" />
+        </set>
+        <set name="vcleWorkTypeTransCars" table="VCLE_WORK_TYPE_TRANS_CAR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORK_TYPE" precision="2" scale="0" not-null="true" />
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleWorkTypeTransCar" />
+        </set>
+    </class>
+</hibernate-mapping>

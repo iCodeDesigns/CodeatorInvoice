@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2021 9:29:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PurSupplier" table="PUR_SUPPLIER" schema="CODEATOR" optimistic-lock="version">
+        <id name="suppCode" type="long">
+            <column name="SUPP_CODE" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perCityCode" class="com.codeator.www._1_2_DB_entities.PerCityCode" fetch="select">
+            <column name="COUNTRY_CODE" length="5" />
+            <column name="GOV_CODE" length="5" />
+            <column name="CITY_CODE" length="5" />
+        </many-to-one>
+        <many-to-one name="purSupplierTypeCode" class="com.codeator.www._1_2_DB_entities.PurSupplierTypeCode" fetch="select">
+            <column name="SUPP_TYPE" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="locationCode" type="string">
+            <column name="LOCATION_CODE" length="3" not-null="true" />
+        </property>
+        <property name="suppName" type="string">
+            <column name="SUPP_NAME" length="100" not-null="true" />
+        </property>
+        <property name="suppStatus" type="boolean">
+            <column name="SUPP_STATUS" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="suppStateType" type="boolean">
+            <column name="SUPP_STATE_TYPE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="taxOfficeCode" type="string">
+            <column name="TAX_OFFICE_CODE" length="5" />
+        </property>
+        <property name="suppNickname" type="string">
+            <column name="SUPP_NICKNAME" length="100" />
+        </property>
+        <property name="manager" type="string">
+            <column name="MANAGER" length="50" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="200" />
+        </property>
+        <property name="telegraphAddress" type="string">
+            <column name="TELEGRAPH_ADDRESS" length="200" />
+        </property>
+        <property name="mailboxNo" type="string">
+            <column name="MAILBOX_NO" length="15" />
+        </property>
+        <property name="EMail" type="string">
+            <column name="E_MAIL" length="50" />
+        </property>
+        <property name="identNo" type="string">
+            <column name="IDENT_NO" length="20" />
+        </property>
+        <property name="identSide" type="string">
+            <column name="IDENT_SIDE" length="20" />
+        </property>
+        <property name="recordType" type="string">
+            <column name="RECORD_TYPE" length="1" />
+        </property>
+        <property name="recordNo" type="string">
+            <column name="RECORD_NO" length="30" />
+        </property>
+        <property name="recordDate" type="date">
+            <column name="RECORD_DATE" length="7" />
+        </property>
+        <property name="tel1" type="string">
+            <column name="TEL_1" length="12" />
+        </property>
+        <property name="tel2" type="string">
+            <column name="TEL_2" length="12" />
+        </property>
+        <property name="tel3" type="string">
+            <column name="TEL_3" length="12" />
+        </property>
+        <property name="fax" type="string">
+            <column name="FAX" length="12" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="MOBILE" length="12" />
+        </property>
+        <property name="notes" type="string">
+            <column name="NOTES" length="250" />
+        </property>
+        <property name="suppTypeDate" type="date">
+            <column name="SUPP_TYPE_DATE" length="7" />
+        </property>
+        <property name="taxFileNo" type="string">
+            <column name="TAX_FILE_NO" length="30" />
+        </property>
+        <property name="taxDate" type="date">
+            <column name="TAX_DATE" length="7" />
+        </property>
+        <property name="taxCardNo" type="string">
+            <column name="TAX_CARD_NO" length="30" />
+        </property>
+        <property name="salesTaxNo" type="string">
+            <column name="SALES_TAX_NO" length="30" />
+        </property>
+        <property name="accountUnitCode" type="string">
+            <column name="ACCOUNT_UNIT_CODE" length="4" not-null="true" />
+        </property>
+        <property name="suppNo" type="string">
+            <column name="SUPP_NO" length="10" not-null="true" />
+        </property>
+        <property name="companySite" type="string">
+            <column name="COMPANY_SITE" length="100" />
+        </property>
+        <property name="managerCardId" type="string">
+            <column name="MANAGER_CARD_ID" length="14" />
+        </property>
+        <property name="managerJob" type="string">
+            <column name="MANAGER_JOB" length="75" />
+        </property>
+        <property name="managerTelephone" type="string">
+            <column name="MANAGER_TELEPHONE" length="12" />
+        </property>
+        <property name="managerFax" type="string">
+            <column name="MANAGER_FAX" length="12" />
+        </property>
+        <property name="managerMobile" type="string">
+            <column name="MANAGER_MOBILE" length="12" />
+        </property>
+        <property name="managerEmail" type="string">
+            <column name="MANAGER_EMAIL" length="75" />
+        </property>
+        <property name="instractionNo" type="string">
+            <column name="INSTRACTION_NO" length="15" />
+        </property>
+        <property name="companyId" type="string">
+            <column name="COMPANY_ID" length="25" />
+        </property>
+        <property name="instractionDate" type="date">
+            <column name="INSTRACTION_DATE" length="7" />
+        </property>
+        <property name="taxEnddate" type="date">
+            <column name="TAX_ENDDATE" length="7" />
+        </property>
+        <property name="salesTaxDate" type="date">
+            <column name="SALES_TAX_DATE" length="7" />
+        </property>
+        <property name="commercialOfficeCode" type="string">
+            <column name="COMMERCIAL_OFFICE_CODE" length="5" />
+        </property>
+        <property name="buildingNum" type="string">
+            <column name="BUILDING_NUM" length="10" />
+        </property>
+        <property name="dealerType" type="string">
+            <column name="DEALER_TYPE" length="1" not-null="true" />
+        </property>
+        <set name="invoInvoiceMasters" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUPP_CODE" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+        <set name="purSuppWorks" table="PUR_SUPP_WORK" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUPP_CODE" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurSuppWork" />
+        </set>
+        <set name="purSupplierActivities" table="PUR_SUPPLIER_ACTIVITY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUPP_CODE" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurSupplierActivity" />
+        </set>
+    </class>
+</hibernate-mapping>

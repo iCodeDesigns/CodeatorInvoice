@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleTankBalance" table="VCLE_TANK_BALANCE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleTankBalanceId">
+            <key-property name="fuelType" type="boolean">
+                <column name="FUEL_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="shiftType" type="boolean">
+                <column name="SHIFT_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="balanceDate" type="date">
+                <column name="BALANCE_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleShiftType" class="com.codeator.www._1_2_DB_entities.VcleShiftType" update="false" insert="false" fetch="select">
+            <column name="SHIFT_TYPE" precision="1" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleExecutionDay" class="com.codeator.www._1_2_DB_entities.VcleExecutionDay" fetch="select">
+            <column name="EXEC_MM" length="7" />
+            <column name="DAY_NO" precision="2" scale="0" />
+        </many-to-one>
+        <property name="startBalance" type="big_decimal">
+            <column name="START_BALANCE" precision="12" scale="3" not-null="true" />
+        </property>
+        <property name="startCountRead" type="big_decimal">
+            <column name="START_COUNT_READ" precision="12" scale="3" />
+        </property>
+        <property name="endBalance" type="big_decimal">
+            <column name="END_BALANCE" precision="12" scale="3" />
+        </property>
+        <property name="endCountRead" type="big_decimal">
+            <column name="END_COUNT_READ" precision="12" scale="3" />
+        </property>
+        <property name="provideValue" type="big_decimal">
+            <column name="PROVIDE_VALUE" precision="12" scale="3" />
+        </property>
+        <property name="chkLockShift" type="java.lang.Boolean">
+            <column name="CHK_LOCK_SHIFT" precision="1" scale="0" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

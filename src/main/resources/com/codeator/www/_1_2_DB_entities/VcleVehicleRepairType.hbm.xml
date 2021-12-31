@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleRepairType" table="VCLE_VEHICLE_REPAIR_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="repairType" type="byte">
+            <column name="REPAIR_TYPE" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="repairNane" type="string">
+            <column name="REPAIR_NANE" length="100" not-null="true" />
+        </property>
+        <set name="vcleVehicleResponsibleEmps" table="VCLE_VEHICLE_RESPONSIBLE_EMP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REPAIR_TYPE" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleResponsibleEmp" />
+        </set>
+        <set name="vcleMaintanceRepairDtls" table="VCLE_MAINTANCE_REPAIR_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="REPAIR_TYPE" precision="2" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleMaintanceRepairDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

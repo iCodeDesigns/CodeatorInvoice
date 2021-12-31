@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleWorkOnSaturdayEmp" table="VCLE_WORK_ON_SATURDAY_EMP" schema="CODEATOR" optimistic-lock="version">
+        <id name="employeeId" type="long">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            <generator class="foreign">
+                <param name="property">vcleEmployeeMaster</param>
+            </generator>
+        </id>
+        <many-to-one name="vcleJobType" class="com.codeator.www._1_2_DB_entities.VcleJobType" fetch="select">
+            <column name="JOB_TYPE" precision="3" scale="0" />
+        </many-to-one>
+        <one-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" constrained="true"></one-to-one>
+        <property name="cardNo" type="java.lang.Short">
+            <column name="CARD_NO" precision="4" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

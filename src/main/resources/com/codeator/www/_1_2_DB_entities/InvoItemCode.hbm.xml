@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 11, 2021 5:44:34 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoItemCode" table="INVO_ITEM_CODE" schema="CODEATOR" optimistic-lock="version">
+        <id name="itemCode" type="string">
+            <column name="ITEM_CODE" length="25" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <property name="internalItemCode" type="string">
+            <column name="INTERNAL_ITEM_CODE" length="10" not-null="true" />
+        </property>
+        <property name="codeType" type="string">
+            <column name="CODE_TYPE" length="5" not-null="true" />
+        </property>
+        <property name="AItemName" type="string">
+            <column name="A_ITEM_NAME" length="100" not-null="true" />
+        </property>
+        <property name="EItemName" type="string">
+            <column name="E_ITEM_NAME" length="100" />
+        </property>
+        <property name="AItemDesc" type="string">
+            <column name="A_ITEM_DESC" length="150" />
+        </property>
+        <property name="EItemDesc" type="string">
+            <column name="E_ITEM_DESC" length="150" />
+        </property>
+        <property name="sendDate" type="date">
+            <column name="SEND_DATE" length="7" />
+        </property>
+        <property name="activeDate" type="date">
+            <column name="ACTIVE_DATE" length="7" />
+        </property>
+        <property name="linkedcode" type="string">
+            <column name="LINKEDCODE" length="15" />
+        </property>
+        <property name="recordCreateTime" type="string">
+            <column name="RECORD_CREATE_TIME" length="20" />
+        </property>
+        <property name="recordCreateDate" type="date">
+            <column name="RECORD_CREATE_DATE" length="7" />
+        </property>
+        <property name="recordUpdateTime" type="string">
+            <column name="RECORD_UPDATE_TIME" length="20" />
+        </property>
+        <property name="recordUpdateDate" type="date">
+            <column name="RECORD_UPDATE_DATE" length="7" />
+        </property>
+        <set name="invoDeptItemJoins" table="INVO_DEPT_ITEM_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ITEM_CODE" length="25" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptItemJoin" />
+        </set>
+        <set name="invoInvoiceMasterItems" table="INVO_INVOICE_MASTER_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ITEM_CODE" length="25" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterItem" />
+        </set>
+    </class>
+</hibernate-mapping>

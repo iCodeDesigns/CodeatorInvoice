@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleWorkshopeResponse" table="VCLE_WORKSHOPE_RESPONSE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleWorkshopeResponseId">
+            <key-property name="workshopeCode" type="byte">
+                <column name="WORKSHOPE_CODE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleWorkshopeCode" class="com.codeator.www._1_2_DB_entities.VcleWorkshopeCode" update="false" insert="false" fetch="select">
+            <column name="WORKSHOPE_CODE" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" fetch="select">
+            <column name="VCLE_TYPE" length="2" />
+        </many-to-one>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" update="false" insert="false" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="chkVcleType" type="java.lang.Boolean">
+            <column name="CHK_VCLE_TYPE" precision="1" scale="0" />
+        </property>
+        <set name="vcleVehicleInstructions" table="VCLE_VEHICLE_INSTRUCTION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORKSHOPE_CODE" precision="2" scale="0" not-null="true" />
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInstruction" />
+        </set>
+        <set name="vcleVehicleResponsibleJoins" table="VCLE_VEHICLE_RESPONSIBLE_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="WORKSHOPE_CODE" precision="2" scale="0" not-null="true" />
+                <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleResponsibleJoin" />
+        </set>
+    </class>
+</hibernate-mapping>

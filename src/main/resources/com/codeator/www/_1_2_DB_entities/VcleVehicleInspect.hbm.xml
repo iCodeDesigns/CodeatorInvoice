@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleInspect" table="VCLE_VEHICLE_INSPECT" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleInspectId">
+            <key-property name="inspectDate" type="date">
+                <column name="INSPECT_DATE" length="7" />
+            </key-property>
+            <key-property name="licenseType" type="short">
+                <column name="LICENSE_TYPE" precision="3" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleProcedureLicenseType" class="com.codeator.www._1_2_DB_entities.VcleProcedureLicenseType" update="false" insert="false"
+        fetch="select">
+            <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="totalValue" type="big_decimal">
+            <column name="TOTAL_VALUE" precision="9" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="100" />
+        </property>
+        <property name="totalCar" type="java.lang.Byte">
+            <column name="TOTAL_CAR" precision="2" scale="0" />
+        </property>
+        <property name="costCar" type="big_decimal">
+            <column name="COST_CAR" precision="9" />
+        </property>
+        <property name="remCost" type="big_decimal">
+            <column name="REM_COST" precision="9" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+        <property name="currDate" type="date">
+            <column name="CURR_DATE" length="7" />
+        </property>
+        <property name="actionDate" type="date">
+            <column name="ACTION_DATE" length="7" />
+        </property>
+        <set name="vcleVehicleInspectCars" table="VCLE_VEHICLE_INSPECT_CAR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="INSPECT_DATE" length="7" not-null="true" />
+                <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInspectCar" />
+        </set>
+        <set name="vcleVehicleInspectDtls" table="VCLE_VEHICLE_INSPECT_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="INSPECT_DATE" length="7" not-null="true" />
+                <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleInspectDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

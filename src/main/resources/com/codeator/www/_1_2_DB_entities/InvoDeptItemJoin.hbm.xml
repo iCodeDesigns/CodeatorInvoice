@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2021 10:27:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoDeptItemJoin" table="INVO_DEPT_ITEM_JOIN" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.InvoDeptItemJoinId">
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="itemCode" type="string">
+                <column name="ITEM_CODE" length="25" />
+            </key-property>
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="invoItemCode" class="com.codeator.www._1_2_DB_entities.InvoItemCode" update="false" insert="false" fetch="select">
+            <column name="ITEM_CODE" length="25" not-null="true" />
+        </many-to-one>
+        <many-to-one name="invoAccUintDept" class="com.codeator.www._1_2_DB_entities.InvoAccUintDept" update="false" insert="false" fetch="select">
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="chkLang" type="string">
+            <column name="CHK_LANG" length="1" />
+        </property>
+        <set name="invoDeptItemJoinDescDtls" table="INVO_DEPT_ITEM_JOIN_DESC_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="ITEM_CODE" length="25" not-null="true" />
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptItemJoinDescDtl" />
+        </set>
+    </class>
+</hibernate-mapping>

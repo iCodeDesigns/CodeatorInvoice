@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleVehicleInspectCar" table="VCLE_VEHICLE_INSPECT_CAR" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleVehicleInspectCarId">
+            <key-property name="inspectDate" type="date">
+                <column name="INSPECT_DATE" length="7" />
+            </key-property>
+            <key-property name="licenseType" type="short">
+                <column name="LICENSE_TYPE" precision="3" scale="0" />
+            </key-property>
+            <key-property name="vehicleSp" type="int">
+                <column name="VEHICLE_SP" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" update="false" insert="false" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleInspect" class="com.codeator.www._1_2_DB_entities.VcleVehicleInspect" update="false" insert="false" fetch="select">
+            <column name="INSPECT_DATE" length="7" not-null="true" />
+            <column name="LICENSE_TYPE" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="valCar" type="big_decimal">
+            <column name="VAL_CAR" precision="9" />
+        </property>
+        <property name="carSeq" type="java.lang.Byte">
+            <column name="CAR_SEQ" precision="2" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

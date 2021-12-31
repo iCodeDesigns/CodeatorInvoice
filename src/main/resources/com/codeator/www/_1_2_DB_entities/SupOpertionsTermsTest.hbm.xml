@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.SupOpertionsTermsTest" table="SUP_OPERTIONS_TERMS_TEST" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.SupOpertionsTermsTestId">
+            <key-property name="supplierId" type="int">
+                <column name="SUPPLIER_ID" precision="6" scale="0" />
+            </key-property>
+            <key-property name="operationId" type="int">
+                <column name="OPERATION_ID" precision="5" scale="0" />
+            </key-property>
+            <key-property name="termId" type="int">
+                <column name="TERM_ID" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="supPurchasingOperationsTest" class="com.codeator.www._1_2_DB_entities.SupPurchasingOperationsTest" update="false" insert="false"
+        fetch="select">
+            <column name="SUPPLIER_ID" precision="6" scale="0" not-null="true" />
+            <column name="OPERATION_ID" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="presentType" type="string">
+            <column name="PRESENT_TYPE" length="1000" />
+        </property>
+        <property name="finncialResult" type="string">
+            <column name="FINNCIAL_RESULT" length="1000" />
+        </property>
+        <property name="techResult" type="string">
+            <column name="TECH_RESULT" length="1000" />
+        </property>
+        <property name="termName" type="string">
+            <column name="TERM_NAME" length="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

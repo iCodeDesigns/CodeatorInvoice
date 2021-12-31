@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2021 10:16:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PurContractServiceType" table="PUR_CONTRACT_SERVICE_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <id name="serviceSeq" type="long">
+            <column name="SERVICE_SEQ" precision="16" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoAccUintDept" class="com.codeator.www._1_2_DB_entities.InvoAccUintDept" fetch="select">
+            <column name="ACC_UNIT_CODE" length="2" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="serviceType" type="string">
+            <column name="SERVICE_TYPE" length="1" not-null="true" />
+        </property>
+        <property name="serviceCode" type="string">
+            <column name="SERVICE_Code" length="20" />
+        </property>
+        <property name="serviceName" type="string">
+            <column name="SERVICE_NAME" length="200" />
+        </property>
+        <property name="insertDate" type="date">
+            <column name="INSERT_DATE" length="7" />
+        </property>
+        <property name="insertDateTime" type="string">
+            <column name="INSERT_DATE_TIME" length="20" />
+        </property>
+        <property name="updateDate" type="date">
+            <column name="UPDATE_DATE" length="7" />
+        </property>
+        <property name="updateDateTime" type="string">
+            <column name="UPDATE_DATE_TIME" length="20" />
+        </property>
+        <set name="purContractServiceJoins" table="PUR_CONTRACT_SERVICE_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SERVICE_SEQ" precision="16" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurContractServiceJoin" />
+        </set>
+        <set name="invoInvoiceMasters" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SERVICE_SEQ" precision="16" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

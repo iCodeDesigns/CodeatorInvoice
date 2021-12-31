@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2021 10:15:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PurSupplierActivity" table="PUR_SUPPLIER_ACTIVITY" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.PurSupplierActivityId">
+            <key-property name="suppCode" type="long">
+                <column name="SUPP_CODE" precision="10" scale="0" />
+            </key-property>
+            <key-property name="activityCode" type="string">
+                <column name="ACTIVITY_CODE" length="5" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="purSupplier" class="com.codeator.www._1_2_DB_entities.PurSupplier" update="false" insert="false" fetch="select">
+            <column name="SUPP_CODE" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

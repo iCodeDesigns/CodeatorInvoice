@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 12, 2021 9:58:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.AppAuthJavaUsers" table="APP_AUTH_JAVA_USERS" schema="CODEATOR" optimistic-lock="version">
+        <id name="employeeId" type="long">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            <generator class="foreign">
+                <param name="property">perEmploymentMaster</param>
+            </generator>
+        </id>
+        <one-to-one name="perEmploymentMaster" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" constrained="true"></one-to-one>
+        <many-to-one name="invoAccUintDept" class="com.codeator.www._1_2_DB_entities.InvoAccUintDept" fetch="select">
+            <column name="ACC_UNIT_CODE" length="2" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" />
+        </many-to-one>
+        <property name="employeePassword" type="string">
+            <column name="EMPLOYEE_PASSWORD" length="70" />
+        </property>
+        <property name="employeeEmail" type="string">
+            <column name="EMPLOYEE_EMAIL" length="70" />
+        </property>
+        <property name="updateIpAddress" type="string">
+            <column name="UPDATE_IP_ADDRESS" length="20" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="chkLock" type="string">
+            <column name="CHK_LOCK" length="1" />
+        </property>
+        <property name="passwordResetStatus" type="string">
+            <column name="PASSWORD_RESET_STATUS" length="2" />
+        </property>
+        <property name="bossManagerChk" type="string">
+            <column name="BOSS_MANAGER_CHK" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

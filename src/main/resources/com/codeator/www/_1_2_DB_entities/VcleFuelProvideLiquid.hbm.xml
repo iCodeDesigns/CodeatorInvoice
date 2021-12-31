@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleFuelProvideLiquid" table="VCLE_FUEL_PROVIDE_LIQUID" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleFuelProvideLiquidId">
+            <key-property name="locCode" type="string">
+                <column name="LOC_CODE" length="3" />
+            </key-property>
+            <key-property name="execDate" type="date">
+                <column name="EXEC_DATE" length="7" />
+            </key-property>
+            <key-property name="fuelSp" type="int">
+                <column name="FUEL_SP" precision="9" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleShiftType" class="com.codeator.www._1_2_DB_entities.VcleShiftType" fetch="select">
+            <column name="SHIFT_TYPE" precision="1" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleFuelOpenDay" class="com.codeator.www._1_2_DB_entities.VcleFuelOpenDay" update="false" insert="false" fetch="select">
+            <column name="EXEC_DATE" length="7" not-null="true" />
+        </many-to-one>
+        <property name="invoiceDate" type="date">
+            <column name="INVOICE_DATE" length="7" />
+        </property>
+        <property name="fristBnzQun" type="big_decimal">
+            <column name="FRIST_BNZ_QUN" precision="12" scale="3" />
+        </property>
+        <property name="secondBnzQun" type="big_decimal">
+            <column name="SECOND_BNZ_QUN" precision="12" scale="3" />
+        </property>
+        <property name="fristSolQun" type="big_decimal">
+            <column name="FRIST_SOL_QUN" precision="12" scale="3" />
+        </property>
+        <property name="eznSeqRcv" type="java.lang.Long">
+            <column name="EZN_SEQ_RCV" precision="10" scale="0" />
+        </property>
+        <property name="timeHh" type="java.lang.Byte">
+            <column name="TIME_HH" precision="2" scale="0" />
+        </property>
+        <property name="timeMi" type="java.lang.Byte">
+            <column name="TIME_MI" precision="2" scale="0" />
+        </property>
+        <property name="timeType" type="java.lang.Boolean">
+            <column name="TIME_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+        <property name="invoiceNo" type="java.lang.Integer">
+            <column name="INVOICE_NO" precision="9" scale="0" />
+        </property>
+        <property name="fristBnzTankNum" type="big_decimal">
+            <column name="FRIST_BNZ_TANK_NUM" precision="12" scale="3" />
+        </property>
+        <property name="secondBnzTankNum" type="big_decimal">
+            <column name="SECOND_BNZ_TANK_NUM" precision="12" scale="3" />
+        </property>
+        <property name="fristSolTankNum" type="big_decimal">
+            <column name="FRIST_SOL_TANK_NUM" precision="12" scale="3" />
+        </property>
+        <property name="provideType" type="java.lang.Boolean">
+            <column name="PROVIDE_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="qunOver" type="big_decimal">
+            <column name="QUN_OVER" precision="12" scale="3" />
+        </property>
+        <property name="fiscalDate" type="date">
+            <column name="FISCAL_DATE" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

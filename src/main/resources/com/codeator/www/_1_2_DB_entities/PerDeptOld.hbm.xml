@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 11, 2021 5:44:34 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.PerDeptOld" table="PER_DEPT_OLD" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.PerDeptOldId">
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perSectionOld" class="com.codeator.www._1_2_DB_entities.PerSectionOld" update="false" insert="false" fetch="select">
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="depName" type="string">
+            <column name="DEP_NAME" length="100" not-null="true" />
+        </property>
+        <set name="vcleDeptRequireMaxes" table="VCLE_DEPT_REQUIRE_MAX" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDeptRequireMax" />
+        </set>
+        <set name="purSuppWorks" table="PUR_SUPP_WORK" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="INSERT_SECTION" precision="5" scale="0" />
+                <column name="INSERT_DEPT" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PurSuppWork" />
+        </set>
+        <set name="invoDeptItemJoins" table="INVO_DEPT_ITEM_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptItemJoin" />
+        </set>
+        <set name="perDeptPlaces" table="PER_DEPT_PLACE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PerDeptPlace" />
+        </set>
+        <set name="vcleVehicleDriverJoins" table="VCLE_VEHICLE_DRIVER_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleDriverJoin" />
+        </set>
+        <set name="stoResponsibilityDeptDels" table="STO_RESPONSIBILITY_DEPT_DEL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD_TO" precision="5" scale="0" />
+                <column name="DEP_NO_OLD_TO" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoResponsibilityDeptDel" />
+        </set>
+        <set name="invoAccUintDepts" table="INVO_ACC_UINT_DEPT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoAccUintDept" />
+        </set>
+        <set name="invoDeptResources" table="INVO_DEPT_RESOURCE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptResource" />
+        </set>
+        <set name="vcleVehicleClassDtls" table="VCLE_VEHICLE_CLASS_DTL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleClassDtl" />
+        </set>
+        <set name="vcleVehicleRequires" table="VCLE_VEHICLE_REQUIRE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleRequire" />
+        </set>
+        <set name="stoResponsibilityDepts" table="STO_RESPONSIBILITY_DEPT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.StoResponsibilityDept" />
+        </set>
+        <set name="perEmploymentMasters" table="PER_EMPLOYMENT_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" />
+        </set>
+        <set name="vcleRecordMovementJoins" table="VCLE_RECORD_MOVEMENT_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleRecordMovementJoin" />
+        </set>
+        <set name="vcleVehicleIncomes" table="VCLE_VEHICLE_INCOME" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleIncome" />
+        </set>
+        <set name="invoDeptUnitJoins" table="INVO_DEPT_UNIT_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptUnitJoin" />
+        </set>
+        <set name="invoDeptTaxJoins" table="INVO_DEPT_TAX_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoDeptTaxJoin" />
+        </set>
+        <set name="vcleDeptNumberJoins" table="VCLE_DEPT_NUMBER_JOIN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDeptNumberJoin" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 24, 2021 10:50:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" table="INVO_INVOICE_MASTER" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterId">
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="invoSp" type="long">
+                <column name="INVO_SP" precision="16" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="perGovernorateCode" class="com.codeator.www._1_2_DB_entities.PerGovernorateCode" fetch="select">
+            <column name="COUNTRY_CODE" length="5" />
+            <column name="GOV_CODE" length="5" />
+        </many-to-one>
+        <many-to-one name="purSupplier" class="com.codeator.www._1_2_DB_entities.PurSupplier" fetch="select">
+            <column name="SUPP_CODE" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perCountryCode" class="com.codeator.www._1_2_DB_entities.PerCountryCode" fetch="select">
+            <column name="COUNTRY_CODE_FOREIGN" length="5" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMasterByEmployeeIdPaid" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID_PAID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="perEmploymentMasterByEmployeeId" class="com.codeator.www._1_2_DB_entities.PerEmploymentMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="purSuppWork" class="com.codeator.www._1_2_DB_entities.PurSuppWork" fetch="select">
+            <column name="SUPP_SEQ" precision="16" scale="0" />
+        </many-to-one>
+        <many-to-one name="purContractMasterDtl" class="com.codeator.www._1_2_DB_entities.PurContractMasterDtl" fetch="select">
+            <column name="CONTRACT_SP" precision="16" scale="0" />
+            <column name="DEP_NO_OLD_CON" precision="10" scale="0" />
+            <column name="TITEL_SP" precision="9" scale="0" />
+            <column name="SECTION_NO_OLD_CON" precision="5" scale="0" />
+            <column name="CONTRACT_SEQ" precision="6" scale="0" />
+            <column name="ACC_UNIT_CODE_CON" length="2" />
+        </many-to-one>
+        <many-to-one name="invoDocumentStatus" class="com.codeator.www._1_2_DB_entities.InvoDocumentStatus" fetch="select">
+            <column name="DOC_STATUS" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoSuppPaymentType" class="com.codeator.www._1_2_DB_entities.InvoSuppPaymentType" fetch="select">
+            <column name="PAYMENT_TYPE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="purContractServiceType" class="com.codeator.www._1_2_DB_entities.PurContractServiceType" fetch="select">
+            <column name="SERVICE_SEQ" precision="16" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoAccUintDept" class="com.codeator.www._1_2_DB_entities.InvoAccUintDept" update="false" insert="false" fetch="select">
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="invoInvoiceMasterByInvoimsInvoimsSplitFk" class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" fetch="select">
+            <column name="DEP_NO_OLD_SPLIT" precision="10" scale="0" />
+            <column name="ACC_UNIT_CODE_SPLIT" length="2" />
+            <column name="SECTION_NO_OLD_SPLIT" precision="5" scale="0" />
+            <column name="INVO_SP_SPLIT" precision="16" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoInvoiceMasterByInvoimsInvoimsFk" class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" fetch="select">
+            <column name="DEP_NO_OLD_MAIN" precision="10" scale="0" />
+            <column name="ACC_UNIT_CODE_MAIN" length="2" />
+            <column name="SECTION_NO_OLD_MAIN" precision="5" scale="0" />
+            <column name="INVO_SP_MAIN" precision="16" scale="0" />
+        </many-to-one>
+        <many-to-one name="purSuppWorkDtl" class="com.codeator.www._1_2_DB_entities.PurSuppWorkDtl" fetch="select">
+            <column name="SUPP_SEQ_BR" precision="16" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoAdvProducerCode" class="com.codeator.www._1_2_DB_entities.InvoAdvProducerCode" fetch="select">
+            <column name="ADV_PRODUCER_SEQ" precision="9" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoAdvCollectorCode" class="com.codeator.www._1_2_DB_entities.InvoAdvCollectorCode" fetch="select">
+            <column name="ADV_COLLECTOR_SEQ" precision="9" scale="0" />
+        </many-to-one>
+        <property name="receiverType" type="string">
+            <column name="RECEIVER_TYPE" length="1" not-null="true" />
+        </property>
+        <property name="documentType" type="string">
+            <column name="DOCUMENT_TYPE" length="1" not-null="true" />
+        </property>
+        <property name="issueDate" type="date">
+            <column name="ISSUE_DATE" length="7" not-null="true" />
+        </property>
+        <property name="internalId" type="string">
+            <column name="INTERNAL_ID" length="15" not-null="true" />
+        </property>
+        <property name="statusTax" type="string">
+            <column name="STATUS_TAX" length="400" not-null="true" />
+        </property>
+        <property name="dateTimeIssued" type="string">
+            <column name="DATE_TIME_ISSUED" length="20" />
+        </property>
+        <property name="suppInfoId" type="string">
+            <column name="SUPP_INFO_ID" length="20" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="UUID" length="30" />
+        </property>
+        <property name="extraDiscountAmount" type="big_decimal">
+            <column name="EXTRA_DISCOUNT_AMOUNT" precision="16" scale="5" />
+        </property>
+        <property name="totalSalesAmount" type="big_decimal">
+            <column name="TOTAL_SALES_AMOUNT" precision="16" scale="5" />
+        </property>
+        <property name="totalDiscountAmount" type="big_decimal">
+            <column name="TOTAL_DISCOUNT_AMOUNT" precision="16" scale="5" />
+        </property>
+        <property name="totalItemsDiscountAmount" type="big_decimal">
+            <column name="TOTAL_ITEMS_DISCOUNT_AMOUNT" precision="16" scale="5" />
+        </property>
+        <property name="totalAmount" type="big_decimal">
+            <column name="TOTAL_AMOUNT" precision="16" scale="5" />
+        </property>
+        <property name="netAmount" type="big_decimal">
+            <column name="NET_AMOUNT" precision="16" scale="5" />
+        </property>
+        <property name="reviewSendDate" type="date">
+            <column name="REVIEW_SEND_DATE" length="7" />
+        </property>
+        <property name="reviewDate" type="date">
+            <column name="REVIEW_DATE" length="7" />
+        </property>
+        <property name="approvedSendDate" type="date">
+            <column name="APPROVED_SEND_DATE" length="7" />
+        </property>
+        <property name="approvedDate" type="date">
+            <column name="APPROVED_DATE" length="7" />
+        </property>
+        <property name="sendDate" type="date">
+            <column name="SEND_DATE" length="7" />
+        </property>
+        <property name="finalSendDate" type="date">
+            <column name="FINAL_SEND_DATE" length="7" />
+        </property>
+        <property name="createdDate" type="date">
+            <column name="CREATED_DATE" length="7" />
+        </property>
+        <property name="suppName" type="string">
+            <column name="SUPP_NAME" length="100" />
+        </property>
+        <property name="buildingNum" type="string">
+            <column name="BUILDING_NUM" length="10" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="200" />
+        </property>
+        <property name="paidDate" type="date">
+            <column name="PAID_DATE" length="7" />
+        </property>
+        <property name="paidRmrk" type="string">
+            <column name="PAID_RMRK" length="100" />
+        </property>
+        <property name="chkPaid" type="string">
+            <column name="CHK_PAID" length="1" />
+        </property>
+        <property name="paidDateTime" type="string">
+            <column name="PAID_DATE_TIME" length="20" />
+        </property>
+        <property name="suppNameBr" type="string">
+            <column name="SUPP_NAME_BR" length="100" />
+        </property>
+        <property name="addressBr" type="string">
+            <column name="ADDRESS_BR" length="200" />
+        </property>
+        <property name="chkLock" type="string">
+            <column name="CHK_LOCK" length="1" />
+        </property>
+        <property name="notes" type="string">
+            <column name="NOTES" length="200" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="paidFormCode" type="string">
+            <column name="PAID_FORM_CODE" length="20" />
+        </property>
+        <property name="serviceCode" type="string">
+            <column name="SERVICE_CODE" length="20" />
+        </property>
+        <property name="chkPaidDirect" type="string">
+            <column name="CHK_PAID_DIRECT" length="1" />
+        </property>
+        <property name="suppMainFrameCodeBr" type="string">
+            <column name="SUPP_MAIN_FRAME_CODE_BR" length="20" />
+        </property>
+        <property name="permToReceiveCode" type="string">
+            <column name="PERM_TO_RECEIVE_CODE" length="20" />
+        </property>
+        <property name="permToReceiveDate" type="date">
+            <column name="PERM_TO_RECEIVE_DATE" length="7" />
+        </property>
+        <property name="permToDeliverCode" type="string">
+            <column name="PERM_TO_DELIVER_CODE" length="20" />
+        </property>
+        <property name="permToDeliverDate" type="date">
+            <column name="PERM_TO_DELIVER_DATE" length="7" />
+        </property>
+        <property name="uuidReference" type="string">
+            <column name="UUID_REFERENCE" length="30" />
+        </property>
+        <property name="invoRealDate" type="date">
+            <column name="INVO_REAL_DATE" length="7" />
+        </property>
+        <property name="advCollectorCode" type="java.lang.Short">
+            <column name="ADV_COLLECTOR_CODE" precision="3" scale="0" />
+        </property>
+        <property name="advProducerCode" type="java.lang.Short">
+            <column name="ADV_PRODUCER_CODE" precision="4" scale="0" />
+        </property>
+        <property name="advCollectorName" type="string">
+            <column name="ADV_COLLECTOR_NAME" length="100" />
+        </property>
+        <property name="advProducerName" type="string">
+            <column name="ADV_PRODUCER_NAME" length="100" />
+        </property>
+        <set name="invoInvoiceMastersForInvoimsInvoimsSplitFk" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEP_NO_OLD_SPLIT" precision="10" scale="0" />
+                <column name="ACC_UNIT_CODE_SPLIT" length="2" />
+                <column name="SECTION_NO_OLD_SPLIT" precision="5" scale="0" />
+                <column name="INVO_SP_SPLIT" precision="16" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+        <set name="invoInvoiceMastersForInvoimsInvoimsFk" table="INVO_INVOICE_MASTER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEP_NO_OLD_MAIN" precision="10" scale="0" />
+                <column name="ACC_UNIT_CODE_MAIN" length="2" />
+                <column name="SECTION_NO_OLD_MAIN" precision="5" scale="0" />
+                <column name="INVO_SP_MAIN" precision="16" scale="0" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" />
+        </set>
+        <set name="invoInvoiceMasterStatuses" table="INVO_INVOICE_MASTER_STATUS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="INVO_SP" precision="16" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterStatus" />
+        </set>
+        <set name="invoInvoiceMasterItems" table="INVO_INVOICE_MASTER_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="INVO_SP" precision="16" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterItem" />
+        </set>
+    </class>
+</hibernate-mapping>

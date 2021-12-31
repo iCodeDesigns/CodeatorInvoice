@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleIssueDocumentManType" table="VCLE_ISSUE_DOCUMENT_MAN_TYPE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentManTypeId">
+            <key-property name="vcleDeptType" type="boolean">
+                <column name="VCLE_DEPT_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="issueMainCode" type="byte">
+                <column name="ISSUE_MAIN_CODE" precision="2" scale="0" />
+            </key-property>
+            <key-property name="vcIssueDocSeq" type="byte">
+                <column name="VC_ISSUE_DOC_SEQ" precision="2" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleIssueDocumentMan" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMan" fetch="select">
+            <column name="FISCAL_YEAR" precision="4" scale="0" not-null="true" />
+            <column name="VC_ISSUE_DOC_SP" precision="12" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleIssueDocumentMainType" class="com.codeator.www._1_2_DB_entities.VcleIssueDocumentMainType" update="false" insert="false"
+        fetch="select">
+            <column name="VCLE_DEPT_TYPE" precision="1" scale="0" not-null="true" />
+            <column name="ISSUE_MAIN_CODE" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="docCount" type="java.lang.Byte">
+            <column name="DOC_COUNT" precision="2" scale="0" />
+        </property>
+        <property name="docDate" type="date">
+            <column name="DOC_DATE" length="7" />
+        </property>
+        <property name="docNo" type="java.lang.Long">
+            <column name="DOC_NO" precision="11" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="150" />
+        </property>
+    </class>
+</hibernate-mapping>

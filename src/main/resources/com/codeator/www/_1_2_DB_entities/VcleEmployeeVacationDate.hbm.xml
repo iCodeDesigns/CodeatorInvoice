@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleEmployeeVacationDate" table="VCLE_EMPLOYEE_VACATION_DATE" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleEmployeeVacationDateId">
+            <key-property name="fiscalYear" type="short">
+                <column name="FISCAL_YEAR" precision="4" scale="0" />
+            </key-property>
+            <key-property name="vacStartDate" type="date">
+                <column name="VAC_START_DATE" length="7" />
+            </key-property>
+            <key-property name="employeeId" type="long">
+                <column name="EMPLOYEE_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="vacDate" type="date">
+                <column name="VAC_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleEmployeeVacation" class="com.codeator.www._1_2_DB_entities.VcleEmployeeVacation" update="false" insert="false"
+        fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" not-null="true" />
+            <column name="FISCAL_YEAR" precision="4" scale="0" not-null="true" />
+            <column name="VAC_START_DATE" length="7" not-null="true" />
+        </many-to-one>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

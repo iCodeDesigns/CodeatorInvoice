@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 15, 2021 2:15:51 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterItem" table="INVO_INVOICE_MASTER_ITEM" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterItemId">
+            <key-property name="accUnitCode" type="string">
+                <column name="ACC_UNIT_CODE" length="2" />
+            </key-property>
+            <key-property name="invoSp" type="long">
+                <column name="INVO_SP" precision="16" scale="0" />
+            </key-property>
+            <key-property name="sectionNoOld" type="int">
+                <column name="SECTION_NO_OLD" precision="5" scale="0" />
+            </key-property>
+            <key-property name="depNoOld" type="long">
+                <column name="DEP_NO_OLD" precision="10" scale="0" />
+            </key-property>
+            <key-property name="invoSpItem" type="int">
+                <column name="INVO_SP_ITEM" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="accCurrencyCode" class="com.codeator.www._1_2_DB_entities.AccCurrencyCode" fetch="select">
+            <column name="CURRENCY_CODE" length="4" />
+        </many-to-one>
+        <many-to-one name="invoUnitType" class="com.codeator.www._1_2_DB_entities.InvoUnitType" fetch="select">
+            <column name="UNIT_TYPE" length="5" not-null="true" />
+        </many-to-one>
+        <many-to-one name="invoDeptItemJoinDescDtl" class="com.codeator.www._1_2_DB_entities.InvoDeptItemJoinDescDtl" fetch="select">
+            <column name="ITEM_SEQ" precision="16" scale="0" />
+        </many-to-one>
+        <many-to-one name="invoItemCode" class="com.codeator.www._1_2_DB_entities.InvoItemCode" fetch="select">
+            <column name="ITEM_CODE" length="25" not-null="true" />
+        </many-to-one>
+        <many-to-one name="invoInvoiceMaster" class="com.codeator.www._1_2_DB_entities.InvoInvoiceMaster" update="false" insert="false" fetch="select">
+            <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+            <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+            <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+            <column name="INVO_SP" precision="16" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="itemDescription" type="string">
+            <column name="ITEM_DESCRIPTION" length="150" not-null="true" />
+        </property>
+        <property name="quantity" type="big_decimal">
+            <column name="QUANTITY" precision="16" scale="5" not-null="true" />
+        </property>
+        <property name="currencyExchangeRate" type="big_decimal">
+            <column name="CURRENCY_EXCHANGE_RATE" precision="7" not-null="true" />
+        </property>
+        <property name="amountSold" type="big_decimal">
+            <column name="AMOUNT_SOLD" precision="16" scale="5" not-null="true" />
+        </property>
+        <property name="salesTotal" type="big_decimal">
+            <column name="SALES_TOTAL" precision="16" scale="5" not-null="true" />
+        </property>
+        <property name="discountAmount" type="big_decimal">
+            <column name="DISCOUNT_AMOUNT" precision="16" scale="5" not-null="true" />
+        </property>
+        <property name="netTotal" type="big_decimal">
+            <column name="NET_TOTAL" precision="16" scale="5" not-null="true" />
+        </property>
+        <property name="total" type="big_decimal">
+            <column name="TOTAL" precision="16" scale="5" not-null="true" />
+        </property>
+        <property name="discountType" type="java.lang.Integer">
+            <column name="DISCOUNT_TYPE" precision="5" scale="0" />
+        </property>
+        <property name="amountEgp" type="big_decimal">
+            <column name="AMOUNT_EGP" precision="16" scale="5" />
+        </property>
+        <property name="discountRate" type="big_decimal">
+            <column name="DISCOUNT_RATE" precision="7" />
+        </property>
+        <property name="itemsDiscount" type="big_decimal">
+            <column name="ITEMS_DISCOUNT" precision="16" scale="5" />
+        </property>
+        <property name="totalTaxableFees" type="big_decimal">
+            <column name="TOTAL_TAXABLE_FEES" precision="16" scale="5" />
+        </property>
+        <property name="valueDifference" type="big_decimal">
+            <column name="VALUE_DIFFERENCE" precision="7" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="calcUnit" type="big_decimal">
+            <column name="CALC_UNIT" precision="16" scale="5" />
+        </property>
+        <property name="minimumLimit" type="big_decimal">
+            <column name="MINIMUM_LIMIT" precision="16" scale="5" />
+        </property>
+        <property name="priceBeforeCalcUnit" type="big_decimal">
+            <column name="PRICE_BEFORE_CALC_UNIT" precision="16" scale="5" />
+        </property>
+        <set name="invoInvoiceMasterTaxes" table="INVO_INVOICE_MASTER_TAX" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ACC_UNIT_CODE" length="2" not-null="true" />
+                <column name="INVO_SP" precision="16" scale="0" not-null="true" />
+                <column name="SECTION_NO_OLD" precision="5" scale="0" not-null="true" />
+                <column name="DEP_NO_OLD" precision="10" scale="0" not-null="true" />
+                <column name="INVO_SP_ITEM" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.InvoInvoiceMasterTax" />
+        </set>
+    </class>
+</hibernate-mapping>

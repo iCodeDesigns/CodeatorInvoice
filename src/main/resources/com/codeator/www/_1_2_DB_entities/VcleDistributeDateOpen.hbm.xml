@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleDistributeDateOpen" table="VCLE_DISTRIBUTE_DATE_OPEN" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleDistributeDateOpenId">
+            <key-property name="fiscalYear" type="short">
+                <column name="FISCAL_YEAR" precision="4" scale="0" />
+            </key-property>
+            <key-property name="travelMm" type="byte">
+                <column name="TRAVEL_MM" precision="2" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="execMm" type="date">
+            <column name="EXEC_MM" length="7" />
+        </property>
+        <property name="approvedDate" type="date">
+            <column name="APPROVED_DATE" length="7" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="240" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+        <set name="vcleDistributeDates" table="VCLE_DISTRIBUTE_DATE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FISCAL_YEAR" precision="4" scale="0" not-null="true" />
+                <column name="TRAVEL_MM" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDistributeDate" />
+        </set>
+    </class>
+</hibernate-mapping>

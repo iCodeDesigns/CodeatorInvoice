@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleFiscalDate" table="VCLE_FISCAL_DATE" schema="CODEATOR" optimistic-lock="version">
+        <id name="fiscalDate" type="date">
+            <column name="FISCAL_DATE" length="7" />
+            <generator class="assigned" />
+        </id>
+        <property name="flg" type="java.lang.Boolean">
+            <column name="FLG" precision="1" scale="0" />
+        </property>
+        <set name="vcleVehicleIncomes" table="VCLE_VEHICLE_INCOME" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FISCAL_DATE" length="7" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleVehicleIncome" />
+        </set>
+        <set name="vcleRecordMovements" table="VCLE_RECORD_MOVEMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FISCAL_DATE" length="7" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleRecordMovement" />
+        </set>
+        <set name="vcleIssueDocuments" table="VCLE_ISSUE_DOCUMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FISCAL_DATE" length="7" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleIssueDocument" />
+        </set>
+    </class>
+</hibernate-mapping>

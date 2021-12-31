@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleDistributeLocation" table="VCLE_DISTRIBUTE_LOCATION" schema="CODEATOR" optimistic-lock="version">
+        <id name="distributeCode" type="int">
+            <column name="DISTRIBUTE_CODE" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="distributeLocName" type="string">
+            <column name="DISTRIBUTE_LOC_NAME" length="75" not-null="true" />
+        </property>
+        <property name="travelVal" type="big_decimal">
+            <column name="TRAVEL_VAL" precision="3" scale="1" />
+        </property>
+        <property name="chkAhramAm" type="java.lang.Boolean">
+            <column name="CHK_AHRAM_AM" precision="1" scale="0" />
+        </property>
+        <property name="chkAhramPm" type="java.lang.Boolean">
+            <column name="CHK_AHRAM_PM" precision="1" scale="0" />
+        </property>
+        <set name="vcleDistributeDateAhramAms" table="VCLE_DISTRIBUTE_DATE_AHRAM_AM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DISTRIBUTE_CODE" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDistributeDateAhramAm" />
+        </set>
+        <set name="vcleDistributeDateAhramPms" table="VCLE_DISTRIBUTE_DATE_AHRAM_PM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DISTRIBUTE_CODE" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDistributeDateAhramPm" />
+        </set>
+        <set name="vcleDistributeMonthsEmps" table="VCLE_DISTRIBUTE_MONTHS_EMP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DISTRIBUTE_CODE" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.codeator.www._1_2_DB_entities.VcleDistributeMonthsEmp" />
+        </set>
+    </class>
+</hibernate-mapping>

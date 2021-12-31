@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2020 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.codeator.www._1_2_DB_entities.VcleFuelIssueLiquid" table="VCLE_FUEL_ISSUE_LIQUID" schema="CODEATOR" optimistic-lock="version">
+        <composite-id name="id" class="com.codeator.www._1_2_DB_entities.VcleFuelIssueLiquidId">
+            <key-property name="locCode" type="string">
+                <column name="LOC_CODE" length="3" />
+            </key-property>
+            <key-property name="issueSp" type="int">
+                <column name="ISSUE_SP" precision="9" scale="0" />
+            </key-property>
+            <key-property name="sideType" type="boolean">
+                <column name="SIDE_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="execDate" type="date">
+                <column name="EXEC_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vcleWorkshopeCode" class="com.codeator.www._1_2_DB_entities.VcleWorkshopeCode" fetch="select">
+            <column name="WORKSHOPE_CODE" precision="2" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleType" class="com.codeator.www._1_2_DB_entities.VcleVehicleType" fetch="select">
+            <column name="VCLE_TYPE" length="2" />
+        </many-to-one>
+        <many-to-one name="vcleVehicleMaster" class="com.codeator.www._1_2_DB_entities.VcleVehicleMaster" fetch="select">
+            <column name="VEHICLE_SP" precision="6" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleShiftType" class="com.codeator.www._1_2_DB_entities.VcleShiftType" fetch="select">
+            <column name="SHIFT_TYPE" precision="1" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleFuelOpenDay" class="com.codeator.www._1_2_DB_entities.VcleFuelOpenDay" update="false" insert="false" fetch="select">
+            <column name="EXEC_DATE" length="7" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vcleEmployeeMaster" class="com.codeator.www._1_2_DB_entities.VcleEmployeeMaster" fetch="select">
+            <column name="EMPLOYEE_ID" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="vcleDeptNumber" class="com.codeator.www._1_2_DB_entities.VcleDeptNumber" fetch="select">
+            <column name="DEPT_ID" precision="7" scale="0" />
+        </many-to-one>
+        <property name="fuelType" type="java.lang.Boolean">
+            <column name="FUEL_TYPE" precision="1" scale="0" />
+        </property>
+        <property name="issueQun" type="big_decimal">
+            <column name="ISSUE_QUN" precision="12" scale="3" />
+        </property>
+        <property name="fuelRate" type="big_decimal">
+            <column name="FUEL_RATE" precision="5" scale="3" />
+        </property>
+        <property name="eznSeqIss" type="java.lang.Long">
+            <column name="EZN_SEQ_ISS" precision="10" scale="0" />
+        </property>
+        <property name="boardDigital" type="java.lang.Integer">
+            <column name="BOARD_DIGITAL" precision="6" scale="0" />
+        </property>
+        <property name="boardAlfa1" type="string">
+            <column name="BOARD_ALFA1" length="1" />
+        </property>
+        <property name="boardAlfa2" type="string">
+            <column name="BOARD_ALFA2" length="1" />
+        </property>
+        <property name="boardAlfa3" type="string">
+            <column name="BOARD_ALFA3" length="1" />
+        </property>
+        <property name="chkLock" type="java.lang.Boolean">
+            <column name="CHK_LOCK" precision="1" scale="0" />
+        </property>
+        <property name="rmrk" type="string">
+            <column name="RMRK" length="200" />
+        </property>
+        <property name="tankNum" type="big_decimal">
+            <column name="TANK_NUM" precision="12" scale="3" />
+        </property>
+        <property name="boardNumberOld" type="java.lang.Integer">
+            <column name="BOARD_NUMBER_OLD" precision="8" scale="0" />
+        </property>
+        <property name="countNumber" type="java.lang.Long">
+            <column name="COUNT_NUMBER" precision="11" scale="0" />
+        </property>
+        <property name="chkBarrel" type="java.lang.Boolean">
+            <column name="CHK_BARREL" precision="1" scale="0" />
+        </property>
+        <property name="chkOwner" type="java.lang.Byte">
+            <column name="CHK_OWNER" precision="2" scale="0" />
+        </property>
+        <property name="fiscalDate" type="date">
+            <column name="FISCAL_DATE" length="7" />
+        </property>
+        <property name="issueSal" type="big_decimal">
+            <column name="ISSUE_SAL" precision="12" scale="3" />
+        </property>
+        <property name="issueVal" type="big_decimal">
+            <column name="ISSUE_VAL" precision="12" scale="3" />
+        </property>
+        <property name="provideExecDate" type="date">
+            <column name="PROVIDE_EXEC_DATE" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

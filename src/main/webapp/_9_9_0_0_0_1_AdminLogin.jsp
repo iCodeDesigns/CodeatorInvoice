@@ -24,7 +24,7 @@
 
 
         <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
-        <link rel="stylesheet" href="LoginDesign/css/style_1.css">
+        <link rel="stylesheet" href="LoginDesign/css/style_2.css">
         <!-- Bootstrap -->
         <link href="webDesign/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Font Awesome -->

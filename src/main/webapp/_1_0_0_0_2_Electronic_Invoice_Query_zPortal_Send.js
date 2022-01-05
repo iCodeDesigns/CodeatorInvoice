@@ -108,7 +108,7 @@ async function getInvoiceMaster() {
                 AllData = [];
                 document.getElementById("Electronic_Invoice_Query_Master_Table").innerHTML =
                         "<tr>"
-                        + "    <td colspan='9'>لا توجد بيانات</td>"
+                        + "    <td colspan='11'>لا توجد بيانات</td>"
                         + "</tr>";
             } else {
                 AllData = data;

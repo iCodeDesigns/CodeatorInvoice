@@ -36,8 +36,8 @@ public class signWithCsharp {
         try {
 
             OkHttpClient client = new OkHttpClient().newBuilder()
-                    //.sslSocketFactory(getSSLSocketFactory())
-                    //.hostnameVerifier(getHostnameVerifier())
+                    .sslSocketFactory(getSSLSocketFactory())
+                    .hostnameVerifier(getHostnameVerifier())
                     .build();
             MediaType mediaType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(mediaType, document_json_str_without_signature_element);

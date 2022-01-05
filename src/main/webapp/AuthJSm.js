@@ -84,6 +84,10 @@ function checkPasswordReset() {
 function submitNewPassword() {
     var new_password = document.getElementById("new_password").value;
     var new_password2 = document.getElementById("new_password2").value;
+    if (new_password === "") {
+        Warning22("برجاء كتابة كلمة المرور الجديدة");        
+        return;
+    }
     if (new_password === new_password2) {
         $.ajax({
             url: "_0_0_0_4_5_1_Employees_Auth_Ajax_5_updateEmpPass_AjaxServlet?"

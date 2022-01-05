@@ -147,9 +147,9 @@
             <div class="main_container">
                 <div class="col-md-3 left_col menu_fixed">
                     <div class="left_col scroll-view">
-                        <div class="navbar nav_title" style="border: 0;padding-top: 10px;">
+                        <div class="navbar nav_title" style="border: 0;padding-top: 10px;height: auto;">
                             <a href="_9_9_9_9_9_8_DevelopWelcomePage_AccessServlet" class="site_title">
-                                <div style="width: 50%; margin-left: 0px;">
+                                <div style="text-align: center;">
                                 </div>
                             </a>
                         </div>
@@ -283,7 +283,7 @@
                 <!-- footer content -->
                 <footer>
                     <div class="pull-right">
-                        Copyrights © <%=new DateOp().getCustomSysDate("yyyy")%> <a href="">AMAC-AHRAM</a> All rights reserved.
+                        Copyrights © <%=new DateOp().getCustomSysDate("yyyy")%> <a href="">CODEATOR</a> All rights reserved.
                     </div>
                     <div class="clearfix"></div>
                 </footer>

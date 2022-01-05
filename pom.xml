@@ -37,7 +37,13 @@
             <groupId>org.jboss.logging</groupId>
             <artifactId>jboss-logging</artifactId>
             <version>3.3.2.Final</version>
-        </dependency>                
+        </dependency> 
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>               
         
         <!--<dependency>
             <groupId>com.oracle</groupId>

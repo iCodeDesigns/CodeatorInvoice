@@ -34,10 +34,21 @@ public class _100_Login_as_Taxpayer_System {
     private static String jason_body = "";
 
     public static void main(String[] args) throws IOException {
+
+        /*String idSrvBaseUrl = "https://id.eta.gov.eg";
+        String apiBaseUrl = "https://api.invoicing.eta.gov.eg";
+        String Client_id = "e0aec0e7-d2e9-4a31-82f4-63250e42272a";
+        String Client_secret = "2a102d50-88e4-4579-9830-aa13688f31f4";
+
         String idSrvBaseUrl = "https://id.preprod.eta.gov.eg";
         String apiBaseUrl = "https://api.preprod.invoicing.eta.gov.eg";
         String Client_id = "53e2d4cd-1b25-4073-8b26-848a71fede19";
-        String Client_secret = "f2c70b9e-8d42-4633-8b08-5d59b643e09a";
+        String Client_secret = "f2c70b9e-8d42-4633-8b08-5d59b643e09a";*/
+        
+        String idSrvBaseUrl = "https://id.eta.gov.eg";
+        String apiBaseUrl = "https://api.invoicing.eta.gov.eg";
+        String Client_id = "e0aec0e7-d2e9-4a31-82f4-63250e42272a";
+        String Client_secret = "2a102d50-88e4-4579-9830-aa13688f31f4";
         _100_Login_as_Taxpayer_System._100_Login_as_Taxpayer_System(
                 idSrvBaseUrl,
                 Client_id,

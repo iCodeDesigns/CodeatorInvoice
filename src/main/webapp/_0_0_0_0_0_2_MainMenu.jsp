@@ -130,10 +130,10 @@
             <div class="main_container">
                 <div class="col-md-3 left_col menu_fixed">
                     <div class="left_col scroll-view">
-                        <div class="navbar nav_title" style="border: 0;padding-top: 10px;">
-                            <a href="_0_0_0_0_0_2_WelcomePage_AccessServlet" class="site_title">
-                                <div style="width: 50%; margin-left: 0px;">
-                                    <img src="webDesign/production/images/ahramTitle5.png" alt="..." height="50" style="margin-top: 0px;margin-left: 15%;border-radius: 15%;padding: 0px;width: 140%;">
+                        <div class="navbar nav_title" style="border: 0;padding-top: 10px;height: auto;">
+                            <a href="_0_0_0_0_MainMenuAccessServlet" class="site_title" style="height: inherit;padding-left: 0px;">
+                                <div style="text-align: center;">
+                                    <img src="webDesign/Resources/images/Codeator_Logo.png" alt="..." style="border-radius: 15%;padding: 0px;width: 75%;">
                                 </div>
                             </a>
                         </div>
@@ -213,7 +213,7 @@
                     <div class="row">
                     </div><!--webDesign/production/images/Ahrambig1.png     height=200 width=300-->
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="direction: rtl;"><br>
-                        <img src="webDesign/production/images/ahramTitle5.png" alt="" border=1  style="width: 70%;">
+                        <img src="webDesign/Resources/images/Codeator_Logo.png" alt="" border=1  style="width: 70%;">
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="float: left;"><br>
                         <a class="weatherwidget-io" href="https://forecast7.com/ar/30d0431d24/cairo/" data-label_1="القاهرة" data-label_2="حالة الطقس" data-icons="Climacons Animated" data-theme="pillows" data-basecolor="rgba(255, 255, 255, 0.81)" data-textcolor="#446bb5" data-lowcolor="#4478b5" >CAIRO حالة الطقس</a>
@@ -266,7 +266,7 @@
                 <!-- footer content -->
                 <footer>
                     <div class="pull-right">
-                        Copyrights © <%=new DateOp().getCustomSysDate("yyyy")%> <a href="">AMAC-AHRAM</a> All rights reserved.
+                        Copyrights © <%=new DateOp().getCustomSysDate("yyyy")%> <a href="">CODEATOR</a> All rights reserved.
                     </div>
                     <div class="clearfix"></div>
                 </footer>

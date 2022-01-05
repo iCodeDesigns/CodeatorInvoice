@@ -452,7 +452,7 @@
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="direction: ltr;">
                                         <tr>
                                             <td style="direction: ltr;width: 5%;vertical-align: middle;"><img src="webDesign/production/images/AMACA.png" width="100%"></td>
-                                            <td style="direction: ltr;width: 95%;vertical-align: middle;font-size: 10px;">Copyrights © <%=new DateOp().getCustomSysDate("yyyy")%> AMAC-AHRAM All rights reserved.</td>
+                                            <td style="direction: ltr;width: 95%;vertical-align: middle;font-size: 10px;">Copyrights © <%=new DateOp().getCustomSysDate("yyyy")%> CODEATOR All rights reserved.</td>
                                             <td style="direction: ltr;" id="footer_internal_id<%=invoice_index%>"></td>
                                         </tr>
                                     </table>

@@ -26,6 +26,20 @@ public class AppListener implements HttpSessionListener, HttpSessionAttributeLis
     public void contextInitialized(ServletContextEvent sce) {
         //while (true) {
         try {
+            @SuppressWarnings("unused")
+            org.jboss.logging.Logger logger = org.jboss.logging.Logger.getLogger("org.hibernate");
+            java.util.logging.Logger.getLogger("org.hibernate").setLevel(java.util.logging.Level.WARNING);
+            java.util.logging.Logger.getLogger("org.hibernate").setLevel(java.util.logging.Level.INFO);
+
+            org.apache.log4j.Logger.getLogger("org.hibernate.SQL").setLevel(org.apache.log4j.Level.DEBUG);
+            org.apache.log4j.Logger.getLogger("org.hibernate.type").setLevel(org.apache.log4j.Level.TRACE);
+            org.apache.log4j.Logger.getLogger("org.hibernate.ast.AST").setLevel(org.apache.log4j.Level.INFO);
+            org.apache.log4j.Logger.getLogger("org.hibernate.tool.hbm2ddl").setLevel(org.apache.log4j.Level.WARN);
+            org.apache.log4j.Logger.getLogger("org.hibernate.hql").setLevel(org.apache.log4j.Level.DEBUG);
+            org.apache.log4j.Logger.getLogger("org.hibernate.cache").setLevel(org.apache.log4j.Level.INFO);
+            org.apache.log4j.Logger.getLogger("org.hibernate.jdbc").setLevel(org.apache.log4j.Level.DEBUG);
+            
+
             _0_0_0_Invoice_Tasks_0_.runTask();
             //break;
         } catch (Exception e) {

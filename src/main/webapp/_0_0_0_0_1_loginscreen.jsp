@@ -39,39 +39,47 @@
 
     </head>
 
-    <!--<body style="background-color: #851b36;font-family: 'Play', sans-serif;" >-->
-    <body style="font-family: 'Play', sans-serif;" >
+    <body>
 
-        <div class="wrapper fadeInDown">
-            <div id="formContent">
+
+        <div style="background-color: white;min-height: 100%;font-family: 'Play', sans-serif;" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 wrapper">
+            <div class="">
                 <!-- Tabs Titles -->
                 <h2 class="active"></h2>
 
                 <!-- Icon -->
-                <div class="fadeIn first">
-                    <img src="webDesign/production/images/ahramTitle5.png" id="icon" alt="User Icon" style="width:87%;" />
+                <div class="fadeInDown" style="text-align: center;">
+                    <img src="webDesign/Resources/images/Codeator_Logo.png" id="icon" alt="User Icon" style="width:90%;" />
                 </div>
+            </div>
+        </div>
+        <div style="background-color: #851b36;min-height: 100%;font-family: 'Play', sans-serif;" class="col-lg-8 col-md-8 col-sm-8 col-xs-8 wrapper">
+            <div class="fadeInDown2">
+                <div id="formContent">
+                    <!-- Tabs Titles -->
+                    <h2 class="active fadeIn second">تسجيل الدخول</h2>
 
-                <!-- Login Form -->
-                <input type="text" id="username" class="fadeIn third" name="username" autocomplete="off"  placeholder="رقم تأمين الموظف">
-                <input type="password" id="password" class="fadeIn third" name="Password" autocomplete="off"  placeholder="كلمة المرور">
-                <input type="submit" style="font-weight: bold;" onclick="login();" class="fadeIn fourth" value="تسجيل دخول">
+                    <!-- Login Form -->
+                    <input type="text" id="username" class="fadeIn third" name="username" autocomplete="off"  placeholder="رقم تأمين الموظف">
+                    <input type="password" id="password" class="fadeIn third" name="Password" autocomplete="off"  placeholder="كلمة المرور">
+                    <input type="submit" style="margin-bottom: 20px;width: 85%;text-align: center;" onclick="login();" class="fadeIn fourth" value="تسجيل دخول">
 
 
-                <!-- Remind Passowrd -->
+                    <!-- Remind Passowrd -->
 
 
-                <!--<div>
-                    <a href="http://10.2.141.191:7778/forms90/f90servlet?config=nwanew" target="_blank"><i class="fa fa-search-plus"></i></a>
-                </div>-->
+                    <!--<div>
+                        <a href="http://10.2.141.191:7778/forms90/f90servlet?config=nwanew" target="_blank"><i class="fa fa-search-plus"></i></a>
+                    </div>-->
 
 
-                <div id=""><br>
-                    <a Style="font-weight: bold;font-size: 15px;">Ver 3.9.4 النسخة الفعلية</a><br>
-                    <a Style="font-weight: bold;font-size: 15px;">بتاريخ 29-12-2021</a>
-                </div>
-                <div id="formFooter"><br>
-                    Copyrights © <%=new DateOp().getCustomSysDate("yyyy")%> | <a class="underlineHover">AMAC</a> AHRAM
+                    <div class="fadeIn fourth">
+                        <a Style="font-weight: bold;font-size: 15px;">Ver 3.9.4 النسخة الفعلية</a><br>
+                        <a Style="font-weight: bold;font-size: 15px;">بتاريخ 01-01-2022</a>
+                    </div>
+                    <div id="formFooter" class="fadeIn fourth"><br>
+                        Copyrights © <%=new DateOp().getCustomSysDate("yyyy")%> | <a class="underlineHover">Codeator</a>
+                    </div>
                 </div>
             </div>
         </div>

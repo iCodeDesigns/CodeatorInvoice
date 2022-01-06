@@ -7,6 +7,7 @@ package com.codeator.www._1_0_SystemFilter;
 
 import com.codeator.www._0_1_CodeatorLib.Hashing.hashing_algorithm_class;
 import com.codeator.www._0_2_CodeatorLib.Baisc_HTML_Generator.DevelopmenUserNametPassword;
+import com.codeator.www._0_3_CodeatorLib.GeneralOperations.DateOp;
 import com.codeator.www._1_1_DB_mainDao.HibernateSessionCon;
 import com.codeator.www._1_2_DB_entities.PerEmploymentMaster;
 import com.codeator.www._1_3_DB_daos.PerEmploymentMasterDao;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,6 +44,13 @@ public class LoginAjaxServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         new HibernateSessionCon().OpenCon();
         try {
+            String currentDate = new DateOp().getCustomSysDate("yyyy-MM-dd");
+            String MaxDate = "2022-01-02";
+            long diff = new DateOp().differentsBetweenTwoDates(MaxDate, currentDate, "yyyy-MM-dd");
+
+            if (diff < 0) {
+                throw new Exception("انتهت صلاحية رخصة البرنامج");
+            }
             String emp_user = request.getParameter("username");//ID
             String emp_pass = request.getParameter("password");//BirthDate
 
@@ -64,6 +73,8 @@ public class LoginAjaxServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             if (e.getMessage().equals("تأكد من الاسم ورقم المرور")) {
+                response.getWriter().write(e.getMessage());
+            }else if (e.getMessage().equals("انتهت صلاحية رخصة البرنامج")) {
                 response.getWriter().write(e.getMessage());
             } else {
                 response.getWriter().write("License Expired");

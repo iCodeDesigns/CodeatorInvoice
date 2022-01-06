@@ -88,7 +88,7 @@
 	color:#fff;
 }
 .btn-warning-bg .btn-dropdown-menu li .btn-setting-icon .btn-icon-st a{
-	background: #f0ad4e;
+	background: #ae9167;;
 	color:#fff;
 }
 .btn-warning-bg .btn-dropdown-menu li .btn-setting-icon .btn-icon-st a:hover{
@@ -115,7 +115,7 @@
 	color:#fff;
 }
 .btn-warning-bg .btn-dropdown-menu li a:hover{
-	background: #f0ad4e;
+	background: #ae9167;;
 	color:#fff;
 }
 .btn-danger-bg .btn-dropdown-menu li a:hover{
@@ -190,11 +190,11 @@
 	vertical-align: middle; 
 }
 .button-drop-style-one .btn-button-ct.btn-button-warning-ct{
-    background: #f0ad4e;
-	border-right:1px solid #f0ad4e;
-	border-left:0px solid #f0ad4e;
-	border-top:1px solid #f0ad4e;
-	border-bottom:1px solid #f0ad4e;
+    background: #ae9167;;
+	border-right:1px solid #ae9167;;
+	border-left:0px solid #ae9167;;
+	border-top:1px solid #ae9167;;
+	border-bottom:1px solid #ae9167;;
 	color: #fff;
 	vertical-align: middle; 
 }

@@ -49,7 +49,7 @@ public class PurContractMasterDAO<T> extends AbstractDao<T> {
     }
 
     public long GetMaxInvoSp(String depNoOld, String sectionNoOld, String titelSp) {
-        Query query = session.createQuery("Select nvl(max(v.id.contractSp),0) from PurContractMaster v where v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.titelSp=:titelSp");
+        Query query = session.createQuery("Select IFNULL(max(v.id.contractSp),0)+1 from PurContractMaster v where v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.titelSp=:titelSp");
         query.setString("depNoOld", depNoOld);
         query.setString("sectionNoOld", sectionNoOld);
         query.setString("titelSp", titelSp);
@@ -61,7 +61,7 @@ public class PurContractMasterDAO<T> extends AbstractDao<T> {
         List<Long> list = query.getResultList();
         long number = 1;// no Employee saved in the system
         if (list.get(0) != null) {
-            number = list.get(0) + 1;
+            number = list.get(0) ;
         }
         //System.out.println(number);
         return number;

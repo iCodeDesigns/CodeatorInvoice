@@ -553,7 +553,9 @@ function updatePosition(old_position, new_position, current_index, next_index, u
 
     documents[current_index].index = +new_position;
     documents[next_index].index = +old_position;
-
+    drawTable(update);
+}
+function sortTable() {
     for (var i = 0; i < documents.length; i++) {
         for (var j = 0; j < documents.length - i - 1; j++) {
 
@@ -564,12 +566,26 @@ function updatePosition(old_position, new_position, current_index, next_index, u
             }
         }
     }
+}
+function updatePositionByField(element_id, current_index, update) {
 
+    /*alert("element_id : " + element_id);
+     alert("current_index value : " + documents[current_index].index);
+     alert("new value : " + document.getElementById(element_id).value);
+     alert("current_index<=new : " + documents[current_index].index <= (+document.getElementById(element_id).value));**/
+    if (+documents[current_index].index <= (+document.getElementById(element_id).value)) {
+        documents[current_index].index = (+document.getElementById(element_id).value) + 1;
+        //console.log(documents);
+    } else {
+        documents[current_index].index = (+document.getElementById(element_id).value) - 1;
+        //console.log(documents);
+    }
     drawTable(update);
 }
 
 drawTable(true);
 function drawTable(update) {
+    sortTable();
     var add_to_table_and_object = document.getElementById("add_to_table_and_object");
     var extraDiscountAmountDiv = document.getElementById("extraDiscountAmountDiv");
     if (update) {
@@ -595,13 +611,15 @@ function drawTable(update) {
             TOTAL_netTotal += +data.netTotal.toFixed(5);
             var html =
                     "<tr id=\"line_" + data.lineNumber + "\">" +
-                    "    <td style=\"text-align: center;\">" + (i + 1) + ""
+                    "    <td style=\"text-align: center;width: 7%;\">"
 
-                    + ((i !== 0) ? "<button type='button' class='btn btn-round btn-default fa fa-arrow-up' onclick='updatePosition(" + data.index + "," + (data.index - 1) + "," + i + "," + (i - 1) + "," + update + ");'></button>" :
-                            "       <span type='button' class='btn btn-round btn-default fa fa-arrow-up' disabled></span>")
+                    /*+ ((i !== 0) ? "<button type='button' class='btn btn-round btn-default fa fa-arrow-up' onclick='updatePosition(" + data.index + "," + (data.index - 1) + "," + i + "," + (i - 1) + "," + update + ");'></button>" :
+                     "       <span type='button' class='btn btn-round btn-default fa fa-arrow-up' disabled></span>")
+                     
+                     + ((i !== documents.length - 1) ? "  <button type='button' class='btn btn-round btn-default fa fa-arrow-down' onclick='updatePosition(" + data.index + "," + (data.index + 1) + "," + i + "," + (i + 1) + "," + update + ");'></button>" :
+                     "       <span type='button' class='btn btn-round btn-default fa fa-arrow-down' disabled></span>")*/
 
-                    + ((i !== documents.length - 1) ? "  <button type='button' class='btn btn-round btn-default fa fa-arrow-down' onclick='updatePosition(" + data.index + "," + (data.index + 1) + "," + i + "," + (i + 1) + "," + update + ");'></button>" :
-                            "       <span type='button' class='btn btn-round btn-default fa fa-arrow-down' disabled></span>")
+                    + "<input type=\"number\" class=\"form-control\" style=\"text-align: center;\" onkeyup=\"updatePositionByField('serialRow_" + data.index + "'," + i + "," + update + ");\" id=\"serialRow_" + data.index + "\" value=\"" + data.index + "\">"
 
                     + "</td>" +
                     "    <td style=\"text-align: center;\">" + data.itemCode + "</td>" +
@@ -614,7 +632,7 @@ function drawTable(update) {
                     "    <td style=\"text-align: center;\">" +
                     "        <table class=\"table table-striped table-bordered\">";
             if (update) {
-                html += "            <button type=\"button\" onclick=\"setCurrentActiveLine('" + data.lineNumber + "');\" class=\"btn btn-success fa fa-plus\" data-toggle=\"modal\" data-target=\"#taxModal\" style=\"font-weight: bold;font-size: 10px;text-align: center;\" title=\"إضافة ضريبة\" data-toggle=\"tooltip\"></button>";
+                html += "            <button type=\"button\" onclick=\"setCurrentActiveLine('" + data.lineNumber + "');\" class=\"btn btn-success fa fa-plus\" data-toggle=\"modal\" data-target=\"#taxModal\" style=\"font-weight: bold;font-size: 10px;text-align: center;background: #26b99a;border: 1px solid #26b99a;\" title=\"إضافة ضريبة\" data-toggle=\"tooltip\"></button>";
             }
             html += "            <tbody id=\"line_" + data.lineNumber + "_Tax\">";
 
@@ -629,7 +647,7 @@ function drawTable(update) {
                         "    <td style=\"text-align: center;\">\n";
 
                 if (update) {
-                    html += "        <button type=\"button\" onclick=\"delete_tax_from_invoiceLine('line_" + data.lineNumber + "_Tax_" + taxData.taxLineNumber + "', '" + data.lineNumber + "', '" + taxData.taxLineNumber + "');\" class=\"btn btn-danger fa fa-close\" style=\"font-weight: bold;font-size: 10px;text-align: center;\"></button>\n";
+                    html += "        <button type=\"button\" onclick=\"delete_tax_from_invoiceLine('line_" + data.lineNumber + "_Tax_" + taxData.taxLineNumber + "', '" + data.lineNumber + "', '" + taxData.taxLineNumber + "');\" class=\"btn btn-danger fa fa-close\" style=\"font-weight: bold;font-size: 10px;text-align: center;color: #fff;background-color: #851934;border-color: #851934;\"></button>\n";
                 }
                 html += "    </td>\n" +
                         "</tr>";
@@ -640,18 +658,18 @@ function drawTable(update) {
                     "    <td style=\"text-align: center;\">" + data.total + "</td>" +
                     "    <td style=\"text-align: center;\">";
             if (update) {
-                html += "<button type=\"button\" onclick=\"delete_invoiceLine('line_" + data.lineNumber + "', '" + data.lineNumber + "');\" class=\"btn btn-danger fa fa-close\" style=\"font-weight: bold;font-size: 10px;text-align: center;\" data-toggle=\"modal\" data-target=\"#x\"></button></td>";
+                html += "<button type=\"button\" onclick=\"delete_invoiceLine('line_" + data.lineNumber + "', '" + data.lineNumber + "');\" class=\"btn btn-danger fa fa-close\" style=\"font-weight: bold;font-size: 10px;text-align: center;color: #fff;background-color: #851934;border-color: #851934;\" data-toggle=\"modal\" data-target=\"#x\"></button></td>";
             }
             html += "</tr>";
             invoiceLines.innerHTML += html;
         }
         // صف الإجماليات
         html = "";
-        invoiceLines.innerHTML += "<tr style='background-color: coral;'><th colspan='8'></th><th>خصم الفاتورة</th><th>" + extraDiscountAmount + "</th><th></th></tr>";
-
+        invoiceLines.innerHTML += "<tr style='background-color: gainsboro;'><th colspan='8'></th><th>خصم الفاتورة</th><th>" + extraDiscountAmount + "</th><th></th></tr>";
+    
         // صف الإجماليات
         html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='5'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='5'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"
@@ -662,10 +680,10 @@ function drawTable(update) {
         invoiceLines.innerHTML += html;
     } else {
         invoiceLines.innerHTML = "<tr><td colspan='11'>لا توجد سطور للفاتورة</td></tr>";
-        invoiceLines.innerHTML += "<tr style='background-color: coral;'><th colspan='8'></th><th>خصم الفاتورة</th><th>" + extraDiscountAmount + "</th><th></th></tr>";
+        invoiceLines.innerHTML += "<tr style='background-color: gainsboro;'><th colspan='8'></th><th>خصم الفاتورة</th><th>" + extraDiscountAmount + "</th><th></th></tr>";
 
         var html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='5'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='5'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"

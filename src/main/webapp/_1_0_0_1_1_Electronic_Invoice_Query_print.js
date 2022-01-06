@@ -74,7 +74,7 @@ function fillInvoice(data, invoice_index) {
     } else if (data.documentType === "D") {
         doc_type = "إشعار خصم";
     }
-    document.getElementById("Ahram_id" + invoice_index).innerHTML = NumFromEnToAr("100534287");
+    document.getElementById("Ahram_id" + invoice_index).innerHTML = NumFromEnToAr("999999999");
     document.getElementById("tel_Div" + invoice_index).innerHTML = NumFromEnToAr("02/24539687");
     document.getElementById("documentType" + invoice_index).innerHTML = doc_type;
 

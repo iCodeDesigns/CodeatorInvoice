@@ -84,7 +84,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -135,7 +135,7 @@
             }
             /* خاص بعمل اسبان بجانب الفيلد وعمل دوران للزوايا */
             .searchCustom{
-                background-color: #337ab7;
+                background-color: #131e33;
                 /*border: black solid 2px;*/
                 color: white;
                 border-radius: 13px;
@@ -352,7 +352,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
                                     <table id="ItemaTable" class="table table-striped table-bordered table-hover" style="text-align: center;">
                                         <thead>
-                                            <tr style="background-color: #337ab7;color: white;">                                                                            
+                                            <tr style="background-color: #131e33;color: white;">                                                                            
                                                 <th style="text-align: center;"><a href='#' style='color: white;' class='sortIcon fa fa-sort' onclick='sortTable(0)'></a> كود الصنف الداخلي</th>
                                                 <th style="text-align: center;"><a href='#' style='color: white;' class='sortIcon fa fa-sort' onclick='sortTable(1)'></a> اسم الصنف A</th>
                                                 <!--<th style="text-align: center;"><a href='#' style='color: white;' class='sortIcon fa fa-sort' onclick='sortTable(2)'></a> اسم الصنف E</th>-->

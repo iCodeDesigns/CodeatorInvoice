@@ -86,7 +86,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -137,7 +137,7 @@
             }
             /* خاص بعمل اسبان بجانب الفيلد وعمل دوران للزوايا */
             .searchCustom{
-                background-color: #337ab7;
+                background-color: #131e33;
                 /*border: black solid 2px;*/
                 color: white;
                 border-radius: 13px;

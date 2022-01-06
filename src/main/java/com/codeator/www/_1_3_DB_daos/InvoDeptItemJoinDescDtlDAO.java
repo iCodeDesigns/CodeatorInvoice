@@ -18,7 +18,7 @@ import org.hibernate.query.Query;
 public class InvoDeptItemJoinDescDtlDAO<T> extends AbstractDao<T> {
 
     public long GetMaxsuppSeqBr() {
-        Query query = session.createQuery("Select nvl(max(v.itemSeq),0) from InvoDeptItemJoinDescDtl v");
+        Query query = session.createQuery("Select IFNULL(max(v.itemSeq),0)+1 from InvoDeptItemJoinDescDtl v");
         long maxRequireSp = GetQueryNumber(query);
         return maxRequireSp;
     }
@@ -27,7 +27,7 @@ public class InvoDeptItemJoinDescDtlDAO<T> extends AbstractDao<T> {
         List<Long> list = query.getResultList();
         long number = 1;// no Employee saved in the system
         if (list.get(0) != null) {
-            number = list.get(0) + 1;
+            number = list.get(0);
         }
         //System.out.println(number);
         return number;

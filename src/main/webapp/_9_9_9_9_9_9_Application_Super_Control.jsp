@@ -121,7 +121,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -333,7 +333,7 @@
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="border-right: 2px solid #e6e9ed;">                                
                                     <table id="" class="table table-striped table-bordered table-hover" style="text-align: center;font-size: large;">
-                                        <thead style="background-color: #337ab7;color: white;">
+                                        <thead style="background-color: #131e33;color: white;">
                                             <tr>
                                                 <th style="text-align: center;font-size: large;">كود النظام</th>
                                                 <th style="text-align: center;font-size: large;">الترتيب في القائمة</th>

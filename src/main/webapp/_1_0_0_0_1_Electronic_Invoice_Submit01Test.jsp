@@ -95,7 +95,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -181,7 +181,7 @@
             }
             /* خاص بعمل اسبان بجانب الفيلد وعمل دوران للزوايا */
             .searchCustom{
-                background-color: #337ab7;
+                background-color: #131e33;
                 /*border: black solid 2px;*/
                 color: white;
                 border-radius: 13px;
@@ -601,7 +601,7 @@
                                     <label></label>
                                     <table class="table table-striped table-bordered table-hover" style="text-align: center;">
                                         <thead>
-                                            <tr style="background-color: #337ab7;color: white;">   
+                                            <tr style="background-color: #131e33;color: white;">   
                                                 <th style="text-align: center;">كود الصنف</th>
                                                 <th style="text-align: center;">مسمى الصنف</th>
                                                 <th style="text-align: center;">سعر الوحدة بالمصري</th>

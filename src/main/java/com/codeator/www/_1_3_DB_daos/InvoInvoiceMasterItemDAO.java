@@ -18,7 +18,7 @@ import org.hibernate.query.Query;
 public class InvoInvoiceMasterItemDAO<T> extends AbstractDao<T> {
 
     public int GetMaxInvoSpItem(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp) {//
-        Query query = session.createQuery("Select nvl(max(v.id.invoSpItem),0) from InvoInvoiceMasterItem v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp");
+        Query query = session.createQuery("Select IFNULL(max(v.id.invoSpItem),0)+1 from InvoInvoiceMasterItem v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp");
         query.setString("accUnitCod", accUnitCod);
         query.setString("depNoOld", depNoOld);
         query.setString("sectionNoOld", sectionNoOld);
@@ -31,7 +31,7 @@ public class InvoInvoiceMasterItemDAO<T> extends AbstractDao<T> {
         List<Integer> list = query.getResultList();
         int number = 1;// no Employee saved in the system
         if (list.get(0) != null) {
-            number = list.get(0) + 1;
+            number = list.get(0);
         }
         //System.out.println(number);
         return number;

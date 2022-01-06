@@ -19,7 +19,7 @@ import javax.persistence.Query;
 public class AppSubElem_DAO<T> extends AbstractDao<T> {
 
     public Integer getMaxID(String applicationId, String tabId, String subTabId) {
-        Query query = session.createQuery("SELECT nvl(max(p.id.elementId),0)+1 FROM AppSubElem p where p.id.applicationId=" + applicationId + " and p.id.tabId=" + tabId + " and p.id.subTabId=" + subTabId + " "); //HQL
+        Query query = session.createQuery("SELECT IFNULL(max(p.id.elementId),0)+1 FROM AppSubElem p where p.id.applicationId=" + applicationId + " and p.id.tabId=" + tabId + " and p.id.subTabId=" + subTabId + " "); //HQL
         List<Integer> pList = query.getResultList();
         Integer number = 0;
         for (Integer num : pList) {

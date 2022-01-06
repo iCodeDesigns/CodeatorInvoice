@@ -79,7 +79,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -298,7 +298,7 @@
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 table-responsive">
                                         <br>
                                         <table id="" class="table table-striped table-bordered table-hover">
-                                            <thead style="background-color: #337ab7;color: white;">
+                                            <thead style="background-color: #131e33;color: white;">
                                                 <tr>
                                                     <th style="text-align: center;font-size: 15px;width: 10%">رقم الموظف</th>
                                                     <th style="text-align: center;font-size: 15px;width: 30%">اسم الموظف</th>
@@ -325,7 +325,7 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
                                         <table id="" class="table table-striped table-bordered table-hover">                                            
-                                            <thead style="background-color: #337ab7;color: white;">
+                                            <thead style="background-color: #131e33;color: white;">
                                                 <tr>
                                                     <th style="text-align: center;font-size: 15px;width: 5%;">كود الشاشة</th>
                                                     <th style="text-align: center;font-size: 15px;width: 20%;">اسم الشاشة</th>
@@ -370,7 +370,7 @@
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <table id="" class="table table-striped table-bordered table-hover">
-                                        <thead style="background-color: #337ab7;color: white;">
+                                        <thead style="background-color: #131e33;color: white;">
                                             <tr>
                                                 <th style="text-align: center;font-size: 15px;width: 30%">إسم الموظف</th>
                                             </tr>
@@ -380,7 +380,7 @@
                                                 <td><input onkeyup="getEmpDataByNameSearch();" type="text" class="form-control" name="" autocomplete="off" id="searchEmpName" value="" required=""></td>                                                                                          
                                             </tr>                                        
                                         </tbody> 
-                                        <thead style="background-color: #337ab7;color: white;">
+                                        <thead style="background-color: #131e33;color: white;">
                                             <tr>
                                                 <th style="text-align: center;font-size: 15px;width: 30%">رقم الموظف</th>
                                                 <th style="text-align: center;font-size: 15px;width: 30%">اسم الموظف</th>

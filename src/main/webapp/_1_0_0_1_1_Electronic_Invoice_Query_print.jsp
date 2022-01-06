@@ -197,7 +197,7 @@
                     <div class="row">
                         <div class="col-lg-8" style="width: 70%;">
 
-                            <a href="#"><p style="font-size: 12px;margin: 0;padding: 0;" onclick="printAssessment();"><img src="webDesign/production/images/AhramSmall.png" width="150px"></p></a>
+                            <a href="#"><p style="font-size: 12px;margin: 0;padding: 0;" onclick="printAssessment();"><img src="webDesign/Resources/images/Codeator_Logo.png" width="150px"></p></a>
                             <h5 style="font-size: 20px;margin-bottom: 15px;margin-top: 0px;font-weight: bold;">مؤسسة الأهرام</h5>
                             <h5 style="font-size: 20px;margin-bottom: 15px;margin-top: 0px;font-weight: bold;">المركز الضريبي لكبار الممولين</h5>
                             <p style="font-size: 12px;margin: 0;padding: 0;font-weight: bold;font-size: 15px;">رقم التسجيل الضريبي</p>
@@ -451,7 +451,7 @@
                                     </table>
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="direction: ltr;">
                                         <tr>
-                                            <td style="direction: ltr;width: 5%;vertical-align: middle;"><img src="webDesign/production/images/AMACA.png" width="100%"></td>
+                                            <td style="direction: ltr;width: 5%;vertical-align: middle;"><img src="webDesign/Resources/images/Codeator_Logo.png" width="100%"></td>
                                             <td style="direction: ltr;width: 95%;vertical-align: middle;font-size: 10px;">Copyrights © <%=new DateOp().getCustomSysDate("yyyy")%> CODEATOR All rights reserved.</td>
                                             <td style="direction: ltr;" id="footer_internal_id<%=invoice_index%>"></td>
                                         </tr>

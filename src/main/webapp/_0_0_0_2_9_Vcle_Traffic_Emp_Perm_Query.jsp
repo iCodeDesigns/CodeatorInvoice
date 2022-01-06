@@ -98,7 +98,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -149,7 +149,7 @@
             }
             /* خاص بعمل اسبان بجانب الفيلد وعمل دوران للزوايا */
             .searchCustom{
-                background-color: #337ab7;
+                background-color: #131e33;
                 /*border: black solid 2px;*/
                 color: white;
                 border-radius: 13px;
@@ -389,7 +389,7 @@
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
                                     <table class="table table-striped table-bordered table-hover">
-                                        <thead id="dash_table_Header" style="background-color: #337ab7;color: white;">  
+                                        <thead id="dash_table_Header" style="background-color: #131e33;color: white;">  
                                         </thead>
                                         <tbody id="dash_table" style="text-align: center;">
                                         </tbody>
@@ -414,7 +414,7 @@
                                         <br>
                                     </div>
                                     <table id="" class="table table-striped table-bordered table-hover">
-                                        <thead style="background-color: #337ab7;color: white;">
+                                        <thead style="background-color: #131e33;color: white;">
                                             <tr>
                                                 <th style="text-align: center;font-size: 15px;width: 15%">رقم التأمين</th>
                                                 <th style="text-align: center;font-size: 15px;width: 20%">اسم الموظف</th>

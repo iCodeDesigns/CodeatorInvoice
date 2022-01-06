@@ -112,7 +112,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -178,7 +178,7 @@
             }
             /* خاص بعمل اسبان بجانب الفيلد وعمل دوران للزوايا */
             .searchCustom{
-                background-color: #337ab7;
+                background-color: #131e33;
                 /*border: black solid 2px;*/
                 color: white;
                 border-radius: 13px;
@@ -428,7 +428,7 @@
                                     <label></label>
                                     <table id="Electronic_Invoice_Query_Master_Table" class="table table-striped table-bordered" style="text-align: center;">
                                         <thead>
-                                            <tr style="background-color: #337ab7;color: white;">                                                                            
+                                            <tr style="background-color: #131e33;color: white;">                                                                            
                                                 <th style="text-align: center;">رقم الفاتورة</th>
                                                 <th style="text-align: center;">نوع المتعامل</th>
                                                 <th style="text-align: center;">نوع المستند</th>
@@ -511,7 +511,7 @@
                                             <br>
                                             <table id="MyTable" class="table table-striped table-bordered" style="text-align: center;">
                                                 <thead>
-                                                    <tr style="background-color: #337ab7;color: white;">                                                                            
+                                                    <tr style="background-color: #131e33;color: white;">                                                                            
                                                         <th colspan="3">Receiver (To)</th>                                                    
                                                     </tr>
                                                 </thead>
@@ -546,7 +546,7 @@
                                             <br>
                                             <table id="MyTable" class="table table-striped table-bordered" style="text-align: center;">
                                                 <thead>
-                                                    <tr style="background-color: #337ab7;color: white;">                                                                            
+                                                    <tr style="background-color: #131e33;color: white;">                                                                            
                                                         <th colspan="3">Issuer (From)</th>                                                    
                                                     </tr>
                                                 </thead>
@@ -588,7 +588,7 @@
                                             <br>
                                             <table class="table table-striped table-bordered table-hover" style="text-align: center;">
                                                 <thead>
-                                                    <tr style="background-color: #337ab7;color: white;">   
+                                                    <tr style="background-color: #131e33;color: white;">   
                                                         <th style="text-align: center;">كود الصنف<br>Item Code</th>
                                                         <th style="text-align: center;">مسمى الصنف<br>Item Name</th>
                                                         <th style="text-align: center;">سعر الوحدة بالمصري<br>EGP Price</th>
@@ -648,7 +648,7 @@
                 <div class="modal-dialog modal-lg" style="width: 90%;">
                     <div class="modal-content">
 
-                        <div class="modal-header" style="background-color: #169F85;color: white;direction: rtl;">
+                        <div class="modal-header" style="background-color: #4c8278;color: white;direction: rtl;">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;float: left;"><span aria-hidden="true" style="color: white;">×</span>
                             </button>
                             <h4 class="modal-title" id="myModalLabel2" style="font-size: 30px;">تفاصيل الفاتورة رقم: <span style="direction: ltr;"><i id="invoiceID1"></i></span></h4>
@@ -733,7 +733,7 @@
                                     <label></label>
                                     <table class="table table-striped table-bordered table-hover" style="text-align: center;">
                                         <thead>
-                                            <tr style="background-color: #337ab7;color: white;">   
+                                            <tr style="background-color: #131e33;color: white;">   
                                                 <th style="text-align: center;">كود الصنف</th>
                                                 <th style="text-align: center;">مسمى الصنف</th>
                                                 <th style="text-align: center;">سعر الوحدة بالمصري</th>
@@ -778,11 +778,11 @@
                                     </table>
                                 </div>                                
                             </div>
-                            <div class="row" style="background: #ff5f5f;display: none" id="ErrorsDiv">
+                            <div class="row" style="background: mistyrose;display: none" id="ErrorsDiv">
                                 <h1 style="color: white;font-size: 20px;padding: 10px;" id="errorRmrk"></h1>
                             </div>
                         </div>
-                        <div class="modal-footer" style="background-color: #169F85;">
+                        <div class="modal-footer" style="background-color: #4c8278;">
                         </div>
 
                     </div>
@@ -792,7 +792,7 @@
             <div class="modal fade" id="InvoiceCancel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header" style="background-color: #f0ad4e;color: white;direction: rtl;">
+                        <div class="modal-header" style="background-color: #ae9167;;color: white;direction: rtl;">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;float: left;">
                                 <span aria-hidden="true" style="color: white;">×</span>
                             </button>
@@ -801,7 +801,7 @@
                         </div>
                         <div class="modal-body" style="direction: rtl;">
                             <div class="row" >
-                                <h1 style="color: #f0ad4e;text-align: center">هل أنت متأكد من الغاء هذا المستند ؟؟!...</h1>
+                                <h1 style="color: #ae9167;;text-align: center">هل أنت متأكد من الغاء هذا المستند ؟؟!...</h1>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label class="control-label font-style" style="font-size: 15px;">سبب الرفض</label>
                                     <textarea maxlength="200" id="rmrk" style="margin: 0px; width: 570px; height: 300px;font-size: 20px;text-align: right;resize: none;">
@@ -810,7 +810,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer" style="background-color: #f0ad4e; text-align: center;font-size: 20px;font-weight: bold;">
+                        <div class="modal-footer" style="background-color: #ae9167;; text-align: center;font-size: 20px;font-weight: bold;">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-size: 20px;font-weight: bold;">لا</button>
                             <button type="button" class="btn btn-default" onclick="sendInvoiceForCancellation();"  style="font-size: 20px;font-weight: bold;">نعم</button>
                         </div>

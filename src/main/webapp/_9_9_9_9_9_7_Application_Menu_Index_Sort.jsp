@@ -122,7 +122,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -331,7 +331,7 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <table id="" class="table table-striped table-bordered table-hover" style="text-align: center;font-size: large;">
-                                            <thead style="background-color: #337ab7;color: white;">
+                                            <thead style="background-color: #131e33;color: white;">
                                                 <tr>
                                                     <th style="text-align: center;font-size: large;">كود النظام</th>
                                                     <th style="text-align: center;font-size: large;">إسم النظام</th>
@@ -390,7 +390,7 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <table id="" class="table table-striped table-bordered table-hover" style="text-align: center;font-size: large;">
-                                            <thead style="background-color: #337ab7;color: white;">
+                                            <thead style="background-color: #131e33;color: white;">
                                                 <tr>
                                                     <th style="text-align: center;font-size: large;">كود القائمة</th>
                                                     <th style="text-align: center;font-size: large;">إسم القائمة</th>
@@ -452,7 +452,7 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <table id="" class="table table-striped table-bordered table-hover" style="text-align: center;font-size: large;">
-                                            <thead style="background-color: #337ab7;color: white;">
+                                            <thead style="background-color: #131e33;color: white;">
                                                 <tr>
                                                     <th style="text-align: center;font-size: large;">كود القائمة</th>
                                                     <th style="text-align: center;font-size: large;">إسم القائمة</th>

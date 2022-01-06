@@ -86,7 +86,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -137,7 +137,7 @@
             }
             /* خاص بعمل اسبان بجانب الفيلد وعمل دوران للزوايا */
             .searchCustom{
-                background-color: #337ab7;
+                background-color: #131e33;
                 /*border: black solid 2px;*/
                 color: white;
                 border-radius: 13px;
@@ -355,7 +355,7 @@
                                     <label>Results : <span id="ResultsUp">5</span></label>
                                     <table id="MyTable" class="table table-striped table-bordered" style="text-align: center;">
                                         <thead>
-                                            <tr style="background-color: #337ab7;color: white;">                                                                            
+                                            <tr style="background-color: #131e33;color: white;">                                                                            
                                                 <th style="text-align: center;">رقم الفاتورة</th>
                                                 <th style="text-align: center;">التاريخ</th>
                                                 <th style="text-align: center;">الوقت</th>
@@ -453,7 +453,7 @@
                                             <br>
                                             <table id="MyTable" class="table table-striped table-bordered" style="text-align: center;">
                                                 <thead>
-                                                    <tr style="background-color: #337ab7;color: white;">                                                                            
+                                                    <tr style="background-color: #131e33;color: white;">                                                                            
                                                         <th colspan="3">Receiver (To)</th>                                                    
                                                     </tr>
                                                 </thead>
@@ -488,7 +488,7 @@
                                             <br>
                                             <table id="MyTable" class="table table-striped table-bordered" style="text-align: center;">
                                                 <thead>
-                                                    <tr style="background-color: #337ab7;color: white;">                                                                            
+                                                    <tr style="background-color: #131e33;color: white;">                                                                            
                                                         <th colspan="3">Issuer (From)</th>                                                    
                                                     </tr>
                                                 </thead>
@@ -527,7 +527,7 @@
                                             <br>
                                             <table class="table table-striped table-bordered table-hover" style="text-align: center;">
                                                 <thead>
-                                                    <tr style="background-color: #337ab7;color: white;">   
+                                                    <tr style="background-color: #131e33;color: white;">   
                                                         <th style="text-align: center;">كود الصنف<br>Item Code</th>
                                                         <th style="text-align: center;">مسمى الصنف<br>Item Name</th>
                                                         <th style="text-align: center;">سعر الوحدة بالمصري<br>EGP Price</th>

@@ -74,7 +74,7 @@ function getAllServices() {
                         + "<td class=\"table-font-style\">" + data[i].serviceName + "</td>"
                         + "<td class=\"table-font-style\">" + serviceCode + "</td>"
                         + "<td>      <button type=\"button\" onclick=\"updateService_form('" + data[i].serviceSeq + "','" + data[i].serviceName + "','" + data[i].serviceCode + "');\"  class=\"fa fa-edit btn btn-success\" style=\"font-size: large;border: 2px solid white;\"></button>"
-                        + "<button type=\"button\" onclick=\"deleteButton('" + data[i].serviceSeq + "');\" class=\"fa fa-trash btn btn-danger\" style=\"font-size: large;border: 2px solid white;\"></button>"
+                        + "<button type=\"button\" onclick=\"deleteButton('" + data[i].serviceSeq + "');\" class=\"fa fa-trash btn btn-danger\" style=\" background-color: #851934;font-size: large;border: 2px solid white;\"></button>"
                         + "</td>"
                         + "</tr>";
 

@@ -48,8 +48,19 @@
                 <h2 class="active"></h2>
 
                 <!-- Icon -->
-                <div class="fadeInDown" style="text-align: center;">
-                    <img src="webDesign/Resources/images/Codeator_Logo.png" id="icon" alt="User Icon" style="width:90%;" />
+                <div class="fadeInDown">
+                    <div class="fadeIn first" style="text-align: center;">
+                        <img src="webDesign/Resources/images/Codeator_Logo.png" id="icon" alt="User Icon" style="width:90%;" />                        
+                    </div>
+                    <div style="text-align: center;">
+                        <br>
+                        <br>
+                        <img  class="fadeIn second" src="webDesign/Resources/images/mysql.png" id="icon" alt="User Icon" style="width:40%;" />
+                        <img  class="fadeIn third" src="webDesign/Resources/images/Hibernate_logo_a.png" id="icon" alt="User Icon" style="width:40%;" />
+                    </div>
+                    <div class="fadeIn fourth" style="text-align: center;">                     
+                        <img src="webDesign/Resources/images/reliable-technologies-01.png" id="icon" alt="User Icon" style="width:40%;" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,6 +110,7 @@
         <script src="webDesign/vendors/pnotify/dist/pnotify.js"></script>
         <script src="webDesign/vendors/pnotify/dist/pnotify.buttons.js"></script>
         <script src="_0_0_0_0_1_loginscreen.js"></script>
+
     </body>
 
 </html>

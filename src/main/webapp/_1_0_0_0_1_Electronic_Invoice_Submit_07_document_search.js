@@ -29,7 +29,7 @@ function closeAll() {
     document.getElementById("searchTotalAmount").disabled = true;
 
     document.getElementById("receiverType").disabled = true;
-    document.getElementById("swap_btn").style.display = "none";
+    //document.getElementById("swap_btn").style.display = "none";
     document.getElementById("receivername").disabled = true;
     document.getElementById("receivername_select").style.display = "none";
     document.getElementById("id").disabled = true;
@@ -57,7 +57,7 @@ function resetPageToNormal() {
     document.getElementById("searchTotalAmount").disabled = true;
 
     document.getElementById("receiverType").disabled = false;
-    document.getElementById("swap_btn").style.display = "block";
+    //document.getElementById("swap_btn").style.display = "block";
     document.getElementById("receivername").disabled = false;
     document.getElementById("receivername_select").style.display = "block";
     document.getElementById("id").disabled = false;
@@ -135,7 +135,7 @@ function filScreen(data) {
         document.getElementById("suppSeqBr").value = receiverData_array[0].receiverDetails[0].suppSeqBr;
     }
 
-    document.getElementById("swap_btn").style.display = "none";
+    //document.getElementById("swap_btn").style.display = "none";
 
     document.getElementById("ServiceSeq").value = data.serviceSeq;
 

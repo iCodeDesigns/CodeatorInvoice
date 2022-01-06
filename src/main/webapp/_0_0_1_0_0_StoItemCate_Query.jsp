@@ -78,7 +78,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -335,7 +335,7 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
                                 <table id="" class="table table-striped table-bordered table-hover">
-                                    <thead style="background-color: #337ab7;color: white;">
+                                    <thead style="background-color: #131e33;color: white;">
                                         <tr>
                                             <th style="text-align: center;font-size: 15px;width: 15%">كود الباب</th>
                                             <th style="text-align: center;font-size: 15px;width: 15%">اسم الباب</th>
@@ -402,7 +402,7 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
                                     <table class="table table-striped table-bordered" style="text-align: center;">
-                                        <thead style="background-color: #337ab7;color: white;">
+                                        <thead style="background-color: #131e33;color: white;">
                                             <tr>
                                                 <th style="text-align: center;font-size: 15px;width: 15%">كود المجموعة</th>
                                                 <th style="text-align: center;font-size: 15px;width: 15%">اسم المجموعة</th>
@@ -459,7 +459,7 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
                                     <table class="table table-striped table-bordered" style="text-align: center;">
-                                        <thead style="background-color: #337ab7;color: white;">
+                                        <thead style="background-color: #131e33;color: white;">
                                             <tr>
                                                 <th style="text-align: center;font-size: 15px;width: 15%">كود القسم</th>
                                                 <th style="text-align: center;font-size: 15px;width: 15%">اسم القسم</th>

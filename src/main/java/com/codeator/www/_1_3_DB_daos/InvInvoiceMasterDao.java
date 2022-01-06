@@ -31,7 +31,7 @@ public class InvInvoiceMasterDao<T> extends AbstractDao<T> {
     }
 
     public long GetMaxInvoSp(String accountUnitCode) {
-        Query query = session.createQuery("Select nvl(max(v.id.invoSp),0) from InvInvoiceMaster v where v.id.accountUnitCode=:accountUnitCode");
+        Query query = session.createQuery("Select IFNULL(max(v.id.invoSp),0) from InvInvoiceMaster v where v.id.accountUnitCode=:accountUnitCode");
         query.setString("accountUnitCode", accountUnitCode);
         long maxRequireSp = GetQueryNumber(query);
         return maxRequireSp;

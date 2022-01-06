@@ -8,6 +8,7 @@ package com.codeator.www._1_0_SystemFilter;
 import com.codeator.www._0_0_App_tasks._0_0_1_API_Login;
 import com.codeator.www._0_1_CodeatorLib.Hashing.hashing_algorithm_class;
 import com.codeator.www._0_2_CodeatorLib.Baisc_HTML_Generator.DevelopmenUserNametPassword;
+import com.codeator.www._0_3_CodeatorLib.GeneralOperations.DateOp;
 import com.codeator.www._1_1_DB_mainDao.HibernateSessionCon;
 import com.codeator.www._1_2_DB_entities.PerEmploymentMaster;
 import com.codeator.www._1_3_DB_daos.PerEmploymentMasterDao;
@@ -43,6 +44,14 @@ public class LoginControlServlet extends HttpServlet {
         new HibernateSessionCon().OpenCon();
         try {
 
+            String currentDate = new DateOp().getCustomSysDate("yyyy-MM-dd");
+            String MaxDate = "2022-05-01";
+            long diff = new DateOp().differentsBetweenTwoDates(MaxDate, currentDate, "yyyy-MM-dd");
+
+            if (diff < 0) {
+                throw new Exception("انتهت صلاحية رخصة البرنامج");
+            }
+            
             String emp_user = request.getParameter("username");//ID
             String emp_pass = request.getParameter("password");//BirthDate
 

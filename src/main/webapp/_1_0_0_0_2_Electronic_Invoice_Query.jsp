@@ -126,7 +126,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -192,7 +192,7 @@
             }
             /* خاص بعمل اسبان بجانب الفيلد وعمل دوران للزوايا */
             .searchCustom{
-                background-color: #337ab7;
+                background-color: #131e33;
                 /*border: black solid 2px;*/
                 color: white;
                 border-radius: 13px;
@@ -447,7 +447,7 @@
                                     <label></label>
                                     <table class="table table-striped table-bordered" style="text-align: center;">
                                         <thead>
-                                            <tr style="background-color: #337ab7;color: white;">                                                                            
+                                            <tr style="background-color: #131e33;color: white;">                                                                            
                                                 <th style="text-align: center;">رقم الفاتورة</th>
                                                 <th style="text-align: center;">نوع المتعامل</th>
                                                 <th style="text-align: center;">نوع المستند</th>
@@ -492,7 +492,7 @@
                 <div class="modal-dialog modal-lg" style="width: 90%;">
                     <div class="modal-content">
 
-                        <div class="modal-header" style="background-color: #169F85;color: white;direction: rtl;">
+                        <div class="modal-header" style="background-color: #4c8278;color: white;direction: rtl;">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;float: left;"><span aria-hidden="true" style="color: white;">×</span>
                             </button>
                             <h4 class="modal-title" id="myModalLabel2" style="font-size: 30px;">تفاصيل الفاتورة رقم: <span style="direction: ltr;"><i id="invoiceID1"></i></span></h4>
@@ -580,7 +580,7 @@
                                     <label></label>
                                     <table class="table table-striped table-bordered table-hover" style="text-align: center;">
                                         <thead>
-                                            <tr style="background-color: #337ab7;color: white;">  
+                                            <tr style="background-color: #131e33;color: white;">  
 
                                                 <th style="text-align: center;">كود الصنف</th>
                                                 <th style="text-align: center;">مسمى الصنف</th>
@@ -626,11 +626,11 @@
                                     </table>
                                 </div>                                
                             </div>
-                            <div class="row" style="background: #ff5f5f;display: none" id="ErrorsDiv">
+                            <div class="row" style="background: mistyrose;display: none" id="ErrorsDiv">
                                 <h1 style="color: white;font-size: 20px;padding: 10px;" id="errorRmrk"></h1>
                             </div>
                         </div>
-                        <div class="modal-footer" style="background-color: #169F85;">
+                        <div class="modal-footer" style="background-color: #4c8278;">
                         </div>
 
                     </div>
@@ -640,7 +640,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
 
-                        <div class="modal-header" style="background-color: #ec971f;color: white;direction: rtl;">
+                        <div class="modal-header" style="background-color: #ae9167;color: white;direction: rtl;">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;float: left;"><span aria-hidden="true" style="color: white;">×</span>
                             </button>
                             <h4 class="modal-title" id="myModalLabel2" style="font-size: 30px;">تعديل</h4>
@@ -650,7 +650,7 @@
 
                             </div>
                         </div>
-                        <div class="modal-footer" style="background-color: #ec971f;">
+                        <div class="modal-footer" style="background-color: #ae9167;">
                         </div>
 
                     </div>
@@ -661,72 +661,108 @@
                 <div class="modal-dialog modal-lg" style="width: 80%;">
                     <div class="modal-content">
 
-                        <div class="modal-header" style="background-color: #ec971f;color: white;direction: rtl;">
+                        <div class="modal-header" style="background-color: #ae9167;color: white;direction: rtl;">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;float: left;"><span aria-hidden="true" style="color: white;">×</span>
                             </button>
-                            <h4 class="modal-title" id="myModalLabel2" style="font-size: 30px;">تعديل</h4>
+                            <h4 class="modal-title" id="myModalLabel2" style="font-size: 30px;"><span class="fa fa-edit"></span> تعديل</h4>
                         </div>
                         <div class="modal-body" >
-                            <div class="x_panel" style="box-shadow: -1px 2px 5px 1px #929292;">
-                                <button type="button" data-placement="top" onclick="updateDocument();" id="PrintBtn" class=" button_styleSuccess btn btn-sm btn-success button_position fixedPosition fa fa-save" style="box-shadow: -1px 2px 5px 1px black;font-weight: bold;font-size: 38px;width: auto;display: block;"></button>
-                                <div class="x_title">
-                                    <h2 style="width: 50%;font-weight: bold;float: right;color: #327ab7;" onclick="copyClientNameToTitle();">بيانات المتعامل <span style="color: black;" id="copyClientNameToTitle"></span></h2>
-                                    <ul class="nav navbar-left panel_toolbox" style="direction: ltr;float: left;width: 50%;" onclick="copyClientNameToTitle();">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <!-- for Edit -->
-                                <div class="x_content">
-                                    <div class="row">
 
+                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" style="direction: rtl;">
+                                <label class="control-label font-style" style="font-size: 15px;">نوع المستند</label>
+                                <select disabled="" data-placeholder="Choose a Country..." name="documentType" id="documentType" class="form-control" tabindex="-1" required="">
+                                    <option class="font-style" value="I">فاتورة</option><!--invoice -->
+                                    <option class="font-style" value="C">إشعار إضافة</option><!--creditor -->
+                                    <option class="font-style" value="D">إشعار خصم</option><!--depite -->
+                                </select>
+                            </div>
+                            <%
+                                if (chkInvoInternalIdSeq) {
+                            %>
+                            <div class="col-lg-6 col-md-6 col-sm-8 col-xs-8" style="direction: rtl;">
+                                <label class="control-label font-style" style="font-size: 15px;">رقم الفاتورة الداخلي</label>                                        
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right: 0px;padding-left: 0px;">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px;display: none; ">
+                                        <div type="text" class="form-control" style="text-align: center;" name="Invoice_number" id="Invoice_number" required=""></div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                            <label class="control-label" style="font-size: 15px;">نوع التعامل</label>
-                                            <select disabled="" onchange="receiverTypeControlFields();Cash_Html_manipulation();" name="receiverType" id="receiverType" class="form-control" tabindex="-1" required="">
-                                                <option class="font-style" value="B">شركة</option><!-- for Edit -->
-                                                <option class="font-style" value="P">فرد</option><!-- Person -->
-                                                <option class="font-style" value="F">أجنبي</option><!-- foreigner -->
-
-                                            </select>
-                                        </div>
-
-                                        <div style="display: none;">
-                                            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 form-group" id="swap_btn">                                            
-                                                <button type="button" data-placement="top" onclick="SwapDivsWithClick();" class="button_style btn btn-sm btn-primary" data-original-title="تبديل نظام البحث" data-toggle="tooltip" data-placement="bottom" style="font-weight: bold;font-size: 15px;padding-bottom: 6px;padding-top: 6px;margin-top: 26px;" data-toggle="modal" data-target="#x"><i class="fa fa-arrow-right"></i><i class="fa fa-arrow-left"></i></button>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 swapIt" >
-                                            <label class="control-label" style="font-size: 15px;">المتعامل</label>                                                                   
-                                            <input readonly="" disabled="" type="text" onkeyup="QueryByReceiverNameOrId();" class="form-control container" name="receivername" id="receivername">
-                                            <select style="display: none;" name="receivername_select" id="receivername_select" onchange="getSelected_receivername_Tofileds();" class="form-control container" multiple>                                            
-                                            </select>
-                                        </div> 
-
-                                        <div id="swapper-other" class="swapIt">
-                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6" >
-                                                <label class="control-label container" style="font-size: 15px;" id="ComRegisterDiv" style="display: block;">رقم البطاقة الضريبية</label>                                                                   
-                                                <label class="control-label" style="font-size: 15px;" id="nationalIdDiv" style="display: none;">الرقم القومي</label>
-                                                <label class="control-label" style="font-size: 15px;" id="passportNumberDiv" style="display: none;">رقم جواز سفر</label>
-                                                <input readonly="" disabled="" type="text" class="form-control" name="id" id="id" onkeyup="QueryByReceiverNameOrId();" required="" autocomplete="disable">
-
-                                            </div>
-                                        </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right: 0px;direction: ltr;text-align: center;padding-left: 0px;">
+                                        <div type="text" class="form-control" name="Invoice_numberDept" id="Invoice_numberDept" required="" readonly></div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /for Edit -->
+                            <%
+                            } else {
+                            %>
 
-                            <div class="row">
-                                <div id="Reciver_Other_info" class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                    <div class="x_panel" style="box-shadow: -1px 2px 5px 1px #929292;">
-                                        <div class="x_title">
-                                            <h2 style="width: 50%;font-weight: bold;float: right;color: #327ab7;">بيانات اخرى للمتعامل</h2>
+                            <div class="col-lg-6 col-md-6 col-sm-8 col-xs-8" style="direction: rtl;">
+                                <label class="control-label font-style" style="font-size: 15px;">رقم الفاتورة الداخلي</label>                                        
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right: 0px;">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-right: 0px;padding-left: 0px;">
+                                        <input type="text" class="form-control" style="text-align: center;" name="Invoice_number" id="Invoice_number" required="">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-right: 0px;direction: ltr;text-align: center;padding-left: 0px;">
+                                        <div type="text" class="form-control" name="Invoice_numberDept" id="Invoice_numberDept" required="" readonly></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>  
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><br></div>
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                <div class="x_panel" style="box-shadow: -1px 2px 5px 1px #929292;">
+                                    <div class="x_title">
+                                        <h2 style="width: 50%;font-weight: bold;float: right;color: #327ab7;" onclick="copyClientNameToTitle();">بيانات المتعامل <span style="color: black;" id="copyClientNameToTitle"></span></h2>
+                                        <ul class="nav navbar-left panel_toolbox" style="direction: ltr;float: left;width: 50%;" onclick="copyClientNameToTitle();">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <!-- for Edit -->
+                                    <div class="x_content">
+                                        <div class="row">
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <label class="control-label" style="font-size: 15px;">نوع التعامل</label>
+                                                <select disabled="" onchange="receiverTypeControlFields();Cash_Html_manipulation();" name="receiverType" id="receiverType" class="form-control" tabindex="-1" required="">
+                                                    <option class="font-style" value="B">شركة</option><!-- for Edit -->
+                                                    <option class="font-style" value="P">فرد</option><!-- Person -->
+                                                    <option class="font-style" value="F">أجنبي</option><!-- foreigner -->
+
+                                                </select>
+                                            </div>
+
+                                            <div style="display: none;">
+                                                <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 form-group" id="swap_btn">                                            
+                                                    <button type="button" data-placement="top" onclick="SwapDivsWithClick();" class="button_style btn btn-sm btn-primary" data-original-title="تبديل نظام البحث" data-toggle="tooltip" data-placement="bottom" style="font-weight: bold;font-size: 15px;padding-bottom: 6px;padding-top: 6px;margin-top: 26px;" data-toggle="modal" data-target="#x"><i class="fa fa-arrow-right"></i><i class="fa fa-arrow-left"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 swapIt" >
+                                                <label class="control-label" style="font-size: 15px;">المتعامل</label>                                                                   
+                                                <input readonly="" disabled="" type="text" onkeyup="QueryByReceiverNameOrId();" class="form-control container" name="receivername" id="receivername">
+                                                <select style="display: none;" name="receivername_select" id="receivername_select" onchange="getSelected_receivername_Tofileds();" class="form-control container" multiple>                                            
+                                                </select>
+                                            </div> 
+
+                                            <div id="swapper-other" class="swapIt">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                                                    <label class="control-label container" style="font-size: 15px;" id="ComRegisterDiv" style="display: block;">رقم البطاقة الضريبية</label>                                                                   
+                                                    <label class="control-label" style="font-size: 15px;" id="nationalIdDiv" style="display: none;">الرقم القومي</label>
+                                                    <label class="control-label" style="font-size: 15px;" id="passportNumberDiv" style="display: none;">رقم جواز سفر</label>
+                                                    <input readonly="" disabled="" type="text" class="form-control" name="id" id="id" onkeyup="QueryByReceiverNameOrId();" required="" autocomplete="disable">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="Reciver_Other_info"> 
+                                        <div class="x_title" >
+                                            <h2 style="width: 50%;font-weight: bold;float: right;color: #327ab7;">عنوان للمتعامل</h2>
                                             <ul class="nav navbar-left panel_toolbox" style="direction: ltr;float: left;width: 50%;">
-                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                </li>
+                                                <li></li>
                                             </ul>
                                             <div class="clearfix"></div>
                                         </div>
@@ -774,50 +810,50 @@
                                                 </div>-->
                                             </div>
                                         </div>
-                                        <!-- /for Edit -->
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                                    <div class="x_panel" style="box-shadow: -1px 2px 5px 1px #929292;" >
-                                        <div class="x_title">
-                                            <h2 style="width: 100%;font-weight: bold;float: right;color: #327ab7;">تحويل العملات "سعر البورصة"</h2>
-                                            <ul class="nav navbar-left panel_toolbox" style="direction: ltr;float: left;width: 50%;">
-                                                <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
-                                                </li>
-                                            </ul>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content" style="display: none;">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <!-- Please do not edit this code Mconvert currency-converter-widget starts here -->
-                                                <!--<script type="text/javascript">
-                                                    var fr = 'usd';
-                                                    var to = 'egp';
-                                                    var w = '100%';
-                                                    var h = '290';
-                                                    var l = 'ar';
-                                                    var t = 'darkblue';
-                                                    var f = '2';
-                                                    var ht = 'mconvert.net/';
-                                                </script>
-                                                <a href="https://mconvert.net/" title="تحويل العملات">
-                                                    <script src="//mconvert.net/currency_converter"></script>
-                                                </a>
-                                                <span style="font-size: 11px; text-align: right; display: block; font-family: Helvetica Neue;">
-                                                    <a href="https://mconvert.net/" style="color: #337ab7; text-decoration: none; font-family: Helvetica Neue;"></a>
-                                                </span>-->
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
-                            <!--card Start -->
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                                <div class="x_panel" style="box-shadow: -1px 2px 5px 1px #929292;" >
+                                    <div class="x_title">
+                                        <h2 style="width: 100%;font-weight: bold;float: right;color: #327ab7;">تحويل العملات "سعر البورصة"</h2>
+                                        <ul class="nav navbar-left panel_toolbox" style="direction: ltr;float: left;width: 50%;">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content" style="display: none;">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <!-- Please do not edit this code Mconvert currency-converter-widget starts here -->
+                                            <!--<script type="text/javascript">
+                                                var fr = 'usd';
+                                                var to = 'egp';
+                                                var w = '100%';
+                                                var h = '290';
+                                                var l = 'ar';
+                                                var t = 'darkblue';
+                                                var f = '2';
+                                                var ht = 'mconvert.net/';
+                                            </script>
+                                            <a href="https://mconvert.net/" title="تحويل العملات">
+                                                <script src="//mconvert.net/currency_converter"></script>
+                                            </a>
+                                            <span style="font-size: 11px; text-align: right; display: block; font-family: Helvetica Neue;">
+                                                <a href="https://mconvert.net/" style="color: #131e33; text-decoration: none; font-family: Helvetica Neue;"></a>
+                                            </span>-->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /for Edit -->
+
                             <!--card Start -->
                             <div class="x_panel" style="box-shadow: -1px 2px 5px 1px #929292;">
                                 <!-- for Edit -->
 
-                                <div class="row">
+                                <div class="row">                                                                      
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" >
                                         <label class="control-label font-style" style="font-size: 15px;">نوع الخدمة</label>
                                         <select data-placeholder="Choose a Country..."  name="ServiceSeq" id="ServiceSeq" class="form-control" tabindex="-1" required="">
@@ -842,50 +878,17 @@
                                             %>
                                         </select>
                                     </div>
-                                    <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
-                                        <label class="control-label font-style" style="font-size: 15px;">نوع المستند</label>
-                                        <select disabled="" data-placeholder="Choose a Country..." name="documentType" id="documentType" class="form-control" tabindex="-1" required="">
-                                            <option class="font-style" value="I">فاتورة</option><!--invoice -->
-                                            <option class="font-style" value="C">إشعار إضافة</option><!--creditor -->
-                                            <option class="font-style" value="D">إشعار خصم</option><!--depite -->
-                                        </select>
-                                    </div>
 
-                                    <%
-                                        if (chkInvoInternalIdSeq) {
-                                    %>
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                        <label class="control-label font-style" style="font-size: 15px;">رقم الفاتورة الداخلي</label>                                        
-                                        <div class="col-lg-12 col-md-12 col-sm- col-xs-6">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px;display: none; ">
-                                                <div type="text" class="form-control" style="text-align: center;" name="Invoice_number" id="Invoice_number" required=""></div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6" style="padding-right: 0px;direction: ltr;text-align: center;">
-                                                <div type="text" class="form-control" name="Invoice_numberDept" id="Invoice_numberDept" required="" readonly></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <%
-                                    } else {
-                                    %>
 
-                                    <div class="col-lg-5 col-md-5 col-sm-3 col-xs-3">
-                                        <label class="control-label font-style" style="font-size: 15px;">رقم الفاتورة الداخلي</label>                                        
-                                        <div class="col-lg-12 col-md-12 col-sm- col-xs-6">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left: 0px;">
-                                                <input type="text" class="form-control" style="text-align: center;" name="Invoice_number" id="Invoice_number" required="">
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-right: 0px;direction: ltr;text-align: center;">
-                                                <div type="text" class="form-control" name="Invoice_numberDept" id="Invoice_numberDept" required="" readonly></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <%
-                                        }
-                                    %>
+
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                                        <label class="control-label font-style " style="font-size: 15px;">تاريخ الفاتورة</label>
-                                        <input type="date" class="form-control" name="dateTimeIssued" id="dateTimeIssued" value="<%=new DateOp().getCustomSysDate("yyyy-MM-dd")%>" required="">
+                                        <label class="control-label font-style" style="font-size: 15px;">تاريخ الفاتورة عند الضرائب</label>
+                                        <div class='input-group date myDatepicker5' style="direction: ltr;">
+                                            <input type='text' class="form-control" readonly="readonly" name="dateTimeIssued" id="dateTimeIssued" value="<%=new DateOp().getCustomSysDate("yyyy-MM-dd")%>" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
                                     </div>
 
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
@@ -1021,7 +1024,7 @@
                                 <%                                            //                                
                                 %>
                                 <div class="row">
-                                    <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                                         <label class="control-label font-style" style="font-size: 15px;">نوع التكويد</label>
                                         <select data-placeholder="Choose a Country..." onchange="getItemCode();" name="itemType" id="itemType" class="form-control" tabindex="-1" required="">
                                             <option class="font-style" value="GS1">GS1</option>
@@ -1046,24 +1049,10 @@
                                         <select data-placeholder="Choose a Country..." name="itemSeq" id="itemSeq" class="form-control" tabindex="-1" required="">
                                         </select>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" id="" >
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="" >
                                         <label class="control-label font-style" style="font-size: 15px;">توصيف اضافي</label>
                                         <input type="text" class="form-control" name="extra_description" id="extra_description" placeholder="(اختياري)" required="">
                                     </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                                        <label class="control-label font-style" style="font-size: 15px;">وحدة القياس</label>
-                                        <select data-placeholder="Choose a Country..." name="unitType" id="unitType" onchange="unitTypeCalc();" class="form-control" tabindex="-1" required="">
-                                            <%
-                                                List<InvoDeptUnitJoin> InvUnitTypeList = new InvoDeptUnitJoinDAO().GetInvoUnitTypeInDept(AccUintDept, sectionNoOld, depNoOld);
-                                                for (InvoDeptUnitJoin invUnitType : InvUnitTypeList) {
-                                            %>
-                                            <option class="font-style" <%=(invUnitType.getInvoUnitType().getUnitType().equals("EA")) ? "selected" : ""%> value="<%=invUnitType.getInvoUnitType().getUnitType()%>-<%=invUnitType.getInvoUnitType().getCalcType()%>"><%=invUnitType.getUnitNickname()%></option><!--invoice -->
-                                            <%                                            //
-                                                }
-                                            %>
-                                        </select>
-                                    </div> 
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
                                     <%
                                         String readOnly = "";
                                         if (calcUnitAndMinimumStatus) {
@@ -1086,62 +1075,76 @@
                                     <%
                                         }
                                     %>
-                                    <div class="row">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                                            <label class="control-label font-style" style="font-size: 15px;">نوع القيمة</label>
-                                            <select data-placeholder="Choose a Country..." onchange="writeQuantity();" name="quantityType" id="quantityType" class="form-control" tabindex="-1" required="">
-                                                <option class="font-style" value="writeQuantity">قيمة</option>
-                                                <option class="font-style" value="noQuantity">قيمة مقطوعة</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="lengthDiv">
-                                            <label class="control-label font-style" style="font-size: 15px;">الطول</label>
-                                            <input type="number" class="form-control" onkeyup="allFloatNumeric('length');changeDiscountAmount();onCalcQuantity();" name="length" id="length" required="">
-                                        </div> 
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="widthDiv">
-                                            <label class="control-label font-style" style="font-size: 15px;">العرض</label>
-                                            <input type="number" class="form-control" onkeyup="allFloatNumeric('width');changeDiscountAmount();onCalcQuantity();" name="width" id="width" required="">
-                                        </div> 
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="hieghtDiv">
-                                            <label class="control-label font-style" style="font-size: 15px;">الارتفاع</label>
-                                            <input type="number" class="form-control" onkeyup="allFloatNumeric('hieght');changeDiscountAmount();onCalcQuantity();" name="hieght" id="hieght" required="">
-                                        </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="quantityDiv">
-                                            <label class="control-label font-style" style="font-size: 15px;">الكمية</label>
-                                            <input type="number" class="form-control" onkeyup="allFloatNumeric('quantity');changeDiscountAmount();" name="quantity" id="quantity" required="">
-                                        </div>                                                               
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                                            <label class="control-label font-style" style="font-size: 15px;">السعر</label>
-                                            <input type="number" class="form-control <%=readOnly%>" onkeyup="allFloatNumeric('price');changeDiscountAmount();" name="price" id="price" required="">
-                                        </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                        <label class="control-label font-style" style="font-size: 15px;">وحدة القياس</label>
+                                        <select data-placeholder="Choose a Country..." name="unitType" id="unitType" onchange="unitTypeCalc();" class="form-control" tabindex="-1" required="">
+                                            <%
+                                                List<InvoDeptUnitJoin> InvUnitTypeList = new InvoDeptUnitJoinDAO().GetInvoUnitTypeInDept(AccUintDept, sectionNoOld, depNoOld);
+                                                for (InvoDeptUnitJoin invUnitType : InvUnitTypeList) {
+                                            %>
+                                            <option class="font-style" <%=(invUnitType.getInvoUnitType().getUnitType().equals("EA")) ? "selected" : ""%> value="<%=invUnitType.getInvoUnitType().getUnitType()%>-<%=invUnitType.getInvoUnitType().getCalcType()%>"><%=invUnitType.getUnitNickname()%></option><!--invoice -->
+                                            <%                                            //
+                                                }
+                                            %>
+                                        </select>
+                                    </div> 
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                        <label class="control-label font-style" style="font-size: 15px;">نوع القيمة</label>
+                                        <select data-placeholder="Choose a Country..." onchange="writeQuantity();" name="quantityType" id="quantityType" class="form-control" tabindex="-1" required="">
+                                            <option class="font-style" value="writeQuantity">قيمة</option>
+                                            <option class="font-style" value="noQuantity">قيمة مقطوعة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="lengthDiv">
+                                        <label class="control-label font-style" style="font-size: 15px;">الطول</label>
+                                        <input type="number" class="form-control" onkeyup="allFloatNumeric('length');changeDiscountAmount();onCalcQuantity();" name="length" id="length" required="">
+                                    </div> 
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="widthDiv">
+                                        <label class="control-label font-style" style="font-size: 15px;">العرض</label>
+                                        <input type="number" class="form-control" onkeyup="allFloatNumeric('width');changeDiscountAmount();onCalcQuantity();" name="width" id="width" required="">
+                                    </div> 
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="hieghtDiv">
+                                        <label class="control-label font-style" style="font-size: 15px;">الارتفاع</label>
+                                        <input type="number" class="form-control" onkeyup="allFloatNumeric('hieght');changeDiscountAmount();onCalcQuantity();" name="hieght" id="hieght" required="">
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="quantityDiv">
+                                        <label class="control-label font-style" style="font-size: 15px;">الكمية</label>
+                                        <input type="number" class="form-control" onkeyup="allFloatNumeric('quantity');changeDiscountAmount();" name="quantity" id="quantity" required="">
+                                    </div>                                                               
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                        <label class="control-label font-style" style="font-size: 15px;">السعر</label>
+                                        <input type="number" class="form-control <%=readOnly%>" onkeyup="allFloatNumeric('price');changeDiscountAmount();" name="price" id="price" required="">
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
 
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                                            <label class="control-label font-style" style="font-size: 15px;">نوع الخصم</label>
-                                            <select data-placeholder="Choose a Country..." onchange="discountRateType();" name="discountType" id="discountType" class="form-control" tabindex="-1" required="">
-                                                <option class="font-style" value="rate">نسبة</option>
-                                                <option class="font-style" selected value="noRate">خصم مقطوع</option>
-                                            </select>
+
+
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                        <label class="control-label font-style" style="font-size: 15px;">نوع الخصم</label>
+                                        <select data-placeholder="Choose a Country..." onchange="discountRateType();" name="discountType" id="discountType" class="form-control" tabindex="-1" required="">
+                                            <option class="font-style" value="rate">نسبة</option>
+                                            <option class="font-style" selected value="noRate">خصم مقطوع</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="discountRateDiv">
+                                        <label class="control-label" style="font-size: 15px;">نسبة الخصم</label>   
+                                        <div class="input-prepend input-group">
+                                            <input type="number" class="form-control" onkeyup="allFloatNumeric('discount_rate');changeDiscountAmount();" name="discount_rate" id="discount_rate" value="0" required="">
+                                            <span class="input-group-addon searchCustom" style="border: 1px solid #e5e6e7;border-radius: 0px;"><i>%</i></span>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4" id="discountRateDiv">
-                                            <label class="control-label" style="font-size: 15px;">نسبة الخصم</label>   
-                                            <div class="input-prepend input-group">
-                                                <input type="number" class="form-control" onkeyup="allFloatNumeric('discount_rate');changeDiscountAmount();" name="discount_rate" id="discount_rate" value="0" required="">
-                                                <span class="input-group-addon searchCustom" style="border: 1px solid #e5e6e7;border-radius: 0px;"><i>%</i></span>
-                                            </div>
-                                        </div>  
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                                            <label class="control-label" style="font-size: 15px;">خصم</label>                                                                   
-                                            <input type="number" class="form-control" onkeyup="allFloatNumeric('discount_amount');" name="discount_amount" id="discount_amount" value="0" required="">
-                                        </div>
+                                    </div>  
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                        <label class="control-label" style="font-size: 15px;">خصم</label>                                                                   
+                                        <input type="number" class="form-control" onkeyup="allFloatNumeric('discount_amount');" name="discount_amount" id="discount_amount" value="0" required="">
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 form-group" style="text-align: center;">                                            
+                                        <button type="button" data-placement="top" id="add_to_table_and_object" onclick="add_to_table_and_object();" class="button_style btn btn-sm btn-primary button_position fa fa-arrow-circle-down" style="font-weight: bold;font-size: 20px;padding-bottom: 7px;margin-top: 23px;width: 100%;background: #131e33;" title="إضافة" data-toggle="tooltip"> إضافة</button>
                                     </div>
 
                                 </div>
                                 <div class="row" >
                                     <div class="chosen-select-single mg-b-20 table-responsive" id='TaxAbleTable'>
-                                        <label></label>
-                                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 form-group" style="text-align: center;">                                            
-                                            <button type="button" data-placement="top" onclick="add_to_table_and_object();" id="add_to_table_and_object" class="button_style btn btn-sm btn-primary button_position fa fa-arrow-circle-down" style="font-weight: bold;font-size: 20px;padding-bottom: 7px;margin-top: 23px;width: 20%;"></button>
-                                        </div>
+                                        <label></label>                                        
                                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="float: left;" id="extraDiscountAmountDiv">
                                             <label class="control-label" style="font-size: 15px;">خصم على مستوى الفاتورة</label>                                                                   
                                             <input type="number" class="form-control" onkeyup="allFloatNumeric('extraDiscountAmount');drawTable();" name="extraDiscountAmount" id="extraDiscountAmount" value="0" required="">
@@ -1149,7 +1152,7 @@
                                         </div>
                                         <table class="table table-striped table-bordered table-hover" style="text-align: center;">
                                             <thead>
-                                                <tr style="background-color: #337ab7;color: white;"> 
+                                                <tr style="background-color: #131e33;color: white;"> 
                                                     <th style="text-align: center;">مسلسل</th>
                                                     <th style="text-align: center;">كود الصنف</th>
                                                     <th style="text-align: center;">مسمى الصنف</th>
@@ -1199,7 +1202,9 @@
                                 <!-- /for Edit -->
                             </div>
                         </div>
-                        <div class="modal-footer" style="background-color: #ec971f;">
+                        <div class="modal-footer" style="background-color: #ae9167;">
+                            <button type="button" data-placement="top" onclick="updateDocument();" id="PrintBtn" class=" button_styleSuccess btn btn-sm btn-success button_position fixedPosition fa fa-save" style="box-shadow: -1px 2px 5px 1px black;font-weight: bold;font-size: 38px;width: auto;display: block;"></button>
+
                         </div>
 
                     </div>
@@ -1251,7 +1256,7 @@
             <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header" style="background-color: #c9302c;color: white;direction: rtl;">
+                        <div class="modal-header" style="background-color: #851934;color: white;direction: rtl;">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;float: left;">
                                 <span aria-hidden="true" style="color: white;">×</span>
                             </button>
@@ -1260,7 +1265,7 @@
                         </div>
                         <div class="modal-body" style="direction: rtl;">
                             <div class="row" >
-                                <h1 style="color: #c9302c;text-align: center">هل أنت متأكد من عملية الحذف تلك ؟؟!...</h1>
+                                <h1 style="color: #851934;text-align: center">هل أنت متأكد من عملية الحذف تلك ؟؟!...</h1>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label class="control-label font-style" style="font-size: 15px;">سبب الحذف</label>
                                     <select data-placeholder="Choose a Country..." name="rmrk" id="rmrk" class="form-control" tabindex="-1" required="">
@@ -1271,7 +1276,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer" style="background-color: #c9302c; text-align: center;font-size: 20px;font-weight: bold;">
+                        <div class="modal-footer" style="background-color: #851934; text-align: center;font-size: 20px;font-weight: bold;">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-size: 20px;font-weight: bold;">لا</button>
                             <button type="button" class="btn btn-default" onclick="deleteInvoice();"  style="font-size: 20px;font-weight: bold;">نعم</button>
                         </div>

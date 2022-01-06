@@ -319,7 +319,7 @@ function getAllItemsDtl() {
 '" + data[i].itemDescDetails[0].itemBarcode + "',\n\
 '" + data[i].description + "');\" data-toggle=\"\" data-target=\"\" class=\"fa fa-edit btn btn-success\" style=\"font-size: large;border: 2px solid white;\"></button>";
                     html += "</td>";
-                    html += "<td>     <button type=\"button\" onclick=\"getDeleteModelData('" + data[i].itemDescDetails[0].itemSeq + "');\" data-toggle=\"\" data-target=\"\" class=\"fa fa-trash btn btn-danger\" style=\"font-size: large;border: 2px solid white;\"></button>";
+                    html += "<td>     <button type=\"button\" onclick=\"getDeleteModelData('" + data[i].itemDescDetails[0].itemSeq + "');\" data-toggle=\"\" data-target=\"\" class=\"fa fa-trash btn btn-danger\" style=\" background-color: #851934;font-size: large;border: 2px solid white;\"></button>";
                     html += "</td>";
                 }
 
@@ -341,7 +341,7 @@ function getAllItemsDtl() {
 '" + itemDescDetails[j].itemBarcode + "',\n\
 '" + data[i].description + "');\" data-toggle=\"\" data-target=\"\" class=\"fa fa-edit btn btn-success\" style=\"font-size: large;border: 2px solid white;\"></button>";
                     +"</td>";
-                    html += "<td>     <button type=\"button\" onclick=\"getDeleteModelData('" + itemDescDetails[j].itemSeq + "');\" data-toggle=\"\" data-target=\"\" class=\"fa fa-trash btn btn-danger\" style=\"font-size: large;border: 2px solid white;\"></button>";
+                    html += "<td>     <button type=\"button\" onclick=\"getDeleteModelData('" + itemDescDetails[j].itemSeq + "');\" data-toggle=\"\" data-target=\"\" class=\"fa fa-trash btn btn-danger\" style=\" background-color: #851934;font-size: large;border: 2px solid white;\"></button>";
                     html += "</td>";
                     html += "</tr>";
                 }

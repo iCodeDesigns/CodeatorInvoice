@@ -57,16 +57,16 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
     }
 
     public long GetMaxInvoSp(String accUnitCode, String sectionNoOld, String depNoOld) {
-        Query query = session.createQuery("Select nvl(max(v.id.invoSp),0) from InvoInvoiceMaster v where v.id.accUnitCode=:accUnitCode and v.id.sectionNoOld=:sectionNoOld and v.id.depNoOld=:depNoOld");
+        Query query = session.createQuery("Select IFNULL(max(v.id.invoSp),0)+1 from InvoInvoiceMaster v where v.id.accUnitCode=:accUnitCode and v.id.sectionNoOld=:sectionNoOld and v.id.depNoOld=:depNoOld");
         query.setString("accUnitCode", accUnitCode);
         query.setString("sectionNoOld", sectionNoOld);
         query.setString("depNoOld", depNoOld);
         long maxRequireSp = GetQueryNumber(query);
         return maxRequireSp;
     }
-
+    
     public long GetMaxInternalID(String accUnitCode, String sectionNoOld, String depNoOld) {
-        Query query = session.createQuery("Select nvl(max(to_number(regexp_substr(v.internalId , '[^-]+',1,1))),0)+1 from InvoInvoiceMaster v where v.id.accUnitCode=:accUnitCode and v.id.sectionNoOld=:sectionNoOld and v.id.depNoOld=:depNoOld and v.invoDocumentStatus.docStatus!=0 ");
+        Query query = session.createQuery("Select IFNULL(max(convert(regexp_substr(v.internalId , '[^-]+',1,1),Signed)),0)+1 from InvoInvoiceMaster v where v.id.accUnitCode=:accUnitCode and v.id.sectionNoOld=:sectionNoOld and v.id.depNoOld=:depNoOld and v.invoDocumentStatus.docStatus!=0 ");
         query.setString("accUnitCode", accUnitCode);
         query.setString("sectionNoOld", sectionNoOld);
         query.setString("depNoOld", depNoOld);
@@ -82,7 +82,7 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
         System.out.println("-->> fromDate : " + fromDate);
         System.out.println("-->> toDate : " + toDate);
 
-        Query query = session.createQuery("Select nvl(count(v.id.invoSp),0) from InvoInvoiceMaster v where v.invoDocumentStatus.docStatus=:docStatus and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
+        Query query = session.createQuery("Select IFNULL(count(v.id.invoSp),0) from InvoInvoiceMaster v where v.invoDocumentStatus.docStatus=:docStatus and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
         query.setString("docStatus", docStatus);
         query.setString("depNoOld", depNoOld);
         query.setString("sectionNoOld", sectionNoOld);
@@ -100,7 +100,7 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
         System.out.println("-->> fromDate : " + fromDate);
         System.out.println("-->> toDate : " + toDate);
 
-        Query query = session.createQuery("Select nvl(count(v.id.invoSp),0) from InvoInvoiceMaster v where (v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and v.invoDocumentStatus.docStatus=:docStatus and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd')) ");
+        Query query = session.createQuery("Select IFNULL(count(v.id.invoSp),0)+0 from InvoInvoiceMaster v where (v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and v.invoDocumentStatus.docStatus=:docStatus and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd')) ");
         query.setString("docStatus", docStatus);
         query.setString("depNoOld", depNoOld);
         query.setString("sectionNoOld", sectionNoOld);
@@ -113,14 +113,14 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
 
     public BigDecimal GetSumInvoSp(String sectionNoOld, String depNoOld, String accUnitCode, String docStatus, String fromDate, String toDate, String createdDate_OR_issueDate) {
 
-        Query query = session.createQuery("Select nvl(sum(v.totalAmount),0) from InvoInvoiceMaster v where v.documentType!='D' v.invoDocumentStatus.docStatus=:docStatus and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
+        Query query = session.createQuery("Select IFNULL(sum(v.totalAmount),0)+0 from InvoInvoiceMaster v where v.documentType!='D' v.invoDocumentStatus.docStatus=:docStatus and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
         query.setString("docStatus", docStatus);
         query.setString("depNoOld", depNoOld);
         query.setString("sectionNoOld", sectionNoOld);
         query.setString("accUnitCode", accUnitCode);
         query.setString("fromDate", fromDate);
         query.setString("toDate", toDate);
-        Query query2 = session.createQuery("Select nvl(sum(v.totalAmount),0) from InvoInvoiceMaster v where v.documentType='D' v.invoDocumentStatus.docStatus=:docStatus and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
+        Query query2 = session.createQuery("Select IFNULL(sum(v.totalAmount),0)+0 from InvoInvoiceMaster v where v.documentType='D' v.invoDocumentStatus.docStatus=:docStatus and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
         query2.setString("docStatus", docStatus);
         query2.setString("depNoOld", depNoOld);
         query2.setString("sectionNoOld", sectionNoOld);
@@ -137,7 +137,7 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
 
     public BigDecimal GetSumTaxInvoSp(String sectionNoOld, String depNoOld, String accUnitCode, String tax, String fromDate, String toDate, String createdDate_OR_issueDate) {
 
-        Query query = session.createQuery("Select nvl(sum(v.amount),0) from InvoInvoiceMasterTax as v INNER JOIN v.invoInvoiceMasterItem as i INNER JOIN i.invoInvoiceMaster as o where v.invoTaxTypeDtl.id.taxType=:taxType and v.invoTaxTypeDtl.id.taxSubtype=:taxSubtype and o.documentType!='D' and o.invoDocumentStatus.docStatus IN (9 , 17) and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and o." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
+        Query query = session.createQuery("Select IFNULL(sum(v.amount),0)+0 from InvoInvoiceMasterTax as v INNER JOIN v.invoInvoiceMasterItem as i INNER JOIN i.invoInvoiceMaster as o where v.invoTaxTypeDtl.id.taxType=:taxType and v.invoTaxTypeDtl.id.taxSubtype=:taxSubtype and o.documentType!='D' and o.invoDocumentStatus.docStatus IN (9 , 17) and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and o." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
         //query.setString("docStatus", "9");
         //query.setString("docStatus1", "17");
         query.setString("depNoOld", depNoOld);
@@ -148,7 +148,7 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
         query.setString("taxType", tax.split(",")[0]);
         query.setString("taxSubtype", tax.split(",")[1]);
 
-        Query query2 = session.createQuery("Select nvl(sum(v.amount),0) from InvoInvoiceMasterTax as v INNER JOIN v.invoInvoiceMasterItem as i INNER JOIN i.invoInvoiceMaster as o where v.invoTaxTypeDtl.id.taxType=:taxType and v.invoTaxTypeDtl.id.taxSubtype=:taxSubtype and o.documentType='D' and o.invoDocumentStatus.docStatus IN (9 , 17) and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and o." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
+        Query query2 = session.createQuery("Select IFNULL(sum(v.amount),0)+0 from InvoInvoiceMasterTax as v INNER JOIN v.invoInvoiceMasterItem as i INNER JOIN i.invoInvoiceMaster as o where v.invoTaxTypeDtl.id.taxType=:taxType and v.invoTaxTypeDtl.id.taxSubtype=:taxSubtype and o.documentType='D' and o.invoDocumentStatus.docStatus IN (9 , 17) and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and o." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd') ");
         //query2.setString("docStatus", "9");
         //query2.setString("docStatus1", "17");
         query2.setString("depNoOld", depNoOld);
@@ -169,7 +169,7 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
 
     /*public BigDecimal GetSumInvoSp(String sectionNoOld, String depNoOld, String accUnitCode, String docStatus, String fromDate, String toDate, String createdDate_OR_issueDate) {
 
-        Query query = session.createQuery("Select nvl(sum(v.totalAmount),0) from InvoInvoiceMaster v where (v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and v.invoDocumentStatus.docStatus=:docStatus and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd')) OR (v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v.uuid!=null and v.invoDocumentStatus.docStatus=:docStatus and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd')) ");
+        Query query = session.createQuery("Select IFNULL(sum(v.totalAmount),0) from InvoInvoiceMaster v where (v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and v.invoDocumentStatus.docStatus=:docStatus and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd')) OR (v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.accUnitCode=:accUnitCode and v.uuid!=null and v.invoDocumentStatus.docStatus=:docStatus and v." + createdDate_OR_issueDate + " BETWEEN to_date(:fromDate,'yyyy-MM-dd') and to_date(:toDate,'yyyy-MM-dd')) ");
         query.setString("docStatus", docStatus);
         query.setString("depNoOld", depNoOld);
         query.setString("sectionNoOld", sectionNoOld);
@@ -180,11 +180,11 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
         BigDecimal maxRequireSp = (BigDecimal) list.get(0);
         return maxRequireSp;
     }*/
-    private long GetQueryNumber(Query query) {
-        List<Long> list = query.getResultList();
-        long number = 1;// no Employee saved in the system
+    private int GetQueryNumber(Query query) {
+        List<Integer> list = query.getResultList();
+        int number = 1;// no Employee saved in the system
         if (list.get(0) != null) {
-            number = list.get(0) + 1;
+            number = list.get(0);
         }
         //System.out.println(number);
         return number;
@@ -297,8 +297,8 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
             }
         }
 
-//        System.out.println("SELECT p from InvoInvoiceMaster p where p.id.invoSp=(Select nvl(max(i.id.invoSp),0) from InvoInvoiceMaster i where i.id.depNoOld='" + depNoOld + "' and i.id.sectionNoOld='" + sectionNoOld + "' and i.internalId LIKE '" + internalId + "') and p.id.depNoOld='" + depNoOld + "' and p.id.sectionNoOld='" + sectionNoOld + "' and p.internalId LIKE '" + internalId + "' and p.invoDocumentStatus.docStatus IN (" + status + ")");
-        Query query = session.createQuery("SELECT p from InvoInvoiceMaster p where p.id.invoSp=(Select nvl(max(i.id.invoSp),0) from InvoInvoiceMaster i where i.id.depNoOld=:depNoOld0 and i.id.sectionNoOld=:sectionNoOld0 and i.id.accUnitCode=:accUnitCode0 and i.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and i.internalId LIKE :internalId0) and p.id.depNoOld=:depNoOld1 and p.id.sectionNoOld=:sectionNoOld1 and p.id.accUnitCode=:accUnitCode1 and p.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and p.internalId LIKE :internalId1 and p.invoDocumentStatus.docStatus IN (" + status + ") ORDER BY p.id.invoSp DESC");
+//        System.out.println("SELECT p from InvoInvoiceMaster p where p.id.invoSp=(Select IFNULL(max(i.id.invoSp),0) from InvoInvoiceMaster i where i.id.depNoOld='" + depNoOld + "' and i.id.sectionNoOld='" + sectionNoOld + "' and i.internalId LIKE '" + internalId + "') and p.id.depNoOld='" + depNoOld + "' and p.id.sectionNoOld='" + sectionNoOld + "' and p.internalId LIKE '" + internalId + "' and p.invoDocumentStatus.docStatus IN (" + status + ")");
+        Query query = session.createQuery("SELECT p from InvoInvoiceMaster p where p.id.invoSp=(Select IFNULL(max(i.id.invoSp),0)+0 from InvoInvoiceMaster i where i.id.depNoOld=:depNoOld0 and i.id.sectionNoOld=:sectionNoOld0 and i.id.accUnitCode=:accUnitCode0 and i.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and i.internalId LIKE :internalId0) and p.id.depNoOld=:depNoOld1 and p.id.sectionNoOld=:sectionNoOld1 and p.id.accUnitCode=:accUnitCode1 and p.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and p.internalId LIKE :internalId1 and p.invoDocumentStatus.docStatus IN (" + status + ") ORDER BY p.id.invoSp DESC");
 
         query.setString("depNoOld0", depNoOld);
         query.setString("sectionNoOld0", sectionNoOld);
@@ -333,7 +333,7 @@ public class InvoInvoiceMasterDao<T> extends AbstractDao<T> {
             }
         }
 
-//        System.out.println("SELECT p from InvoInvoiceMaster p where p.id.invoSp=(Select nvl(max(i.id.invoSp),0) from InvoInvoiceMaster i where i.id.depNoOld='" + depNoOld + "' and i.id.sectionNoOld='" + sectionNoOld + "' and i.internalId LIKE '" + internalId + "') and p.id.depNoOld='" + depNoOld + "' and p.id.sectionNoOld='" + sectionNoOld + "' and p.internalId LIKE '" + internalId + "' and p.invoDocumentStatus.docStatus IN (" + status + ")");
+//        System.out.println("SELECT p from InvoInvoiceMaster p where p.id.invoSp=(Select IFNULL(max(i.id.invoSp),0) from InvoInvoiceMaster i where i.id.depNoOld='" + depNoOld + "' and i.id.sectionNoOld='" + sectionNoOld + "' and i.internalId LIKE '" + internalId + "') and p.id.depNoOld='" + depNoOld + "' and p.id.sectionNoOld='" + sectionNoOld + "' and p.internalId LIKE '" + internalId + "' and p.invoDocumentStatus.docStatus IN (" + status + ")");
         Query query;//= session.createQuery("SELECT p from InvoInvoiceMaster p where p.id.invoSp IN (Select i.id.invoSp from InvoInvoiceMaster i where i.id.depNoOld=:depNoOld0 and i.id.sectionNoOld=:sectionNoOld0 and i.id.accUnitCode=:accUnitCode0 and i.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and i.internalId LIKE :internalId) and p.id.depNoOld=:depNoOld1 and p.id.sectionNoOld=:sectionNoOld1 and p.id.accUnitCode=:accUnitCode1 and p.invoInvoiceMasterByInvoimsInvoimsSplitFk=null and p.internalId LIKE :internalId and p.invoDocumentStatus.docStatus IN (" + status + ") ORDER BY p.id.invoSp DESC");
 
         String column_DB;

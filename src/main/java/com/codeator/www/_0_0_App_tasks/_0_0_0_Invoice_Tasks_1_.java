@@ -45,8 +45,8 @@ import java.util.TimerTask;
  */
 public class _0_0_0_Invoice_Tasks_1_ extends TimerTask {
 
-    public final String production = "production";//production // pre-production
-    private String version = "1.0";//1.0 // 0.9
+    public final String production = "pre-production";//production // pre-production
+    private String version = "0.9";//1.0 // 0.9
 
     private boolean letsRun = true;
 

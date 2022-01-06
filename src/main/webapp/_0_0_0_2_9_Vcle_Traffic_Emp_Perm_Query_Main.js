@@ -32,10 +32,10 @@ function getMainDash() {
                         + "    <td colspan='3' class=\"table-font-style\">لا توجد بيانات</td>"
                         + "</tr>";
             } else {
-                document.getElementById("LoadTrafficEmpPermMainFoot_Data").innerHTML = "<td class=\"table-font-style\" Style=\"background-color: #337ab7;color: white;\">الإجمالي</td>"
+                document.getElementById("LoadTrafficEmpPermMainFoot_Data").innerHTML = "<td class=\"table-font-style\" Style=\"background-color: #131e33;color: white;\">الإجمالي</td>"
                         + "<td><img src=\"webDesign/production/images/Spinner.gif\" alt=\"\" border=1 height=25 width=25></td>"
                         + "<td><img src=\"webDesign/production/images/Spinner.gif\" alt=\"\" border=1 height=25 width=25></td></td>";
-                var Foot = "<td class=\"table-font-style\" Style=\"background-color: #337ab7;color: white;\">الإجمالي</td>"
+                var Foot = "<td class=\"table-font-style\" Style=\"background-color: #131e33;color: white;\">الإجمالي</td>"
                         + "<td class=\"table-font-style\">" + countEmployeeIdInMonthSum + "</td>"
                         + "<td class=\"table-font-style\">" + countValInMonthSum + "</td>"
                 setTimeout(() => {
@@ -89,10 +89,10 @@ function getValDashByMonth(Month) {
                         + "    <td colspan='3' class=\"table-font-style\">لا توجد بيانات</td>"
                         + "</tr>";
             } else {
-                document.getElementById("FeaatDetails_tableFoot").innerHTML = "<td class=\"table-font-style\" Style=\"background-color: #337ab7;color: white;\">الإجمالي</td>"
+                document.getElementById("FeaatDetails_tableFoot").innerHTML = "<td class=\"table-font-style\" Style=\"background-color: #131e33;color: white;\">الإجمالي</td>"
                         + "<td><img src=\"webDesign/production/images/Spinner.gif\" alt=\"\" border=1 height=25 width=25></td>"
                         + "<td><img src=\"webDesign/production/images/Spinner.gif\" alt=\"\" border=1 height=25 width=25></td></td>";
-                var Foot = "<td class=\"table-font-style\" Style=\"background-color: #337ab7;color: white;\">الإجمالي</td>"
+                var Foot = "<td class=\"table-font-style\" Style=\"background-color: #131e33;color: white;\">الإجمالي</td>"
                         + "<td class=\"table-font-style\">" + countEmployeeIdInMonthSum + "</td>"
                         + "<td class=\"table-font-style\">" + countValInMonthSum + "</td>"
                 setTimeout(() => {

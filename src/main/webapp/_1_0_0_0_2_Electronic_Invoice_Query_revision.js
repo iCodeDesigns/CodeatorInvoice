@@ -32,7 +32,7 @@ var no_of_tries = 0;
 async function getInvoiceMaster() {
     document.getElementById("Electronic_Invoice_Query_Master_Table").innerHTML =
             "<tr>"
-            + "    <td colspan='7'><img src=\"webDesign/production/images/Spin-0.9s-200px.gif\" alt=\"\" border=1 height=50 width=50></td>"
+            + "    <td colspan='8'><img src=\"webDesign/production/images/Spin-0.9s-200px.gif\" alt=\"\" border=1 height=50 width=50></td>"
             + "</tr>";
     await sleep(1000);
 
@@ -105,7 +105,7 @@ async function getInvoiceMaster() {
                 AllData = [];
                 document.getElementById("Electronic_Invoice_Query_Master_Table").innerHTML =
                         "<tr>"
-                        + "    <td colspan='7'>لا توجد بيانات</td>"
+                        + "    <td colspan='8'>لا توجد بيانات</td>"
                         + "</tr>";
             } else {
                 AllData = data;
@@ -188,7 +188,7 @@ function fillModal(data) {
 
     var ErrorsDiv = document.getElementById("ErrorsDiv");
     var errorRmrk = document.getElementById("errorRmrk");
-    if (data.statusRmrk === null) {
+    if (data.statusRmrk === null || data.statusRmrk === "") {
         ErrorsDiv.style.display = "none";
         errorRmrk.innerHTML = "";
     } else {
@@ -244,7 +244,7 @@ function fillModal(data) {
 
         // صف الإجماليات
         html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"
@@ -257,7 +257,7 @@ function fillModal(data) {
         invoiceLines.innerHTML += "<tr style='background-color: coral;'><th colspan='7'></th><th>خصم الفاتورة</th><th>" + extraDiscountAmount + "</th><th></th></tr>";
 
         var html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"

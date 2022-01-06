@@ -24,7 +24,7 @@ public class InvoAdvCollectorCode_DAO<T> extends AbstractDao<T> {
     }
 
     public int GetMaxSp() {
-        Query query = session.createQuery("Select nvl(max(v.advCollectorSeq),0) from InvoAdvCollectorCode v");
+        Query query = session.createQuery("Select IFNULL(max(v.advCollectorSeq),0)+1 from InvoAdvCollectorCode v");
         int maxRequireSp = GetQueryNumber(query);
         return maxRequireSp;
     }
@@ -33,7 +33,7 @@ public class InvoAdvCollectorCode_DAO<T> extends AbstractDao<T> {
         List<Integer> list = query.getResultList();
         int number = 1;// no Employee saved in the system
         if (list.get(0) != null) {
-            number = list.get(0) + 1;
+            number = list.get(0);
         }
         //System.out.println(number);
         return number;

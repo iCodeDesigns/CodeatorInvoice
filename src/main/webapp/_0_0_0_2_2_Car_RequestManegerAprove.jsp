@@ -78,7 +78,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -129,7 +129,7 @@
             }
             /* خاص بعمل اسبان بجانب الفيلد وعمل دوران للزوايا */
             .searchCustom{
-                background-color: #337ab7;
+                background-color: #131e33;
                 /*border: black solid 2px;*/
                 color: white;
                 border-radius: 13px;
@@ -316,7 +316,7 @@
                                 <label class="control-label" style="font-size: 15px;">عدد الطلبات( <span style="color: red;" id="numberOfRequestsID"><%=numbersOfRequestes%></span> )</label>
                                 <table class="table table-striped table-bordered" style="text-align: center;">
                                     <thead>
-                                        <tr style="background-color: #337ab7;color: white;">          
+                                        <tr style="background-color: #131e33;color: white;">          
                                             <th style="text-align: center;font-size: 15px;">رقم الطلب</th>
                                             <th style="text-align: center;font-size: 15px;">تاريخ الطلب</th>
                                             <th style="text-align: center;font-size: 15px;">التوقيت</th>
@@ -392,7 +392,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
 
-                                <div id="Header1" class="modal-header" style="background-color: #f0ad4e;color: white;direction: rtl;">
+                                <div id="Header1" class="modal-header" style="background-color: #ae9167;;color: white;direction: rtl;">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;float: left;"><span aria-hidden="true" style="color: white;">×</span>
                                     </button>
                                     <h4 class="modal-title" id="myModalLabel21" style="font-size: 30px;">الطلبات المعلقة من مكتب النقل من إدارة <%=employee_session.getPerDeptOld().getDepName()%></h4>
@@ -422,7 +422,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="Footer1" class="modal-footer" style="background-color: #f0ad4e; direction: rtl;">
+                                <div id="Footer1" class="modal-footer" style="background-color: #ae9167;; direction: rtl;">
                                     <button type="button" class="btn btn-default" data-dismiss="modal" style="font-weight: bold;border-color: black;width: 15%;">اغلاق</button>
                                 </div>
 

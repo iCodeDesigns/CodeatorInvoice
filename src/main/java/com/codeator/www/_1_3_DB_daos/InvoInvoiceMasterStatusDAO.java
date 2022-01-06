@@ -17,7 +17,7 @@ import org.hibernate.query.Query;
  */
 public class InvoInvoiceMasterStatusDAO<T> extends AbstractDao<T> {
 
-    public List<InvoInvoiceMasterStatus> documentStatusLog(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp) {//nvl(max(v.id.logSeq,0))
+    public List<InvoInvoiceMasterStatus> documentStatusLog(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp) {//IFNULL(max(v.id.logSeq,0))
         Query query = session.createQuery("Select v from InvoInvoiceMasterStatus v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp ORDER BY v.id.logSeq DESC");
         query.setString("accUnitCod", accUnitCod);
         query.setString("depNoOld", depNoOld);
@@ -27,8 +27,8 @@ public class InvoInvoiceMasterStatusDAO<T> extends AbstractDao<T> {
         return pList;
     }
 
-    public short GetMaxLogSeq(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp) {//nvl(max(v.id.logSeq,0))
-        Query query = session.createQuery("Select nvl(max(v.id.logSeq),0)+1 from InvoInvoiceMasterStatus v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp");
+    public short GetMaxLogSeq(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp) {//IFNULL(max(v.id.logSeq,0))
+        Query query = session.createQuery("Select IFNULL(max(v.id.logSeq),0)+1 from InvoInvoiceMasterStatus v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp");
         query.setString("accUnitCod", accUnitCod);
         query.setString("depNoOld", depNoOld);
         query.setString("sectionNoOld", sectionNoOld);
@@ -37,7 +37,7 @@ public class InvoInvoiceMasterStatusDAO<T> extends AbstractDao<T> {
         return maxRequireSp;
     }
 
-    public List<InvoInvoiceMasterStatus> documentsReviewed(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp) {//nvl(max(v.id.logSeq,0))
+    public List<InvoInvoiceMasterStatus> documentsReviewed(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp) {//IFNULL(max(v.id.logSeq,0))
         Query query = session.createQuery("Select v from InvoInvoiceMasterStatus v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp and v.invoDocumentStatus.docStatus=4");
         query.setString("accUnitCod", accUnitCod);
         query.setString("depNoOld", depNoOld);
@@ -47,8 +47,8 @@ public class InvoInvoiceMasterStatusDAO<T> extends AbstractDao<T> {
         return pList;
     }
 
-    public List<InvoInvoiceMasterStatus> documentsLastVerifyLog(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp, String docStatus) {//nvl(max(v.id.logSeq,0))        
-        Query query = session.createQuery("Select v from InvoInvoiceMasterStatus v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp and v.id.logSeq=(Select nvl(max(p.id.logSeq),0) from InvoInvoiceMasterStatus p where p.id.accUnitCode=:accUnitCod and p.id.depNoOld=:depNoOld and p.id.sectionNoOld=:sectionNoOld and p.id.invoSp=:invoSp and p.invoDocumentStatus.docStatus=:docStatus) and v.invoDocumentStatus.docStatus=:docStatus");
+    public List<InvoInvoiceMasterStatus> documentsLastVerifyLog(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp, String docStatus) {//IFNULL(max(v.id.logSeq,0))        
+        Query query = session.createQuery("Select v from InvoInvoiceMasterStatus v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp and v.id.logSeq=(Select IFNULL(max(p.id.logSeq),0)+0 from InvoInvoiceMasterStatus p where p.id.accUnitCode=:accUnitCod and p.id.depNoOld=:depNoOld and p.id.sectionNoOld=:sectionNoOld and p.id.invoSp=:invoSp and p.invoDocumentStatus.docStatus=:docStatus) and v.invoDocumentStatus.docStatus=:docStatus");
         query.setString("accUnitCod", accUnitCod);
         query.setString("depNoOld", depNoOld);
         query.setString("sectionNoOld", sectionNoOld);
@@ -58,8 +58,8 @@ public class InvoInvoiceMasterStatusDAO<T> extends AbstractDao<T> {
         return pList;
     }
     
-    public List<InvoInvoiceMasterStatus> documentsLastLog(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp) {//nvl(max(v.id.logSeq,0))        
-        Query query = session.createQuery("Select v from InvoInvoiceMasterStatus v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp and v.id.logSeq=(Select nvl(max(p.id.logSeq),0) from InvoInvoiceMasterStatus p where p.id.accUnitCode=:accUnitCod and p.id.depNoOld=:depNoOld and p.id.sectionNoOld=:sectionNoOld and p.id.invoSp=:invoSp)");
+    public List<InvoInvoiceMasterStatus> documentsLastLog(String accUnitCod, String depNoOld, String sectionNoOld, String invoSp) {//IFNULL(max(v.id.logSeq,0))        
+        Query query = session.createQuery("Select v from InvoInvoiceMasterStatus v where v.id.accUnitCode=:accUnitCod and v.id.depNoOld=:depNoOld and v.id.sectionNoOld=:sectionNoOld and v.id.invoSp=:invoSp and v.id.logSeq=(Select IFNULL(max(p.id.logSeq),0)+0 from InvoInvoiceMasterStatus p where p.id.accUnitCode=:accUnitCod and p.id.depNoOld=:depNoOld and p.id.sectionNoOld=:sectionNoOld and p.id.invoSp=:invoSp)");
         query.setString("accUnitCod", accUnitCod);
         query.setString("depNoOld", depNoOld);
         query.setString("sectionNoOld", sectionNoOld);

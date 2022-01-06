@@ -18,7 +18,7 @@ import org.hibernate.query.Query;
 public class PurContractTitelDao<T> extends AbstractDao<T> {
 
     public Integer getMaxID(String sectionNoOld, String depNoOld) {
-        Query query = session.createQuery("SELECT nvl(max(p.id.titelSp),0)+1 FROM PurContractTitel p where p.id.sectionNoOld=:sectionNoOld and p.id.depNoOld=:depNoOld "); //HQL
+        Query query = session.createQuery("SELECT IFNULL(max(p.id.titelSp),0)+1 FROM PurContractTitel p where p.id.sectionNoOld=:sectionNoOld and p.id.depNoOld=:depNoOld "); //HQL
         query.setString("sectionNoOld", sectionNoOld);
         query.setString("depNoOld", depNoOld);
         List<Integer> pList = query.getResultList();

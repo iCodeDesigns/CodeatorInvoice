@@ -272,7 +272,7 @@ function fillModal(data) {
 
         // صف الإجماليات
         html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"
@@ -285,7 +285,7 @@ function fillModal(data) {
         invoiceLines.innerHTML += "<tr style='background-color: coral;'><th colspan='7'></th><th>خصم الفاتورة</th><th>" + extraDiscountAmount + "</th><th></th></tr>";
 
         var html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"

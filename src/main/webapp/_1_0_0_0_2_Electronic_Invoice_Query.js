@@ -32,7 +32,7 @@ var no_of_tries = 0;
 async function getInvoiceMaster() {
     document.getElementById("Electronic_Invoice_Query_Master_Table").innerHTML =
             "<tr>"
-            + "    <td colspan='7'><img src=\"webDesign/production/images/Spin-0.9s-200px.gif\" alt=\"\" border=1 height=50 width=50></td>"
+            + "    <td colspan='8'><img src=\"webDesign/production/images/Spin-0.9s-200px.gif\" alt=\"\" border=1 height=50 width=50></td>"
             + "</tr>";
     await sleep(1000);
 
@@ -102,7 +102,7 @@ async function getInvoiceMaster() {
                 }
                 html += "     <button type=\"button\" onclick=\"sendInvoiceToReviewer('" + data[i].accUnitId + "','" + data[i].deptOld + "','" + data[i].sectionOld + "','" + data[i].invSp + "');\" data-toggle=\"modal\" data-target=\"#InvoiceReviewer\" class=\"fa fa-send btn btn-primary\" style=\"font-size: large;border: 2px solid white;\" title=\"الموافقة وتمرير الفاتورة للمراجعة\" data-toggle=\"tooltip\"></button>";
                 if (data[i].deleteStatus === "true") {
-                    html += "     <button type=\"button\" onclick=\"InvoiceDetailsForDelete('" + data[i].accUnitId + "','" + data[i].deptOld + "','" + data[i].sectionOld + "','" + data[i].invSp + "');\" data-toggle=\"modal\" data-target=\"#deleteModal\" class=\"fa fa-trash btn btn-danger\" style=\"font-size: large;border: 2px solid white;\" title=\"حذف الفاتورة\" data-toggle=\"tooltip\"></button>";
+                    html += "     <button type=\"button\" onclick=\"InvoiceDetailsForDelete('" + data[i].accUnitId + "','" + data[i].deptOld + "','" + data[i].sectionOld + "','" + data[i].invSp + "');\" data-toggle=\"modal\" data-target=\"#deleteModal\" class=\"fa fa-trash btn btn-danger\" style=\" background-color: #851934;font-size: large;border: 2px solid white;\" title=\"حذف الفاتورة\" data-toggle=\"tooltip\"></button>";
                 }
                 html += "</td>"
                         + "</tr>";
@@ -112,7 +112,7 @@ async function getInvoiceMaster() {
                 AllData = [];
                 document.getElementById("Electronic_Invoice_Query_Master_Table").innerHTML =
                         "<tr>"
-                        + "    <td colspan='7'>لا توجد بيانات</td>"
+                        + "    <td colspan='8'>لا توجد بيانات</td>"
                         + "</tr>";
             } else {
                 AllData = data;
@@ -194,7 +194,7 @@ function fillModal(data) {
 
     var ErrorsDiv = document.getElementById("ErrorsDiv");
     var errorRmrk = document.getElementById("errorRmrk");
-    if (data.statusRmrk === null) {
+    if (data.statusRmrk === null || data.statusRmrk === "" || data.statusRmrk === "") {
         ErrorsDiv.style.display = "none";
         errorRmrk.innerHTML = "";
     } else {
@@ -251,7 +251,7 @@ function fillModal(data) {
 
         // صف الإجماليات
         html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"
@@ -264,7 +264,7 @@ function fillModal(data) {
         invoiceLines.innerHTML += "<tr style='background-color: coral;'><th colspan='7'></th><th>خصم الفاتورة</th><th>" + extraDiscountAmount + "</th><th></th></tr>";
 
         var html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"
@@ -339,7 +339,7 @@ function getInvoiceDetailsForUpdate(accUnitId, deptOld, sectionOld, inv_sp) {
 
 
             }
-            document.getElementById("dateTimeIssued").value = currentData.dateTimeIssued;
+            //document.getElementById("dateTimeIssued").value = currentData.dateTimeIssued;
             document.getElementById("invoRealDate").value = currentData.invoRealDate;
 
             if (RecieveDevliverCodeStstus) {

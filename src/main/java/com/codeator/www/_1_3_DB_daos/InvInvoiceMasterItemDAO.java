@@ -18,7 +18,7 @@ import org.hibernate.query.Query;
 public class InvInvoiceMasterItemDAO<T> extends AbstractDao<T> {
 
     /*public int GetMaxInvoSpItem(String accountUnitCode, String invoSp) {//
-        Query query = session.createQuery("Select nvl(max(v.id.invoSpItem),0) from InvInvoiceMasterItem v where v.id.accountUnitCode=:accountUnitCode and v.id.invoSp=:invoSp");
+        Query query = session.createQuery("Select IFNULL(max(v.id.invoSpItem),0) from InvInvoiceMasterItem v where v.id.accountUnitCode=:accountUnitCode and v.id.invoSp=:invoSp");
         query.setString("accountUnitCode", accountUnitCode);
         query.setString("invoSp", invoSp);
         int maxRequireSp = GetQueryNumber(query);

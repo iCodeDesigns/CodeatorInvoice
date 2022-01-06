@@ -94,7 +94,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -145,7 +145,7 @@
             }
             /* خاص بعمل اسبان بجانب الفيلد وعمل دوران للزوايا */
             .searchCustom{
-                background-color: #337ab7;
+                background-color: #131e33;
                 /*border: black solid 2px;*/
                 color: white;
                 border-radius: 13px;
@@ -462,7 +462,7 @@
                                     <label></label>
                                     <table id="MyTable" class="table table-striped table-bordered" style="text-align: center;width: 100%;">
                                         <thead>
-                                            <tr style="background-color: #337ab7;color: white;">                                                                            
+                                            <tr style="background-color: #131e33;color: white;">                                                                            
                                                 <!--<th style="text-align: center;"></th>
                                                 <th style="text-align: center;">اسم الخدمة</th>-->
                                             </tr>

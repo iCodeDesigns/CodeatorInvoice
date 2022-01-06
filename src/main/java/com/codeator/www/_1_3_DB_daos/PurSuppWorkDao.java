@@ -19,7 +19,7 @@ import org.hibernate.query.Query;
 public class PurSuppWorkDao<T> extends AbstractDao<T> {
 
     public long GetMaxInvoSp() {
-        Query query = session.createQuery("Select nvl(max(v.id.suppSeq),0) from PurSuppWork v");
+        Query query = session.createQuery("Select IFNULL(max(v.id.suppSeq),0)+1 from PurSuppWork v");
         long maxRequireSp = GetQueryNumber(query);
         return maxRequireSp;
     }

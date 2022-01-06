@@ -78,7 +78,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -282,7 +282,7 @@
                                             </div>
                                             <!--<div class="row">
                                                 <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12 form-group">                                            
-                                                    <button type="button" data-original-title="إعادة تكوين الرسم البياني" onclick="createTableDash('<%=plotType%>', '<%=color_1%>', <%=data%>);" class="btn btn-app" style="border-style: solid;border-color: #169f85;font-size: 15px;"><i class="fa fa-repeat" style="color: #169f85;"></i>إعادة تكوين الرسم</button>
+                                                    <button type="button" data-original-title="إعادة تكوين الرسم البياني" onclick="createTableDash('<%=plotType%>', '<%=color_1%>', <%=data%>);" class="btn btn-app" style="border-style: solid;border-color: #4c8278;font-size: 15px;"><i class="fa fa-repeat" style="color: #4c8278;"></i>إعادة تكوين الرسم</button>
                                                 </div>
                                             </div>                                            -->
                                             <div class='table-responsive'>

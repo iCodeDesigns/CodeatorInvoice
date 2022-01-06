@@ -312,7 +312,7 @@ function drawTable(update) {
 
         // صف الإجماليات
         html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal + "</th>"
                 + "<th>" + TOTAL_discountAmount + "</th>"
                 + "<th>" + TOTAL_netTotal + "</th>"
@@ -326,7 +326,7 @@ function drawTable(update) {
         invoiceLines.innerHTML += "<tr style='background-color: coral;'><th colspan='7'></th><th>خصم الفاتورة</th><th>" + extraDiscountAmount + "</th><th></th></tr>";
 
         var html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal + "</th>"
                 + "<th>" + TOTAL_discountAmount + "</th>"
                 + "<th>" + TOTAL_netTotal + "</th>"

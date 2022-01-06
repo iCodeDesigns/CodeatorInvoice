@@ -2395,7 +2395,7 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-warning {
   color: #ffffff;
-  background-color: #f0ad4e;
+  background-color: #ae9167;;
   border-color: #eea236;
 }
 
@@ -2430,12 +2430,12 @@ fieldset[disabled] .btn-warning:active,
 .btn-warning.disabled.active,
 .btn-warning[disabled].active,
 fieldset[disabled] .btn-warning.active {
-  background-color: #f0ad4e;
+  background-color: #ae9167;;
   border-color: #eea236;
 }
 
 .btn-warning .badge {
-  color: #f0ad4e;
+  color: #ae9167;;
   background-color: #fff;
 }
 
@@ -5162,7 +5162,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .label-warning {
-  background-color: #f0ad4e;
+  background-color: #ae9167;;
 }
 
 .label-warning[href]:hover,
@@ -5460,7 +5460,7 @@ a.thumbnail.active {
 }
 
 .progress-bar-warning {
-  background-color: #f0ad4e;
+  background-color: #ae9167;;
 }
 
 .progress-striped .progress-bar-warning {

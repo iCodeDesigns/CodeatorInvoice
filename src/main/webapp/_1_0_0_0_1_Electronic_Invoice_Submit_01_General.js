@@ -48,13 +48,19 @@ $('.myDatepicker4').datetimepicker({
     ignoreReadonly: true,
     allowInputToggle: true
 });
+$('.myDatepicker5').datetimepicker({
+    format: 'YYYY-MM-DD',
+    useCurrent: true,
+    ignoreReadonly: false,
+    allowInputToggle: true
+});
 
 /**
  * في حالة اختيار نقدا
  * @return {undefined}
  */
 function Cash_Html_manipulation() {
-    var swap_btn = document.getElementById("swap_btn");
+    //var swap_btn = document.getElementById("swap_btn");
     var id_div = document.getElementById("swapper-other");
     var Reciver_Other_info = document.getElementById("Reciver_Other_info");
     var receiverType = document.getElementById("receiverType").value;
@@ -62,11 +68,11 @@ function Cash_Html_manipulation() {
     if (receiverType === "small-P" || receiverType === "small-P-split") {
         id_div.style.display = "none";
         Reciver_Other_info.style.display = "none";
-        swap_btn.style.display = "none";
+        //swap_btn.style.display = "none";
     } else {
         id_div.style.display = "block";
         Reciver_Other_info.style.display = "block";
-        swap_btn.style.display = "block";
+        //swap_btn.style.display = "block";
     }
 
 

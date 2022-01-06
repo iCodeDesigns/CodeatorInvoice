@@ -378,7 +378,7 @@ function refresh(searchLevel, sectionOrDept, DashTimeView, from_year, month, req
             var series2 = [];
             $.each(data, function (index, mainData) {                
                 //part.push(article.x_part_name);
-                HtmlTable += "<thead style='background-color: #337ab7;color: white;'>";
+                HtmlTable += "<thead style='background-color: #131e33;color: white;'>";
                 HtmlTable += "<tr>";
                 var sortingStatus0 = "";
                 var sortingStatus1 = "";
@@ -606,7 +606,7 @@ function createTableDash(plotType, color_1, data) {
     var series2 = [];
     $.each(data, function (index, mainData) {
         //part.push(article.x_part_name);
-        HtmlTable += "<thead style='background-color: #337ab7;color: white;'>";
+        HtmlTable += "<thead style='background-color: #131e33;color: white;'>";
         HtmlTable += "<tr>";
         HtmlTable += "  <th style='text-align: center;font-size: 15px;width: 15%'></th>";
         $.each(mainData.parts, function (i, part1) {

@@ -39,7 +39,7 @@ async function getInvoiceMaster() {
     await sleep(1000);
 
     if (documentStatus === "6") {
-        document.getElementById("table_header").innerHTML = "<tr style=\"background-color: #337ab7;color: white;\">                                                                            " +
+        document.getElementById("table_header").innerHTML = "<tr style=\"background-color: #131e33;color: white;\">                                                                            " +
                 "                                                <th style=\"text-align: center;\">رقم الفاتورة</th>" +
                 "                                                <th style=\"text-align: center;\">نوع المتعامل</th>" +
                 "                                                <th style=\"text-align: center;\">نوع المستند</th>" +
@@ -51,7 +51,7 @@ async function getInvoiceMaster() {
                 "                                                <th style=\"text-align: center;\">التفاصيل</th> " +
                 "                                            </tr>";
     } else {
-        document.getElementById("table_header").innerHTML = "<tr style=\"background-color: #337ab7;color: white;\">                                                                            " +
+        document.getElementById("table_header").innerHTML = "<tr style=\"background-color: #131e33;color: white;\">                                                                            " +
                 "                                                <th style=\"text-align: center;\">رقم الفاتورة</th>" +
                 "                                                <th style=\"text-align: center;\">نوع المتعامل</th>" +
                 "                                                <th style=\"text-align: center;\">نوع المستند</th>" +
@@ -236,7 +236,7 @@ function fillModal(data) {
 
     var ErrorsDiv = document.getElementById("ErrorsDiv");
     var errorRmrk = document.getElementById("errorRmrk");
-    if (data.statusRmrk === null) {
+    if (data.statusRmrk === null || data.statusRmrk === "") {
         ErrorsDiv.style.display = "none";
         errorRmrk.innerHTML = "";
     } else {
@@ -293,7 +293,7 @@ function fillModal(data) {
 
         // صف الإجماليات
         html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"
@@ -306,7 +306,7 @@ function fillModal(data) {
         invoiceLines.innerHTML += "<tr style='background-color: coral;'><th colspan='7'></th><th>خصم الفاتورة</th><th>" + extraDiscountAmount + "</th><th></th></tr>";
 
         var html = "";
-        html += "<tr style='background-color: palegreen;'><th colspan='4'>الإجماليات</th>"
+        html += "<tr style='background-color: mistyrose;'><th colspan='4'>الإجماليات</th>"
                 + "<th>" + TOTAL_salesTotal.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_discountAmount.toFixed(5) + "</th>"
                 + "<th>" + TOTAL_netTotal.toFixed(5) + "</th>"

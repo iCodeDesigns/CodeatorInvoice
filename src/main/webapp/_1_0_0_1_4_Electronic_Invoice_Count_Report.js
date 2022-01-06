@@ -58,7 +58,7 @@ function search_counts() {
             headerHtml += "      <td colspan='2'>الإجماليات</td>";
             headerHtml += "  </tr>";
             ///// 2nd Header Row
-            headerHtml += "  <tr style='background: #337ab7;color: white;'>"
+            headerHtml += "  <tr style='background: #131e33;color: white;'>"
                     + "    <td></td>";
             $.each(selected_DocStatus, function (i, item) {
                 headerHtml += "      <td>عدد</td>";

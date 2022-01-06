@@ -81,7 +81,7 @@
             }
             .button_style{
                 border: none;
-                background: #337ab7;
+                background: #131e33;
                 color: #ffffff !important;
                 font-weight: 100;
                 padding: 10px;
@@ -353,7 +353,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
 
                                     <table id="" class="table table-striped table-bordered table-hover">
-                                        <thead style="background-color: #337ab7;color: white; ">
+                                        <thead style="background-color: #131e33;color: white; ">
                                             <tr>
                                                 <th style="text-align: center;font-size: 15px;width: 15%">الشهر</th>
                                                 <th style="text-align: center;font-size: 15px;width: 20%">عدد الموظفين</th>
@@ -364,7 +364,7 @@
                                         <tbody id="LoadTrafficEmpPermMain_Data" style="text-align: center;">
                                         </tbody>
                                         <tfoot style="text-align: center;">                                            
-                                            <tr id="LoadTrafficEmpPermMainFoot_Data" Style='border-style: solid;border-color: #337ab7;'></tr>
+                                            <tr id="LoadTrafficEmpPermMainFoot_Data" Style='border-style: solid;border-color: #131e33;'></tr>
                                         </tfoot>
                                     </table>
                                 </div>
@@ -398,7 +398,7 @@
                             <div class="modal-body scroll" style="direction: rtl;">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
                                     <table class="table table-striped table-bordered table-hover">
-                                        <thead style="background-color: #337ab7;color: white;">  
+                                        <thead style="background-color: #131e33;color: white;">  
                                             <tr>
                                                 <th style="text-align: center;font-size: 15px;width: 15%">الفئات</th>
                                                 <th style="text-align: center;font-size: 15px;width: 20%">عدد الموظفين</th>
@@ -409,7 +409,7 @@
                                         <tbody id="FeaatDetails_table" style="text-align: center;">
                                         </tbody>
                                         <tfoot style="text-align: center;">                                            
-                                            <tr id="FeaatDetails_tableFoot" Style='border-style: solid;border-color: #337ab7;'></tr>
+                                            <tr id="FeaatDetails_tableFoot" Style='border-style: solid;border-color: #131e33;'></tr>
                                         </tfoot>
                                     </table>
                                 </div>
@@ -447,7 +447,7 @@
                                 </div>                                
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive"><br>
                                     <table id="EmpDetails_MonthVal_Table" class="table table-striped table-bordered table-hover">
-                                        <thead style="background-color: #337ab7;color: white;">
+                                        <thead style="background-color: #131e33;color: white;">
                                             <tr>
                                                 <th style="text-align: center;font-size: 15px;width: 15%"><a href='#' style='color: white;' class='sortIcon fa fa-sort' onclick='sortTable(0)'></a> رقم التأمين</th>
                                                 <th style="text-align: center;font-size: 15px;width: 20%"><a href='#' style='color: white;' class='sortIcon fa fa-sort' onclick='sortTable(1)'></a> اسم الموظف</th>

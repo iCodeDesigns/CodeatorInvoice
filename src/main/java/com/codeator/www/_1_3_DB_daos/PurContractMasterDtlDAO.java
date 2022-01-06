@@ -45,7 +45,7 @@ public class PurContractMasterDtlDAO<T> extends AbstractDao<T> {
     }
 
     public int GetMaxInvoSp(String contractSp) {
-        Query query = session.createQuery("Select nvl(max(v.id.contractSeq),0) from PurContractMasterDtl v where v.id.contractSp=:contractSp");
+        Query query = session.createQuery("Select IFNULL(max(v.id.contractSeq),0)+1 from PurContractMasterDtl v where v.id.contractSp=:contractSp");
         query.setString("contractSp", contractSp);
         int maxRequireSp = GetQueryNumber(query);
         return maxRequireSp;
@@ -55,7 +55,7 @@ public class PurContractMasterDtlDAO<T> extends AbstractDao<T> {
         List<Integer> list = query.getResultList();
         int number = 1;// no Employee saved in the system
         if (list.get(0) != null) {
-            number = list.get(0) + 1;
+            number = list.get(0);
         }
         //System.out.println(number);
         return number;
